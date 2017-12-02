@@ -39,6 +39,7 @@ public class FillAnswerPanel : MonoBehaviour
     private void FillLetters()
     {
         int currentLetter = 0;
+        int editableCount = 0;
         for (int j = 0; j < splitCorrectAnswer.Length; j++)
         {
             if (splitCorrectAnswer[j].Length + (currentLetter % 8) <= 8)
@@ -46,6 +47,11 @@ public class FillAnswerPanel : MonoBehaviour
                 for (int i = 0; i < splitCorrectAnswer[j].Length; i++)
                 {
                     TileParent.transform.GetComponentsInChildren<Text>()[i + currentLetter].text = splitCorrectAnswer[j][i].ToString();
+                    if(splitCorrectAnswer[j][i] == '_')
+                    {
+                        TileParent.transform.GetComponentsInChildren<AnswerTile>()[i + currentLetter].IndexInAnswer = editableCount;
+                        editableCount++;
+                    }
                 }
                 currentLetter += splitCorrectAnswer[j].Length + 1;
             }
@@ -94,13 +100,15 @@ public class FillAnswerPanel : MonoBehaviour
 
     private void Update()
     {
-        if (CurrentAnswer.s_PlayersAttempt.Length > lastGuess.Length)
+        if (CurrentAnswer.s_PlayersAttempt.Length > lastGuess.Length || CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') < lastGuess.Count(x => x == '_'))
         {
+            Debug.Log(CurrentAnswer.s_PlayersAttempt);
             lastGuess = CurrentAnswer.s_PlayersAttempt;
             this.GetComponent<FillAnswerPanel>().RemoveBlanks();
         }
-        else if (CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') != lastGuess.Count(x => x == '_'))
+        else if (CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') > lastGuess.Count(x => x == '_'))
         {
+        Debug.Log(CurrentAnswer.s_PlayersAttempt);
             lastGuess = CurrentAnswer.s_PlayersAttempt;
             this.GetComponent<FillAnswerPanel>().AddBlanks();
         }
@@ -111,26 +119,30 @@ public class FillAnswerPanel : MonoBehaviour
         List<Text> allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
         if (allPossibleOpenings.Count != 0)
         {
-            allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer = CurrentAnswer.s_PlayersAttempt.Length - 1;
             allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
-            allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1].ToString();
+            allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
 
             if (allPossibleOpenings.Count == 1)
             {
                 CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
             }
         }
+        else
+        {
+            CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+        }
     }
 
     public void AddBlanks()
     {
-        Debug.Log("!");
         List<AnswerTile> allPossibleEditables = TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).ToList();
 
         for (int i = 0; i < CurrentAnswer.s_PlayersAttempt.Length; i++)
         {
             allPossibleEditables[i].gameObject.GetComponentInChildren<Text>().text = CurrentAnswer.s_PlayersAttempt[i].ToString();
         }
+
+        CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
     }
 
     public void ClearButtonPressed()

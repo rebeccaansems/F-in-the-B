@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +12,7 @@ public class AnswerTile : MonoBehaviour
 
     public void Start()
     {
-        if(this.GetComponentInChildren<Text>().text != "_")
+        if (this.GetComponentInChildren<Text>().text != "_")
         {
             EditableTile = false;
         }
@@ -20,10 +21,6 @@ public class AnswerTile : MonoBehaviour
 
     public void LetterPressed()
     {
-        if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
-        {
-            CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer, 1).Insert(IndexInAnswer, "_");
-            Debug.Log(CurrentAnswer.s_PlayersAttempt);
-        }
+        CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer, 1).Insert(IndexInAnswer, "_");
     }
 }
