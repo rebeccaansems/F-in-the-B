@@ -12,6 +12,7 @@ public class FillAnswerPanel : MonoBehaviour
     private string lastGuess = "";
     private string[] splitCorrectAnswer;
     private List<Text> allPossibleOpenings;
+    private int numberOfTileRows;
 
     void Start()
     {
@@ -29,6 +30,11 @@ public class FillAnswerPanel : MonoBehaviour
 
         FillLetters();
         DeleteEmptyTiles();
+
+        numberOfTileRows = TileParent.GetComponentsInChildren<Text>()
+            .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == false).Count() / 8;
+
+        ShiftTiles();
     }
 
     private void FillLetters()
@@ -80,6 +86,11 @@ public class FillAnswerPanel : MonoBehaviour
         {
             Destroy(tile.transform.parent.gameObject);
         }
+    }
+
+    private void ShiftTiles()
+    {
+        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, (8-numberOfTileRows-3) * 115);
     }
 
     private void Update()
