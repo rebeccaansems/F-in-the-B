@@ -30,7 +30,9 @@ public class FillLetterPanel : MonoBehaviour
             if (counter < singleCorrectAnswer.Length)
             {
                 tile.text = singleCorrectAnswer[counter].ToString();
-                tile.GetComponentInChildren<Text>().color = Color.yellow;
+#if UNITY_EDITOR
+                tile.GetComponentInChildren<Text>().color = Color.red;
+#endif
             }
             else
             {

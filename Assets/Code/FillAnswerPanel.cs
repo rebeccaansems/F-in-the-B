@@ -24,14 +24,22 @@ public class FillAnswerPanel : MonoBehaviour
             }
         }
 
-        int currentCorrectWord = 0;
-        for (int i = 0; i < correctAnswer.Length; i++)
+        int currentLetter = 0;
+        for (int j = 0; j < splitCorrectAnswer.Length; j++)
         {
-            if ((i % 8) + splitCorrectAnswer[currentCorrectWord].Length < 8)
+            if (splitCorrectAnswer[j].Length + (currentLetter % 8) <= 8)
             {
-
+                for (int i = 0; i < splitCorrectAnswer[j].Length; i++)
+                {
+                    TileParent.transform.GetComponentsInChildren<Text>()[i + currentLetter].text = splitCorrectAnswer[j][i].ToString();
+                }
+                currentLetter += splitCorrectAnswer[j].Length + 1;
             }
-            TileParent.transform.GetComponentsInChildren<Text>()[i].text = correctAnswer[i].ToString();
+            else
+            {
+                currentLetter = (int)(System.Math.Ceiling((decimal)currentLetter / 8) * 8);
+                j--;
+            }
         }
     }
 }
