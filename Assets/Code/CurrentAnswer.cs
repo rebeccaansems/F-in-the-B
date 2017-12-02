@@ -28,18 +28,17 @@ public class CurrentAnswer : MonoBehaviour
         s_PlayersCorrectAnswer = string.Join("", s_CorrectAnswerLetters);
     }
 
+    private void Start()
+    {
+        s_PlayersAttempt = "";
+        s_PlayersAnswerIsNotComplete = true;
+    }
+
     private void Update()
     {
         if (s_PlayersAttempt == s_PlayersCorrectAnswer)
         {
             WinUi.GetComponent<WinUI>().MakeWinVisible();
-            ResetComponents();
         }
     }
-
-    private void ResetComponents()
-    {
-        s_PlayersAttempt = "";
-        s_PlayersAnswerIsNotComplete = true;
-    } 
 }

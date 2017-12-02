@@ -94,7 +94,7 @@ public class FillAnswerPanel : MonoBehaviour
 
     private void ShiftTiles()
     {
-        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, (8 - numberOfTileRows - 3) * 115);
+        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Abs(4 - numberOfTileRows) * 115);
     }
 
     private void Update()
