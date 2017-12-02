@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class LetterTile : MonoBehaviour
 {
+    private GameObject gameController;
+
+    private void Start()
+    {
+        gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
+    }
+
     public void LetterPressed()
     {
         if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
         {
+            gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
             if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
             {
                 CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);

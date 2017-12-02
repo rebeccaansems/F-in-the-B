@@ -9,6 +9,7 @@ public class AnswerTile : MonoBehaviour
     public bool DeletableTile = false;
     public bool EditableTile = true;
     public int IndexInAnswer = 0;
+    public GameObject LinkedLetterTile;
 
     public void Start()
     {
@@ -22,5 +23,7 @@ public class AnswerTile : MonoBehaviour
     public void LetterPressed()
     {
         CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer, 1).Insert(IndexInAnswer, "_");
+        this.GetComponent<Button>().interactable = false;
+        LinkedLetterTile.GetComponent<Button>().interactable = true;
     }
 }

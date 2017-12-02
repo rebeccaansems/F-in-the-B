@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class FillAnswerPanel : MonoBehaviour
 {
-    public GameObject Tile, TileParent;
+    public GameObject Tile, TileParent, CurrentLetterTile;
 
     private string lastGuess = "";
     private string[] splitCorrectAnswer;
@@ -121,6 +121,7 @@ public class FillAnswerPanel : MonoBehaviour
         {
             allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
             allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
+            allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkedLetterTile = CurrentLetterTile;
 
             if (allPossibleOpenings.Count == 1)
             {
