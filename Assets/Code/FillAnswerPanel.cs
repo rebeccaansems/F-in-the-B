@@ -1,39 +1,37 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FillAnswerPanel : MonoBehaviour
 {
+    public GameObject Tile, TileParent;
 
-    public GameObject[] AnswerRow1, AnswerRow2, AnswerRow3, AnswerRow4;
-
-    private string[] correctAnswer = new string[] { "5 v_____", "in the", "a_______" };
+    private string correctAnswer = "5 Vowels IN THE Alphabet";
 
     void Start()
     {
-        List<GameObject[]> answerRows = new List<GameObject[]> { AnswerRow1, AnswerRow2, AnswerRow3, AnswerRow4 };
-        for (int j = 0; j < answerRows.Count; j++)
-        {
-            if (j < correctAnswer.Length)
-            {
-                for (int i = 0; i < correctAnswer[j].Length; i++)
-                {
-                    answerRows[j][i].GetComponentInChildren<Text>().text = correctAnswer[j][i].ToString();
-                }
+        correctAnswer = Regex.Replace(correctAnswer, @"[a-z]", "_");
+        string[] splitCorrectAnswer = correctAnswer.Split(' ');
 
-                for (int i = correctAnswer[j].Length; i < answerRows[j].Length; i++)
-                {
-                    Destroy(answerRows[j][i]);
-                }
-            }
-            else
+        for (int j = 0; j < 5; j++)
+        {
+            for (int i = 0; i < 8; i++)
             {
-                for (int i = 0; i < answerRows[j].Length; i++)
-                {
-                    Destroy(answerRows[j][i]);
-                }
+                GameObject newTile = Instantiate(Tile, TileParent.transform);
+                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 115, -j * 115, 0);
             }
+        }
+
+        int currentCorrectWord = 0;
+        for (int i = 0; i < correctAnswer.Length; i++)
+        {
+            if ((i % 8) + splitCorrectAnswer[currentCorrectWord].Length < 8)
+            {
+
+            }
+            TileParent.transform.GetComponentsInChildren<Text>()[i].text = correctAnswer[i].ToString();
         }
     }
 }
