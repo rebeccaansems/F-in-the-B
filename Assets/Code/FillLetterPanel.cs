@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FillLetterPanel : MonoBehaviour
 {
-    public CanvasGroup TileParent;
+    public GameObject Tile, TileParent;
 
     private string[] correctAnswer = new string[] { "owels", "lphabet" };
 
@@ -14,18 +15,30 @@ public class FillLetterPanel : MonoBehaviour
     void Start()
     {
         string singleCorrectAnswer = string.Join("", correctAnswer);
-        int i = 0;
-        foreach (Text tile in TileParent.GetComponentsInChildren<Text>())
+
+        for (int i = 0; i < 7; i++)
         {
-            if(i < singleCorrectAnswer.Length)
+            for (int j = 0; j < 5; j++)
             {
-                tile.text = singleCorrectAnswer[i].ToString();
-                i++;
+                GameObject newTile = Instantiate(Tile, TileParent.transform);
+                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 125, -j * 125, 0);
+            }
+        }
+
+        int counter = 0;
+        System.Random r = new System.Random();
+        foreach (Text tile in TileParent.transform.GetComponentsInChildren<Text>().OrderBy(x => r.Next()))
+        {
+            if (counter < singleCorrectAnswer.Length)
+            {
+                tile.text = singleCorrectAnswer[counter].ToString();
+                tile.GetComponentInChildren<Text>().color = Color.yellow;
             }
             else
             {
                 tile.text = k_allLetters[Random.Range(0, 25)].ToString();
             }
+            counter++;
         }
     }
 }
