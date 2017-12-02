@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Linq;
+﻿using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -47,7 +46,7 @@ public class FillAnswerPanel : MonoBehaviour
                 for (int i = 0; i < splitCorrectAnswer[j].Length; i++)
                 {
                     TileParent.transform.GetComponentsInChildren<Text>()[i + currentLetter].text = splitCorrectAnswer[j][i].ToString();
-                    if(splitCorrectAnswer[j][i] == '_')
+                    if (splitCorrectAnswer[j][i] == '_')
                     {
                         TileParent.transform.GetComponentsInChildren<AnswerTile>()[i + currentLetter].IndexInAnswer = editableCount;
                         editableCount++;
@@ -77,11 +76,11 @@ public class FillAnswerPanel : MonoBehaviour
                 blankCounter++;
                 if (blankCounter == 8)
                 {
-                    for (int j = 0; j < 8; j++)
+                    for (int j = i - 7; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
                     {
-                        TileParent.GetComponentsInChildren<Text>()[i - j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
+                        TileParent.GetComponentsInChildren<Text>()[j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
                     }
-                    blankCounter = 0;
+                    i = TileParent.GetComponentsInChildren<Text>().Length;
                 }
             }
         }
@@ -102,13 +101,11 @@ public class FillAnswerPanel : MonoBehaviour
     {
         if (CurrentAnswer.s_PlayersAttempt.Length > lastGuess.Length || CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') < lastGuess.Count(x => x == '_'))
         {
-            Debug.Log(CurrentAnswer.s_PlayersAttempt);
             lastGuess = CurrentAnswer.s_PlayersAttempt;
             this.GetComponent<FillAnswerPanel>().RemoveBlanks();
         }
         else if (CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') > lastGuess.Count(x => x == '_'))
         {
-        Debug.Log(CurrentAnswer.s_PlayersAttempt);
             lastGuess = CurrentAnswer.s_PlayersAttempt;
             this.GetComponent<FillAnswerPanel>().AddBlanks();
         }
@@ -120,12 +117,15 @@ public class FillAnswerPanel : MonoBehaviour
         if (allPossibleOpenings.Count != 0)
         {
             allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
-            allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
-            allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkedLetterTile = CurrentLetterTile;
-
-            if (allPossibleOpenings.Count == 1)
+            if (CurrentAnswer.s_PlayersAttempt.Length > allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer)
             {
-                CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+                allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
+                allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkedLetterTile = CurrentLetterTile;
+
+                if (allPossibleOpenings.Count == 1)
+                {
+                    CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+                }
             }
         }
         else
@@ -150,6 +150,9 @@ public class FillAnswerPanel : MonoBehaviour
     {
         this.GetComponent<FillLetterPanel>().MakeAllButtonsInteractable();
         FillLetters();
+
+        TileParent.GetComponentsInChildren<Button>().Select(x => x.interactable = false).ToList();
+
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
         CurrentAnswer.s_PlayersAttempt = "";
         lastGuess = "";
