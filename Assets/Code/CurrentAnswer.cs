@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class CurrentAnswer : MonoBehaviour
 {
+    public WinUI WinUi;
+
     public static string s_CorrectAnswer;
     public static string s_PlayersCorrectAnswer;
     public static string s_PlayersAttempt = "";
@@ -14,10 +14,12 @@ public class CurrentAnswer : MonoBehaviour
 
     public static bool s_PlayersAnswerIsNotComplete = true;
 
+    private static int currentLevel = 0;
+
     public void Awake()
     {
-        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[0].Question;
-        //s_CorrectAnswer = QuestionDatabase.s_AllQuestions[Random.Range(0, QuestionDatabase.s_AllQuestions.Count)].Question;
+        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[currentLevel].Question;
+        currentLevel++;
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
@@ -30,7 +32,14 @@ public class CurrentAnswer : MonoBehaviour
     {
         if (s_PlayersAttempt == s_PlayersCorrectAnswer)
         {
-            Debug.Log("WINNER");
+            WinUi.GetComponent<WinUI>().MakeWinVisible();
+            ResetComponents();
         }
     }
+
+    private void ResetComponents()
+    {
+        s_PlayersAttempt = "";
+        s_PlayersAnswerIsNotComplete = true;
+    } 
 }
