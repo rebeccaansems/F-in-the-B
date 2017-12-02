@@ -6,13 +6,11 @@ public class FillLetterPanel : MonoBehaviour
 {
     public GameObject Tile, TileParent;
 
-    private string[] correctAnswer = new string[] { "owels", "lphabet" };
-
     private const string k_allLetters = "qwertyuiopasdfghjklzxcvbnm";
 
     void Start()
     {
-        string singleCorrectAnswer = string.Join("", correctAnswer);
+        string singleCorrectAnswer = string.Join("", CurrentAnswer.s_CorrectAnswerLetters);
 
         for (int i = 0; i < 7; i++)
         {
@@ -39,6 +37,15 @@ public class FillLetterPanel : MonoBehaviour
                 tile.text = k_allLetters[Random.Range(0, 25)].ToString();
             }
             counter++;
+        }
+    }
+
+    public void MakeAllButtonsInteractable()
+    {
+        var turnedOffButtons = TileParent.transform.GetComponentsInChildren<Button>().Where(x => x.interactable == false);
+        foreach(Button button in turnedOffButtons)
+        {
+            button.interactable = true;
         }
     }
 }

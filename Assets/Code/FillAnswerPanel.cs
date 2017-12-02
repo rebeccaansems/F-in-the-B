@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -8,12 +9,13 @@ public class FillAnswerPanel : MonoBehaviour
 {
     public GameObject Tile, TileParent;
 
-    private string correctAnswer = "5 Vowels IN THE Alphabet";
+    private string lastGuess = "";
+    string[] splitCorrectAnswer;
 
     void Start()
     {
-        correctAnswer = Regex.Replace(correctAnswer, @"[a-z]", "_");
-        string[] splitCorrectAnswer = correctAnswer.Split(' ');
+        string correctAnswer = Regex.Replace(CurrentAnswer.s_CorrectAnswer, @"[a-z]", "_");
+        splitCorrectAnswer = correctAnswer.Split(' ');
 
         for (int j = 0; j < 5; j++)
         {
@@ -24,6 +26,11 @@ public class FillAnswerPanel : MonoBehaviour
             }
         }
 
+        FillLetters();
+    }
+
+    private void FillLetters()
+    {
         int currentLetter = 0;
         for (int j = 0; j < splitCorrectAnswer.Length; j++)
         {
@@ -41,5 +48,35 @@ public class FillAnswerPanel : MonoBehaviour
                 j--;
             }
         }
+    }
+
+    private void Update()
+    {
+        if (CurrentAnswer.s_PlayersAttempt.Length != lastGuess.Length)
+        {
+            lastGuess = CurrentAnswer.s_PlayersAttempt;
+            this.GetComponent<FillAnswerPanel>().RefillPanel();
+        }
+    }
+
+    public void RefillPanel()
+    {
+        List<Text> allPossibleOpenings = new List<Text>();
+        allPossibleOpenings = TileParent.transform.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
+        if (allPossibleOpenings.Count != 0)
+        {
+            allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1].ToString();
+        }
+        else
+        {
+            CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+        }
+    }
+
+    public void ClearButtonPressed()
+    {
+        this.GetComponent<FillLetterPanel>().MakeAllButtonsInteractable();
+        FillLetters();
+        CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
     }
 }
