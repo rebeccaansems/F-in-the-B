@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SelectedLetter : MonoBehaviour
+public class LetterTile : MonoBehaviour
 {
     public void LetterPressed()
     {

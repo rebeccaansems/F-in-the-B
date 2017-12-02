@@ -10,14 +10,15 @@ public class FillAnswerPanel : MonoBehaviour
     public GameObject Tile, TileParent;
 
     private string lastGuess = "";
-    string[] splitCorrectAnswer;
+    private string[] splitCorrectAnswer;
+    private List<Text> allPossibleOpenings;
 
     void Start()
     {
         string correctAnswer = Regex.Replace(CurrentAnswer.s_CorrectAnswer, @"[a-z]", "_");
         splitCorrectAnswer = correctAnswer.Split(' ');
 
-        for (int j = 0; j < 5; j++)
+        for (int j = 0; j < splitCorrectAnswer.Length; j++)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -27,6 +28,7 @@ public class FillAnswerPanel : MonoBehaviour
         }
 
         FillLetters();
+        DeleteEmptyTiles();
     }
 
     private void FillLetters()
@@ -50,6 +52,36 @@ public class FillAnswerPanel : MonoBehaviour
         }
     }
 
+    private void DeleteEmptyTiles()
+    {
+        int blankCounter = 0;
+        for (int i = 0; i < TileParent.GetComponentsInChildren<Text>().Length; i++)
+        {
+            if (TileParent.GetComponentsInChildren<Text>()[i].text != string.Empty)
+            {
+                blankCounter = 0;
+            }
+            else
+            {
+                blankCounter++;
+                if (blankCounter == 8)
+                {
+                    for (int j = 0; j < 8; j++)
+                    {
+                        TileParent.GetComponentsInChildren<Text>()[i - j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
+                    }
+                    blankCounter = 0;
+                }
+            }
+        }
+
+        foreach (Text tile in TileParent.GetComponentsInChildren<Text>()
+            .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == true))
+        {
+            Destroy(tile.transform.parent.gameObject);
+        }
+    }
+
     private void Update()
     {
         if (CurrentAnswer.s_PlayersAttempt.Length != lastGuess.Length)
@@ -61,15 +93,15 @@ public class FillAnswerPanel : MonoBehaviour
 
     public void RefillPanel()
     {
-        List<Text> allPossibleOpenings = new List<Text>();
-        allPossibleOpenings = TileParent.transform.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
+        allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
         if (allPossibleOpenings.Count != 0)
         {
             allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1].ToString();
-        }
-        else
-        {
-            CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+
+            if (allPossibleOpenings.Count == 1)
+            {
+                CurrentAnswer.s_PlayersAnswerIsNotComplete = false;
+            }
         }
     }
 
