@@ -11,7 +11,6 @@ public class FillAnswerPanel : MonoBehaviour
 
     private string lastGuess = "";
     private string[] splitCorrectAnswer;
-    private List<Text> allPossibleOpenings;
     private int numberOfTileRows;
 
     void Start()
@@ -90,23 +89,30 @@ public class FillAnswerPanel : MonoBehaviour
 
     private void ShiftTiles()
     {
-        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, (8-numberOfTileRows-3) * 115);
+        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, (8 - numberOfTileRows - 3) * 115);
     }
 
     private void Update()
     {
-        if (CurrentAnswer.s_PlayersAttempt.Length != lastGuess.Length)
+        if (CurrentAnswer.s_PlayersAttempt.Length > lastGuess.Length)
         {
             lastGuess = CurrentAnswer.s_PlayersAttempt;
-            this.GetComponent<FillAnswerPanel>().RefillPanel();
+            this.GetComponent<FillAnswerPanel>().RemoveBlanks();
+        }
+        else if (CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') != lastGuess.Count(x => x == '_'))
+        {
+            lastGuess = CurrentAnswer.s_PlayersAttempt;
+            this.GetComponent<FillAnswerPanel>().AddBlanks();
         }
     }
 
-    public void RefillPanel()
+    public void RemoveBlanks()
     {
-        allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
+        List<Text> allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
         if (allPossibleOpenings.Count != 0)
         {
+            allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer = CurrentAnswer.s_PlayersAttempt.Length - 1;
+            allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
             allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1].ToString();
 
             if (allPossibleOpenings.Count == 1)
@@ -116,10 +122,23 @@ public class FillAnswerPanel : MonoBehaviour
         }
     }
 
+    public void AddBlanks()
+    {
+        Debug.Log("!");
+        List<AnswerTile> allPossibleEditables = TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).ToList();
+
+        for (int i = 0; i < CurrentAnswer.s_PlayersAttempt.Length; i++)
+        {
+            allPossibleEditables[i].gameObject.GetComponentInChildren<Text>().text = CurrentAnswer.s_PlayersAttempt[i].ToString();
+        }
+    }
+
     public void ClearButtonPressed()
     {
         this.GetComponent<FillLetterPanel>().MakeAllButtonsInteractable();
         FillLetters();
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
+        CurrentAnswer.s_PlayersAttempt = "";
+        lastGuess = "";
     }
 }

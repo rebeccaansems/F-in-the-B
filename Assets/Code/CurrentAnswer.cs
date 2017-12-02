@@ -8,14 +8,16 @@ public class CurrentAnswer : MonoBehaviour
 {
     public static string s_CorrectAnswer;
     public static string s_PlayersCorrectAnswer;
+    public static string s_PlayersAttempt = "";
+
     public static string[] s_CorrectAnswerLetters;
 
-    public static string s_PlayersAttempt = "";
     public static bool s_PlayersAnswerIsNotComplete = true;
 
     public void Awake()
     {
-        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[Random.Range(0, QuestionDatabase.s_AllQuestions.Count)].Question;
+        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[0].Question;
+        //s_CorrectAnswer = QuestionDatabase.s_AllQuestions[Random.Range(0, QuestionDatabase.s_AllQuestions.Count)].Question;
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
@@ -26,7 +28,7 @@ public class CurrentAnswer : MonoBehaviour
 
     private void Update()
     {
-        if(s_PlayersAttempt == s_PlayersCorrectAnswer)
+        if (s_PlayersAttempt == s_PlayersCorrectAnswer)
         {
             Debug.Log("WINNER");
         }
