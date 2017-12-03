@@ -33,8 +33,6 @@ public class FillAnswerPanel : MonoBehaviour
 
         numberOfTileRows = TileParent.GetComponentsInChildren<Text>()
             .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == false).Count() / tilesPerRow;
-
-        ShiftTiles();
     }
 
     private void FillLetters()
@@ -92,11 +90,6 @@ public class FillAnswerPanel : MonoBehaviour
         {
             Destroy(tile.transform.parent.gameObject);
         }
-    }
-
-    private void ShiftTiles()
-    {
-        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Max(3 - numberOfTileRows, 1) * 100);
     }
 
     private void Update()
