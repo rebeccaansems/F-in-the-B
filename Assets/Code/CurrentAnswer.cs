@@ -1,11 +1,13 @@
 ﻿using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CurrentAnswer : MonoBehaviour
 {
     public WinUI WinUi;
-
+    public Text CategoryText; 
+    
     public static string s_CorrectAnswer;
     public static string s_PlayersCorrectAnswer;
     public static string s_PlayersAttempt = "";
@@ -19,6 +21,7 @@ public class CurrentAnswer : MonoBehaviour
     public void Awake()
     {
         s_CorrectAnswer = QuestionDatabase.s_AllQuestions[currentLevel].Question;
+        CategoryText.text = QuestionDatabase.s_AllQuestions[currentLevel].Category;
         currentLevel++;
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);

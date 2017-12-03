@@ -78,7 +78,7 @@ public class FillAnswerPanel : MonoBehaviour
                 blankCounter++;
                 if (blankCounter == tilesPerRow)
                 {
-                    for (int j = i - tilesPerRow - 1; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
+                    for (int j = i - tilesPerRow + 1; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
                     {
                         TileParent.GetComponentsInChildren<Text>()[j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
                     }
@@ -96,7 +96,7 @@ public class FillAnswerPanel : MonoBehaviour
 
     private void ShiftTiles()
     {
-        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Abs(4 - numberOfTileRows) * 100);
+        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Max(3 - numberOfTileRows, 1) * 100);
     }
 
     private void Update()

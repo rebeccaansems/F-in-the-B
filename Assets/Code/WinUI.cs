@@ -8,6 +8,8 @@ public class WinUI : MonoBehaviour
         this.GetComponent<CanvasGroup>().alpha = 0;
         this.GetComponent<CanvasGroup>().interactable = false;
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
+
+        Time.timeScale = 1;
     }
 
     public void MakeWinVisible()
@@ -15,6 +17,8 @@ public class WinUI : MonoBehaviour
         this.GetComponent<CanvasGroup>().alpha = 1;
         this.GetComponent<CanvasGroup>().interactable = true;
         this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        Time.timeScale = 0;
     }
 
     public void NextPuzzlePressed()
