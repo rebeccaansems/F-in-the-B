@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
 
 public class MenuItems
@@ -9,3 +10,4 @@ public class MenuItems
         PlayerPrefs.DeleteAll();
     }
 }
+#endif
