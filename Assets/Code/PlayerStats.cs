@@ -23,10 +23,11 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if(prevScore != s_PlayerScore)
+        if (prevScore != s_PlayerScore)
         {
             PlayerScore.text = s_PlayerScore.ToString();
             prevScore = s_PlayerScore;
+            PlayerPrefs.SetInt("PlayerScore", s_PlayerScore);
         }
     }
 }

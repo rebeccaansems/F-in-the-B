@@ -36,6 +36,7 @@ public class UIPopup : MonoBehaviour
         Time.timeScale = 1;
     }
 
+
     public void PressedColorHint()
     {
         OpenPopup(this.gameObject);
