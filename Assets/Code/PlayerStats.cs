@@ -5,29 +5,29 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public static int s_PlayerScore;
+    public static int s_PlayerGems;
 
-    public Text PlayerScore;
+    public Text PlayerGems;
 
-    private int prevScore = 0;
+    private int prevGem = 0;
 
     private void Start()
     {
-        s_PlayerScore = PlayerPrefs.GetInt("PlayerScore", 100);
+        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
     }
 
     private void OnApplicationQuit()
     {
-        PlayerPrefs.SetInt("PlayerScore", s_PlayerScore);
+        PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
     }
 
     private void Update()
     {
-        if (prevScore != s_PlayerScore)
+        if (prevGem != s_PlayerGems)
         {
-            PlayerScore.text = s_PlayerScore.ToString();
-            prevScore = s_PlayerScore;
-            PlayerPrefs.SetInt("PlayerScore", s_PlayerScore);
+            PlayerGems.text = s_PlayerGems.ToString();
+            prevGem = s_PlayerGems;
+            PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
         }
     }
 }

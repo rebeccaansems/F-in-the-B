@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
 public class UIPopup : MonoBehaviour
@@ -9,13 +10,14 @@ public class UIPopup : MonoBehaviour
     public FillAnswerPanel FillAnswer;
     public FillLetterPanel FillLetter;
 
-    public CanvasGroup HintFillPanel, HintColorPanel;
+    public CanvasGroup HintFillPanel, HintColorPanel, NECPanel;
 
     void Start()
     {
         ClosePopup(this.gameObject);
         ClosePopup(HintFillPanel.gameObject);
         ClosePopup(HintColorPanel.gameObject);
+        ClosePopup(NECPanel.gameObject);
     }
 
     private void OpenPopup(GameObject go)
@@ -41,15 +43,6 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintColorPanel.gameObject);
-
-        if (PlayerStats.s_PlayerScore < 5)
-        {
-            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = false;
-        }
-        else
-        {
-            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = true;
-        }
     }
 
     public void PressedCloseColorHint()
@@ -60,11 +53,17 @@ public class UIPopup : MonoBehaviour
 
     public void PressedUseColorHint()
     {
-        ClosePopup(this.gameObject);
-        ClosePopup(HintColorPanel.gameObject);
-
-        PlayerStats.s_PlayerScore -= 5;
-        FillLetter.ColorNeededTiles();
+        if(PlayerStats.s_PlayerGems < 5)
+        {
+            OpenNECPanel();
+        }
+        else
+        {
+            PlayerStats.s_PlayerGems -= 5;
+            FillLetter.ColorNeededTiles();
+            ClosePopup(HintColorPanel.gameObject);
+            ClosePopup(this.gameObject);
+        }
     }
 
 
@@ -72,15 +71,6 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintFillPanel.gameObject);
-
-        if (PlayerStats.s_PlayerScore < 10)
-        {
-            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = false;
-        }
-        else
-        {
-            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = true;
-        }
     }
 
     public void PressedCloseFillHint()
@@ -91,10 +81,56 @@ public class UIPopup : MonoBehaviour
 
     public void PressedUseFillHint()
     {
-        ClosePopup(this.gameObject);
-        ClosePopup(HintFillPanel.gameObject);
+        if (PlayerStats.s_PlayerGems < 10)
+        {
+            OpenNECPanel();
+        }
+        else
+        {
+            PlayerStats.s_PlayerGems -= 10;
+            FillAnswer.FillFirstWord();
+            ClosePopup(HintFillPanel.gameObject);
+            ClosePopup(this.gameObject);
+        }
+    }
 
-        PlayerStats.s_PlayerScore -= 10;
-        FillAnswer.FillFirstWord();
+
+    public void OpenNECPanel()
+    {
+        OpenPopup(NECPanel.gameObject);
+    }
+
+    public void PressedCloseNECPanel()
+    {
+        ClosePopup(NECPanel.gameObject);
+    }
+
+    public void PressedUseNEC()
+    {
+        ClosePopup(NECPanel.gameObject);
+
+        if (!Advertisement.IsReady("rewardedVideo"))
+        {
+            Debug.Log(string.Format("Ads not ready for placement '{0}'", "rewardedVideo"));
+            return;
+        }
+
+        var options = new ShowOptions { resultCallback = HandleShowResult };
+        Advertisement.Show("rewardedVideo", options);
+    }
+
+    private void HandleShowResult(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Finished:
+                PlayerStats.s_PlayerGems += 10;
+                break;
+            case ShowResult.Skipped:
+                PlayerStats.s_PlayerGems += 5;
+                break;
+            case ShowResult.Failed:
+                break;
+        }
     }
 }
