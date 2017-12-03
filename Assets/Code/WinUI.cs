@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +28,14 @@ public class WinUI : MonoBehaviour
         PlayerStats.s_PlayerGems += 2;
         PlayerStats.s_CurrentLevel++;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Advertisement.Show();
+        if (PlayerStats.s_CurrentLevel < QuestionDatabase.s_AllQuestions.Count)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            if (PlayerStats.s_CurrentLevel % 3 == 0)
+            {
+                Advertisement.Show();
+            }
+        }
     }
 }

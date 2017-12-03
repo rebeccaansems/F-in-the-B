@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
 
     private int prevGem = 0, prevLevel = -1;
 
-    private void Awake()
+    private void Start()
     {
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
