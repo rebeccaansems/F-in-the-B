@@ -41,6 +41,15 @@ public class UIPopup : MonoBehaviour
 
     public void PressedColorHint()
     {
+        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        {
+            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = true;
+        }
+        else
+        {
+            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = false;
+        }
+
         OpenPopup(this.gameObject);
         OpenPopup(HintColorPanel.gameObject);
     }
@@ -53,13 +62,15 @@ public class UIPopup : MonoBehaviour
 
     public void PressedUseColorHint()
     {
-        if(PlayerStats.s_PlayerGems < 5)
+        if (PlayerStats.s_PlayerGems < 5)
         {
             OpenNECPanel();
         }
         else
         {
             PlayerStats.s_PlayerGems -= 5;
+            PlayerStats.s_ColorHintUsed = PlayerStats.s_ColorHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
+
             FillLetter.ColorNeededTiles();
             ClosePopup(HintColorPanel.gameObject);
             ClosePopup(this.gameObject);
@@ -71,6 +82,15 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintFillPanel.gameObject);
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        {
+            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = true;
+        }
+        else
+        {
+            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = false;
+        }
     }
 
     public void PressedCloseFillHint()
@@ -88,6 +108,8 @@ public class UIPopup : MonoBehaviour
         else
         {
             PlayerStats.s_PlayerGems -= 10;
+            PlayerStats.s_FillHintUsed = PlayerStats.s_FillHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
+
             FillAnswer.FillFirstWord();
             ClosePopup(HintFillPanel.gameObject);
             ClosePopup(this.gameObject);

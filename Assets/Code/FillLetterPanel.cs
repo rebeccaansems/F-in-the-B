@@ -37,6 +37,11 @@ public class FillLetterPanel : MonoBehaviour
             }
             counter++;
         }
+
+        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            ColorNeededTiles();
+        }
     }
 
     public void MakeAllButtonsInteractable()

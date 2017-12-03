@@ -29,6 +29,11 @@ public class FillAnswerPanel : MonoBehaviour
 
         FillLetters();
         DeleteEmptyTiles();
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            FillFirstWord();
+        }
     }
 
     private void FillLetters()

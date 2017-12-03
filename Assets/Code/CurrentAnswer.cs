@@ -16,13 +16,10 @@ public class CurrentAnswer : MonoBehaviour
 
     public static bool s_PlayersAnswerIsNotComplete = true;
 
-    private static int currentLevel = 0;
-
     public void Awake()
     {
-        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[currentLevel].Question;
-        CategoryText.text = QuestionDatabase.s_AllQuestions[currentLevel].Category;
-        currentLevel++;
+        s_CorrectAnswer = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Question;
+        CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Category;
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
