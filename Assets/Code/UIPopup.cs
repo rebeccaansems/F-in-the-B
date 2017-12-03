@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIPopup : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class UIPopup : MonoBehaviour
     public FillLetterPanel FillLetter;
 
     public CanvasGroup HintFillPanel, HintColorPanel;
-    
+
     void Start()
     {
         ClosePopup(this.gameObject);
@@ -38,7 +40,17 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintColorPanel.gameObject);
+
+        if (PlayerStats.s_PlayerScore < 5)
+        {
+            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = false;
+        }
+        else
+        {
+            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = true;
+        }
     }
+
     public void PressedCloseColorHint()
     {
         ClosePopup(this.gameObject);
@@ -59,6 +71,15 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintFillPanel.gameObject);
+
+        if (PlayerStats.s_PlayerScore < 10)
+        {
+            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = false;
+        }
+        else
+        {
+            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.transform.gameObject.name.Contains("Use")).FirstOrDefault().interactable = true;
+        }
     }
 
     public void PressedCloseFillHint()

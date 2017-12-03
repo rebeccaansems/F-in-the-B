@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class CurrentAnswer : MonoBehaviour
 {
     public WinUI WinUi;
-    public Text CategoryText; 
+    public Text CategoryText;
     
     public static string s_CorrectAnswer;
     public static string s_PlayersCorrectAnswer;
