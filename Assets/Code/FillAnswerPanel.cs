@@ -12,17 +12,19 @@ public class FillAnswerPanel : MonoBehaviour
     private string[] splitCorrectAnswer;
     private int numberOfTileRows;
 
+    private int tilesPerRow = 9;
+
     void Start()
     {
         string correctAnswer = Regex.Replace(CurrentAnswer.s_CorrectAnswer, @"[a-z]", "_");
         splitCorrectAnswer = correctAnswer.Split(' ');
 
-        for (int j = 0; j < splitCorrectAnswer.Length; j++)
+        for (int j = 0; j < splitCorrectAnswer.Length + 1; j++)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < tilesPerRow; i++)
             {
                 GameObject newTile = Instantiate(Tile, TileParent.transform);
-                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 115, -j * 115, 0);
+                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 100, -j * 100, 0);
             }
         }
 
@@ -30,7 +32,7 @@ public class FillAnswerPanel : MonoBehaviour
         DeleteEmptyTiles();
 
         numberOfTileRows = TileParent.GetComponentsInChildren<Text>()
-            .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == false).Count() / 8;
+            .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == false).Count() / tilesPerRow;
 
         ShiftTiles();
     }
@@ -41,7 +43,7 @@ public class FillAnswerPanel : MonoBehaviour
         int editableCount = 0;
         for (int j = 0; j < splitCorrectAnswer.Length; j++)
         {
-            if (splitCorrectAnswer[j].Length + (currentLetter % 8) <= 8)
+            if (splitCorrectAnswer[j].Length + (currentLetter % tilesPerRow) <= tilesPerRow)
             {
                 for (int i = 0; i < splitCorrectAnswer[j].Length; i++)
                 {
@@ -56,7 +58,7 @@ public class FillAnswerPanel : MonoBehaviour
             }
             else
             {
-                currentLetter = (int)(System.Math.Ceiling((decimal)currentLetter / 8) * 8);
+                currentLetter = (int)(System.Math.Ceiling((decimal)currentLetter / tilesPerRow) * tilesPerRow);
                 j--;
             }
         }
@@ -74,9 +76,9 @@ public class FillAnswerPanel : MonoBehaviour
             else
             {
                 blankCounter++;
-                if (blankCounter == 8)
+                if (blankCounter == tilesPerRow)
                 {
-                    for (int j = i - 7; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
+                    for (int j = i - tilesPerRow - 1; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
                     {
                         TileParent.GetComponentsInChildren<Text>()[j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
                     }
@@ -94,7 +96,7 @@ public class FillAnswerPanel : MonoBehaviour
 
     private void ShiftTiles()
     {
-        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Abs(4 - numberOfTileRows) * 115);
+        TileParent.GetComponent<RectTransform>().anchoredPosition -= new Vector2(0, Mathf.Abs(4 - numberOfTileRows) * 100);
     }
 
     private void Update()
