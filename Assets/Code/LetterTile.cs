@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class LetterTile : MonoBehaviour
 {
+    public bool isRequiredForAnswer = false;
+
     private GameObject gameController;
 
     private void Start()

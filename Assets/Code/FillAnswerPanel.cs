@@ -152,4 +152,26 @@ public class FillAnswerPanel : MonoBehaviour
         CurrentAnswer.s_PlayersAttempt = "";
         lastGuess = "";
     }
+
+    public void FillHintButtonPressed()
+    {
+        ClearButtonPressed();
+
+        splitCorrectAnswer = CurrentAnswer.s_CorrectAnswer.Split(' ');
+        string editedCorrectAnswer = "";
+        for (int i=2; i< splitCorrectAnswer.Length; i++)
+        {
+            editedCorrectAnswer += Regex.Replace(splitCorrectAnswer[i], @"[A-Z,0-9]", string.Empty);
+            splitCorrectAnswer[i] = Regex.Replace(splitCorrectAnswer[i], @"[a-z]", "_");
+        }
+
+        CurrentAnswer.s_PlayersCorrectAnswer = editedCorrectAnswer;
+
+        FillLetters();
+
+        foreach (AnswerTile tile in TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).Where(x => x.GetComponentsInChildren<Text>()[0].text != "_"))
+        {
+            tile.EditableTile = false;
+        }
+    }
 }

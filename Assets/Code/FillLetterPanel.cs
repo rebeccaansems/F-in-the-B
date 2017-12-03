@@ -28,13 +28,12 @@ public class FillLetterPanel : MonoBehaviour
             if (counter < singleCorrectAnswer.Length)
             {
                 tile.text = singleCorrectAnswer[counter].ToString();
-#if UNITY_EDITOR
-                tile.GetComponentInChildren<Text>().color = Color.red;
-#endif
+                tile.GetComponentInParent<LetterTile>().isRequiredForAnswer = true;
             }
             else
             {
                 tile.text = k_allLetters[Random.Range(0, 25)].ToString();
+                tile.GetComponentInParent<LetterTile>().isRequiredForAnswer = false;
             }
             counter++;
         }
@@ -43,9 +42,17 @@ public class FillLetterPanel : MonoBehaviour
     public void MakeAllButtonsInteractable()
     {
         var turnedOffButtons = TileParent.transform.GetComponentsInChildren<Button>().Where(x => x.interactable == false);
-        foreach(Button button in turnedOffButtons)
+        foreach (Button button in turnedOffButtons)
         {
             button.interactable = true;
+        }
+    }
+
+    public void ColorNeededTiles()
+    {
+        foreach (Text tile in TileParent.transform.GetComponentsInChildren<Text>().Where(x => x.GetComponentInParent<LetterTile>().isRequiredForAnswer))
+        {
+            tile.color = Color.red;
         }
     }
 }
