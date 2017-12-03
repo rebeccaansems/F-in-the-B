@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
 public class WinUI : MonoBehaviour
@@ -24,5 +25,7 @@ public class WinUI : MonoBehaviour
     public void NextPuzzlePressed()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        Advertisement.Show();
     }
 }
