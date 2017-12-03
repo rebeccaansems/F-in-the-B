@@ -10,7 +10,6 @@ public class FillAnswerPanel : MonoBehaviour
 
     private string lastGuess = "";
     private string[] splitCorrectAnswer;
-    private int numberOfTileRows;
 
     private int tilesPerRow = 9;
 
@@ -30,9 +29,6 @@ public class FillAnswerPanel : MonoBehaviour
 
         FillLetters();
         DeleteEmptyTiles();
-
-        numberOfTileRows = TileParent.GetComponentsInChildren<Text>()
-            .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == false).Count() / tilesPerRow;
     }
 
     private void FillLetters()
@@ -153,7 +149,7 @@ public class FillAnswerPanel : MonoBehaviour
         lastGuess = "";
     }
 
-    public void FillHintButtonPressed()
+    public void FillFirstWord()
     {
         ClearButtonPressed();
 

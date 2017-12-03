@@ -24,8 +24,9 @@ public class WinUI : MonoBehaviour
 
     public void NextPuzzlePressed()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerStats.s_PlayerScore++;
 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Advertisement.Show();
     }
 }
