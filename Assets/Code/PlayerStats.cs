@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
 
     public Text PlayerGems;
 
-    private int prevGem = 0;
+    private int prevGem = 0, prevLevel = -1;
 
     private void Awake()
     {
@@ -46,6 +46,12 @@ public class PlayerStats : MonoBehaviour
             PlayerGems.text = s_PlayerGems.ToString();
             prevGem = s_PlayerGems;
             PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
+        }
+
+        if (prevLevel != s_CurrentLevel)
+        {
+            prevLevel = s_CurrentLevel;
+            PlayerPrefs.SetInt("CurrentLevel", s_CurrentLevel);
         }
     }
 }

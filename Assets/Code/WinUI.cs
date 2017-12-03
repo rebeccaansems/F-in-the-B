@@ -25,7 +25,7 @@ public class WinUI : MonoBehaviour
     public void NextPuzzlePressed()
     {
         PlayerStats.s_PlayerGems += 2;
-        PlayerStats.s_CurrentLevel += 1;
+        PlayerStats.s_CurrentLevel++;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Advertisement.Show();
