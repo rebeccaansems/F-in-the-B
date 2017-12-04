@@ -30,9 +30,8 @@ public class WinUI : MonoBehaviour
             this.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
-            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle")).ToString();
+            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)).ToString();
 
-            PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
             PlayerStats.s_ScoreShouldUpdate = false;
             PlayerStats.s_PlayerGems += 2;
 
@@ -48,8 +47,10 @@ public class WinUI : MonoBehaviour
         if (PlayerStats.s_CurrentLevel < QuestionDatabase.s_AllQuestions.Count)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
+            PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
 
-            if (PlayerStats.s_CurrentLevel % 3 == 0)
+            if (Time.realtimeSinceStartup > 60*5)
             {
                 Advertisement.Show();
             }

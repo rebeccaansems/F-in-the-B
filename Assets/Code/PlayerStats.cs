@@ -41,7 +41,7 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
         PlayerPrefs.SetInt("CurrentLevel", s_CurrentLevel);
 
-        PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", Time.realtimeSinceStartup - s_PlayerStartPuzzleTime);
+        PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", Time.realtimeSinceStartup - s_PlayerStartPuzzleTime + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
         
         PlayerPrefs.SetString("ColorHintUsed", s_ColorHintUsed);
         PlayerPrefs.SetString("FillHintUsed", s_FillHintUsed);
