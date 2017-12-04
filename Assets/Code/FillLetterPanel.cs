@@ -12,12 +12,12 @@ public class FillLetterPanel : MonoBehaviour
     {
         string singleCorrectAnswer = string.Join("", CurrentAnswer.s_CorrectAnswerLetters);
 
-        for (int i = 0; i < 7; i++)
+        for (int i = 0; i < 6; i++)
         {
-            for (int j = 0; j < 5; j++)
+            for (int j = 0; j < 4; j++)
             {
                 GameObject newTile = Instantiate(Tile, TileParent.transform);
-                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 125, -j * 125, 0);
+                newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 150, -j * 150, 0);
             }
         }
 
