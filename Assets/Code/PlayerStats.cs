@@ -11,12 +11,18 @@ public class PlayerStats : MonoBehaviour
     public static string s_ColorHintUsed;
     public static string s_FillHintUsed;
 
+    public static float s_PlayerStartPuzzleTime;
+
+    public static bool s_ScoreShouldUpdate;
+
     public Text PlayerGems;
 
     private int prevGem = 0, prevLevel = -1;
 
-    private void Start()
+    private void Awake()
     {
+        s_ScoreShouldUpdate = true;
+
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 
@@ -35,13 +41,15 @@ public class PlayerStats : MonoBehaviour
         PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
         PlayerPrefs.SetInt("CurrentLevel", s_CurrentLevel);
 
+        PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", Time.realtimeSinceStartup - s_PlayerStartPuzzleTime);
+        
         PlayerPrefs.SetString("ColorHintUsed", s_ColorHintUsed);
         PlayerPrefs.SetString("FillHintUsed", s_FillHintUsed);
     }
 
     private void Update()
     {
-        if (prevGem != s_PlayerGems)
+        if (prevGem != s_PlayerGems && s_ScoreShouldUpdate)
         {
             PlayerGems.text = s_PlayerGems.ToString();
             prevGem = s_PlayerGems;

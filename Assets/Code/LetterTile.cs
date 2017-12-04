@@ -11,6 +11,7 @@ public class LetterTile : MonoBehaviour
     private void Start()
     {
         gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
+        this.GetComponent<Button>().interactable = true;
     }
 
     public void LetterPressed()

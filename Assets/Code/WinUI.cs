@@ -1,10 +1,15 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
 public class WinUI : MonoBehaviour
 {
+    public Text TimeText, CorrectAnswerText;
+
+    private bool showWin = true;
+
     void Start()
     {
         this.GetComponent<CanvasGroup>().alpha = 0;
@@ -16,17 +21,29 @@ public class WinUI : MonoBehaviour
 
     public void MakeWinVisible()
     {
-        this.GetComponent<CanvasGroup>().alpha = 1;
-        this.GetComponent<CanvasGroup>().interactable = true;
-        this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        if (showWin)
+        {
+            showWin = false;
 
-        Time.timeScale = 0;
+            this.GetComponent<CanvasGroup>().alpha = 1;
+            this.GetComponent<CanvasGroup>().interactable = true;
+            this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
+            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle")).ToString();
+
+            PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
+            PlayerStats.s_ScoreShouldUpdate = false;
+            PlayerStats.s_PlayerGems += 2;
+
+            PlayerStats.s_CurrentLevel++;
+        }
     }
 
     public void NextPuzzlePressed()
     {
-        PlayerStats.s_PlayerGems += 2;
-        PlayerStats.s_CurrentLevel++;
+        showWin = false;
+        PlayerStats.s_ScoreShouldUpdate = true;
 
         if (PlayerStats.s_CurrentLevel < QuestionDatabase.s_AllQuestions.Count)
         {
