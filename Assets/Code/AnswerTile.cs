@@ -24,6 +24,8 @@ public class AnswerTile : MonoBehaviour
     {
         CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer, 1).Insert(IndexInAnswer, "_");
         this.GetComponent<Button>().interactable = false;
+
         LinkedLetterTile.GetComponent<Button>().interactable = true;
+        LinkedLetterTile.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
     }
 }

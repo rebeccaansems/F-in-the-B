@@ -50,6 +50,7 @@ public class FillLetterPanel : MonoBehaviour
         foreach (Button button in turnedOffButtons)
         {
             button.interactable = true;
+            button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
         }
     }
 

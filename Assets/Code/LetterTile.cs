@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class LetterTile : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class LetterTile : MonoBehaviour
                 CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
             }
             this.GetComponent<Button>().interactable = false;
+            this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
         }
     }
 

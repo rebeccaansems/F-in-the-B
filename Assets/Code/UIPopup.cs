@@ -10,6 +10,8 @@ public class UIPopup : MonoBehaviour
     public FillAnswerPanel FillAnswer;
     public FillLetterPanel FillLetter;
 
+    public Button HintFillButton, HitnColorButton;
+
     public CanvasGroup HintFillPanel, HintColorPanel, NECPanel;
 
     void Start()
@@ -18,6 +20,28 @@ public class UIPopup : MonoBehaviour
         ClosePopup(HintFillPanel.gameObject);
         ClosePopup(HintColorPanel.gameObject);
         ClosePopup(NECPanel.gameObject);
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        {
+            HintFillButton.interactable = true;
+            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = false;
+        }
+        else if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            HintFillButton.interactable = false;
+            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = true;
+        }
+
+        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        {
+            HitnColorButton.interactable = true;
+            HitnColorButton.GetComponentsInChildren<Image>()[1].enabled = false;
+        }
+        else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            HitnColorButton.interactable = false;
+            HitnColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
+        }
     }
 
     private void OpenPopup(GameObject go)
@@ -41,15 +65,6 @@ public class UIPopup : MonoBehaviour
 
     public void PressedColorHint()
     {
-        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
-        {
-            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = true;
-        }
-        else
-        {
-            HintColorPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = false;
-        }
-
         OpenPopup(this.gameObject);
         OpenPopup(HintColorPanel.gameObject);
     }
@@ -82,15 +97,6 @@ public class UIPopup : MonoBehaviour
     {
         OpenPopup(this.gameObject);
         OpenPopup(HintFillPanel.gameObject);
-
-        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
-        {
-            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = true;
-        }
-        else
-        {
-            HintFillPanel.GetComponentsInChildren<Button>().Where(x => x.name.Contains("Use")).First().interactable = false;
-        }
     }
 
     public void PressedCloseFillHint()
