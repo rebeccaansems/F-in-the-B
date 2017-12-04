@@ -10,7 +10,7 @@ public class UIPopup : MonoBehaviour
     public FillAnswerPanel FillAnswer;
     public FillLetterPanel FillLetter;
 
-    public Button HintFillButton, HitnColorButton;
+    public Button HintFillButton, HintColorButton;
 
     public CanvasGroup HintFillPanel, HintColorPanel, NECPanel;
 
@@ -21,6 +21,17 @@ public class UIPopup : MonoBehaviour
         ClosePopup(HintColorPanel.gameObject);
         ClosePopup(NECPanel.gameObject);
 
+        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        {
+            HintColorButton.interactable = true;
+            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = false;
+        }
+        else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            HintColorButton.interactable = false;
+            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
+        }
+
         if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
         {
             HintFillButton.interactable = true;
@@ -30,17 +41,6 @@ public class UIPopup : MonoBehaviour
         {
             HintFillButton.interactable = false;
             HintFillButton.GetComponentsInChildren<Image>()[1].enabled = true;
-        }
-
-        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
-        {
-            HitnColorButton.interactable = true;
-            HitnColorButton.GetComponentsInChildren<Image>()[1].enabled = false;
-        }
-        else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
-        {
-            HitnColorButton.interactable = false;
-            HitnColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
         }
     }
 
@@ -86,6 +86,9 @@ public class UIPopup : MonoBehaviour
             PlayerStats.s_PlayerGems -= 5;
             PlayerStats.s_ColorHintUsed = PlayerStats.s_ColorHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
 
+            HintColorButton.interactable = false;
+            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
+
             FillLetter.ColorNeededTiles();
             ClosePopup(HintColorPanel.gameObject);
             ClosePopup(this.gameObject);
@@ -115,6 +118,9 @@ public class UIPopup : MonoBehaviour
         {
             PlayerStats.s_PlayerGems -= 10;
             PlayerStats.s_FillHintUsed = PlayerStats.s_FillHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
+
+            HintFillButton.interactable = false;
+            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = true;
 
             FillAnswer.FillFirstWord();
             ClosePopup(HintFillPanel.gameObject);

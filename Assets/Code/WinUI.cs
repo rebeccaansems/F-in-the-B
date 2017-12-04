@@ -30,7 +30,8 @@ public class WinUI : MonoBehaviour
             this.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
-            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)).ToString();
+            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime 
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)).ToString();
 
             PlayerStats.s_ScoreShouldUpdate = false;
             PlayerStats.s_PlayerGems += 2;
