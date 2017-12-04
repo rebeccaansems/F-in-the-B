@@ -28,12 +28,12 @@ public class FillLetterPanel : MonoBehaviour
             if (counter < singleCorrectAnswer.Length)
             {
                 tile.text = singleCorrectAnswer[counter].ToString();
-                tile.GetComponentInParent<LetterTile>().isRequiredForAnswer = true;
+                tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = true;
             }
             else
             {
                 tile.text = k_allLetters[Random.Range(0, 25)].ToString();
-                tile.GetComponentInParent<LetterTile>().isRequiredForAnswer = false;
+                tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = false;
             }
             counter++;
         }
@@ -56,9 +56,9 @@ public class FillLetterPanel : MonoBehaviour
 
     public void ColorNeededTiles()
     {
-        foreach (Text tile in TileParent.transform.GetComponentsInChildren<Text>().Where(x => x.GetComponentInParent<LetterTile>().isRequiredForAnswer))
+        foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsRequiredForAnswer))
         {
-            tile.color = Color.red;
+            tile.SwapToAlternateColorScheme();
         }
     }
 }

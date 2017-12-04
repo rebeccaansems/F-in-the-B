@@ -4,7 +4,8 @@ using System.Linq;
 
 public class LetterTile : MonoBehaviour
 {
-    public bool isRequiredForAnswer = false;
+    public bool IsRequiredForAnswer = false;
+    public Color AlternateColorLight, AlternateColorDark;
 
     private GameObject gameController;
 
@@ -40,5 +41,11 @@ public class LetterTile : MonoBehaviour
             return text;
         }
         return text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
+    }
+
+    public void SwapToAlternateColorScheme()
+    {
+        this.GetComponent<Image>().color = AlternateColorLight;
+        this.GetComponentsInChildren<Image>().Where(x => x.name == "Background Image").First().color = AlternateColorDark;
     }
 }
