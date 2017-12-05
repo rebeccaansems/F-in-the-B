@@ -167,4 +167,12 @@ public class UIPopup : MonoBehaviour
                 break;
         }
     }
+
+
+
+    public void OpenOptionsPanel()
+    {
+        PlayerPrefs.DeleteAll();
+        Application.Quit();
+    }
 }
