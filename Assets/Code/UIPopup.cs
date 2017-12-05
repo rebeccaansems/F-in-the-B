@@ -173,6 +173,14 @@ public class UIPopup : MonoBehaviour
     public void OpenOptionsPanel()
     {
         PlayerPrefs.DeleteAll();
+
+        PlayerStats.s_PlayerGems = 100;
+        PlayerStats.s_CurrentLevel = 0;
+        PlayerStats.s_PlayerStartPuzzleTime = 0;
+
+        PlayerStats.s_ColorHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
+        PlayerStats.s_FillHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
+
         Application.Quit();
     }
 }
