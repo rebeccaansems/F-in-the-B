@@ -12,7 +12,7 @@ public class UIPopup : MonoBehaviour
 
     public Button HintFillButton, HintColorButton;
 
-    public CanvasGroup HintFillPanel, HintColorPanel, NECPanel;
+    public CanvasGroup HintFillPanel, HintColorPanel, NECPanel, OptionsPanel;
 
     void Start()
     {
@@ -20,6 +20,7 @@ public class UIPopup : MonoBehaviour
         ClosePopup(HintFillPanel.gameObject);
         ClosePopup(HintColorPanel.gameObject);
         ClosePopup(NECPanel.gameObject);
+        ClosePopup(OptionsPanel.gameObject);
 
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
         {
@@ -171,12 +172,53 @@ public class UIPopup : MonoBehaviour
     }
 
 
-
     public void OpenOptionsPanel()
+    {
+        OpenPopup(this.gameObject);
+        OpenPopup(OptionsPanel.gameObject);
+
+        ClosePopup(HintFillPanel.gameObject);
+        ClosePopup(HintColorPanel.gameObject);
+        ClosePopup(NECPanel.gameObject);
+    }
+
+    public void PressedResetPuzzles()
+    {
+        ResetPuzzle();
+    }
+
+    public void PressedGetGems()
+    {
+        if (!Advertisement.IsReady("rewardedVideo"))
+        {
+            Debug.Log(string.Format("Ads not ready for placement '{0}'", "rewardedVideo"));
+            return;
+        }
+
+        var options = new ShowOptions { resultCallback = HandleShowResult };
+        Advertisement.Show("rewardedVideo", options);
+    }
+
+    public void AdjustMusicVolume(int volume)
+    {
+
+    }
+
+    public void AdjustSfxVolume(int volume)
+    {
+
+    }
+
+    public void PressedCloseOptionsPanel()
+    {
+        ClosePopup(OptionsPanel.gameObject);
+        ClosePopup(this.gameObject);
+    }
+
+    private void ResetPuzzle()
     {
         PlayerPrefs.DeleteAll();
 
-        PlayerStats.s_PlayerGems = 100;
         PlayerStats.s_CurrentLevel = 0;
         PlayerStats.s_PlayerStartPuzzleTime = 0;
 
