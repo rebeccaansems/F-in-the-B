@@ -89,7 +89,9 @@ public class UIPopup : MonoBehaviour
             HintColorButton.interactable = false;
             HintColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
 
-            FillLetter.ColorNeededTiles();
+            FillLetter.ColorRequiredTiles();
+            FillLetter.DisableNotRequiredTiles();
+
             ClosePopup(HintColorPanel.gameObject);
             ClosePopup(this.gameObject);
         }

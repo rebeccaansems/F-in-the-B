@@ -40,7 +40,8 @@ public class FillLetterPanel : MonoBehaviour
 
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
         {
-            ColorNeededTiles();
+            ColorRequiredTiles();
+            DisableNotRequiredTiles();
         }
     }
 
@@ -54,11 +55,19 @@ public class FillLetterPanel : MonoBehaviour
         }
     }
 
-    public void ColorNeededTiles()
+    public void ColorRequiredTiles()
     {
         foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsRequiredForAnswer))
         {
             tile.SwapToAlternateColorScheme();
+        }
+    }
+
+    public void DisableNotRequiredTiles()
+    {
+        foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => !x.IsRequiredForAnswer))
+        {
+            tile.DisableLetter();
         }
     }
 }

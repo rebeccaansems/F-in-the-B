@@ -48,4 +48,10 @@ public class LetterTile : MonoBehaviour
         this.GetComponent<Image>().color = AlternateColorLight;
         this.GetComponentsInChildren<Image>().Where(x => x.name == "Background Image").First().color = AlternateColorDark;
     }
+
+    public void DisableLetter()
+    {
+        this.GetComponent<Button>().interactable = false;
+        this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+    }
 }
