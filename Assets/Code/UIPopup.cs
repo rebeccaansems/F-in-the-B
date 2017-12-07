@@ -7,145 +7,156 @@ using UnityEngine.UI;
 
 public class UIPopup : MonoBehaviour
 {
+
+    private const int k_Skip = 50, k_Reveal = 20, k_Color = 10;
+
     public FillAnswerPanel FillAnswer;
     public FillLetterPanel FillLetter;
 
-    public Button HintFillButton, HintColorButton;
+    public Button RevealButton, ColorButton;
 
-    public CanvasGroup HintFillPanel, HintColorPanel, NECPanel, OptionsPanel;
+    public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
+    public WinUI WinUi;
 
     void Start()
     {
-        ClosePopup(this.gameObject);
-        ClosePopup(HintFillPanel.gameObject);
-        ClosePopup(HintColorPanel.gameObject);
-        ClosePopup(NECPanel.gameObject);
-        ClosePopup(OptionsPanel.gameObject);
+        ClosePopup(this.GetComponent<CanvasGroup>());
+        ClosePopup(HintsPanel);
+        ClosePopup(GemsPanel);
+        ClosePopup(OptionsPanel);
 
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
         {
-            HintColorButton.interactable = true;
-            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = false;
+            ColorButton.interactable = true;
+            ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
         }
         else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
         {
-            HintColorButton.interactable = false;
-            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
+            ColorButton.interactable = false;
+            ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
 
         if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
         {
-            HintFillButton.interactable = true;
-            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = false;
+            RevealButton.interactable = true;
+            RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
         }
         else if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
         {
-            HintFillButton.interactable = false;
-            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = true;
+            RevealButton.interactable = false;
+            RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
 
-    private void OpenPopup(GameObject go)
+    public static void OpenPopup(CanvasGroup go)
     {
-        go.GetComponent<CanvasGroup>().alpha = 1;
-        go.GetComponent<CanvasGroup>().interactable = true;
-        go.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        go.alpha = 1;
+        go.interactable = true;
+        go.blocksRaycasts = true;
 
         Time.timeScale = 0;
     }
 
-    private void ClosePopup(GameObject go)
+    public static void ClosePopup(CanvasGroup go)
     {
-        go.GetComponent<CanvasGroup>().alpha = 0;
-        go.GetComponent<CanvasGroup>().interactable = false;
-        go.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        go.interactable = false;
+        go.blocksRaycasts = false;
+        go.alpha = 0;
 
         Time.timeScale = 1;
     }
 
 
-    public void PressedColorHint()
+    public void OpenHintsPanel()
     {
-        OpenPopup(this.gameObject);
-        OpenPopup(HintColorPanel.gameObject);
+        OpenPopup(this.GetComponent<CanvasGroup>());
+        OpenPopup(HintsPanel);
     }
 
-    public void PressedCloseColorHint()
+    public void CloseHintPanel()
     {
-        ClosePopup(this.gameObject);
-        ClosePopup(HintColorPanel.gameObject);
+        ClosePopup(this.GetComponent<CanvasGroup>());
+        ClosePopup(HintsPanel);
     }
 
-    public void PressedUseColorHint()
+    public void OpenGemsPanel()
     {
-        if (PlayerStats.s_PlayerGems < 5)
+        OpenPopup(this.GetComponent<CanvasGroup>());
+        OpenPopup(GemsPanel);
+    }
+
+    public void CloseGemsPanel()
+    {
+        ClosePopup(GemsPanel);
+
+        if(HintsPanel.alpha == 0)
         {
-            OpenNECPanel();
+            ClosePopup(this.GetComponent<CanvasGroup>());
+        }
+    }
+
+
+    public void UseColorHint()
+    {
+        if (PlayerStats.s_PlayerGems < k_Color)
+        {
+            OpenGemsPanel();
         }
         else
         {
-            PlayerStats.s_PlayerGems -= 5;
+            PlayerStats.s_PlayerGems -= k_Color;
             PlayerStats.s_ColorHintUsed = PlayerStats.s_ColorHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
 
-            HintColorButton.interactable = false;
-            HintColorButton.GetComponentsInChildren<Image>()[1].enabled = true;
+            ColorButton.interactable = false;
+            ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
 
             FillLetter.ColorRequiredTiles();
             FillLetter.DisableNotRequiredTiles();
 
-            ClosePopup(HintColorPanel.gameObject);
-            ClosePopup(this.gameObject);
+            ClosePopup(HintsPanel);
+            ClosePopup(this.GetComponent<CanvasGroup>());
         }
     }
 
-
-    public void PressedFillHint()
+    public void UseRevealHint()
     {
-        OpenPopup(this.gameObject);
-        OpenPopup(HintFillPanel.gameObject);
-    }
-
-    public void PressedCloseFillHint()
-    {
-        ClosePopup(this.gameObject);
-        ClosePopup(HintFillPanel.gameObject);
-    }
-
-    public void PressedUseFillHint()
-    {
-        if (PlayerStats.s_PlayerGems < 10)
+        if (PlayerStats.s_PlayerGems < k_Reveal)
         {
-            OpenNECPanel();
+            OpenGemsPanel();
         }
         else
         {
-            PlayerStats.s_PlayerGems -= 10;
+            PlayerStats.s_PlayerGems -= k_Reveal;
             PlayerStats.s_FillHintUsed = PlayerStats.s_FillHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
 
-            HintFillButton.interactable = false;
-            HintFillButton.GetComponentsInChildren<Image>()[1].enabled = true;
+            RevealButton.interactable = false;
+            RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
 
             FillAnswer.FillFirstWord();
-            ClosePopup(HintFillPanel.gameObject);
-            ClosePopup(this.gameObject);
+            ClosePopup(HintsPanel);
+            ClosePopup(this.GetComponent<CanvasGroup>());
         }
     }
 
-
-    public void OpenNECPanel()
+    public void UseSkipHint()
     {
-        OpenPopup(NECPanel.gameObject);
+        if (PlayerStats.s_PlayerGems < k_Skip)
+        {
+            OpenGemsPanel();
+        }
+        else
+        {
+            PlayerStats.s_PlayerGems -= k_Skip;
+
+            WinUi.MakeWinVisible();
+
+            ClosePopup(HintsPanel);
+            ClosePopup(this.GetComponent<CanvasGroup>());
+        }
     }
 
-    public void PressedCloseNECPanel()
+    public void UseWatchAd()
     {
-        ClosePopup(NECPanel.gameObject);
-    }
-
-    public void PressedUseNEC()
-    {
-        ClosePopup(NECPanel.gameObject);
-
         if (!Advertisement.IsReady("rewardedVideo"))
         {
             Debug.Log(string.Format("Ads not ready for placement '{0}'", "rewardedVideo"));
@@ -155,6 +166,8 @@ public class UIPopup : MonoBehaviour
         var options = new ShowOptions { resultCallback = HandleShowResult };
         Advertisement.Show("rewardedVideo", options);
     }
+
+
 
     private void HandleShowResult(ShowResult result)
     {
@@ -164,67 +177,10 @@ public class UIPopup : MonoBehaviour
                 PlayerStats.s_PlayerGems += 10;
                 break;
             case ShowResult.Skipped:
-                PlayerStats.s_PlayerGems += 5;
+                PlayerStats.s_PlayerGems += 10;
                 break;
             case ShowResult.Failed:
                 break;
         }
-    }
-
-
-    public void OpenOptionsPanel()
-    {
-        OpenPopup(this.gameObject);
-        OpenPopup(OptionsPanel.gameObject);
-
-        ClosePopup(HintFillPanel.gameObject);
-        ClosePopup(HintColorPanel.gameObject);
-        ClosePopup(NECPanel.gameObject);
-    }
-
-    public void PressedResetPuzzles()
-    {
-        ResetPuzzle();
-    }
-
-    public void PressedGetGems()
-    {
-        if (!Advertisement.IsReady("rewardedVideo"))
-        {
-            Debug.Log(string.Format("Ads not ready for placement '{0}'", "rewardedVideo"));
-            return;
-        }
-
-        var options = new ShowOptions { resultCallback = HandleShowResult };
-        Advertisement.Show("rewardedVideo", options);
-    }
-
-    public void AdjustMusicVolume(int volume)
-    {
-
-    }
-
-    public void AdjustSfxVolume(int volume)
-    {
-
-    }
-
-    public void PressedCloseOptionsPanel()
-    {
-        ClosePopup(OptionsPanel.gameObject);
-        ClosePopup(this.gameObject);
-    }
-
-    private void ResetPuzzle()
-    {
-        PlayerPrefs.DeleteAll();
-
-        PlayerStats.s_CurrentLevel = 0;
-        PlayerStats.s_PlayerStartPuzzleTime = 0;
-
-        PlayerStats.s_ColorHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
-        PlayerStats.s_FillHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
-
-        Application.Quit();
     }
 }

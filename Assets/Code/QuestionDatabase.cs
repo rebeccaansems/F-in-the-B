@@ -26,7 +26,7 @@ public class QuestionDatabase : MonoBehaviour
     public class QuestionObject
     {
         public string Question;
-        public string Category;
+        public string Hint;
     }
 
 }

@@ -19,7 +19,7 @@ public class CurrentAnswer : MonoBehaviour
     public void Awake()
     {
         s_CorrectAnswer = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Question;
-        CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Category;
+        CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Hint;
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');

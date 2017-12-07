@@ -8,6 +8,8 @@ public class WinUI : MonoBehaviour
 {
     public Text TimeText, CorrectAnswerText;
 
+    public CanvasGroup PopupUi;
+
     private bool showWin = true;
 
     void Start()
@@ -30,8 +32,9 @@ public class WinUI : MonoBehaviour
             this.GetComponent<CanvasGroup>().blocksRaycasts = true;
 
             CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
-            TimeText.text = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)).ToString();
+            TimeSpan duration = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
+            TimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
 
             PlayerStats.s_ScoreShouldUpdate = false;
             PlayerStats.s_PlayerGems += 2;
