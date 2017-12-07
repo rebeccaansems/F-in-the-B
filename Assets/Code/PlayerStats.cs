@@ -17,7 +17,7 @@ public class PlayerStats : MonoBehaviour
 
     public Text PlayerGems;
 
-    private int prevGem = 0, prevLevel = -1;
+    private int prevGem = -1, prevLevel = -1;
 
     private void Awake()
     {

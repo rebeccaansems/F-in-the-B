@@ -147,8 +147,6 @@ public class FillAnswerPanel : MonoBehaviour
         this.GetComponent<FillLetterPanel>().MakeAllButtonsInteractable();
         FillLetters();
 
-        TileParent.GetComponentsInChildren<Button>().Select(x => x.interactable = false).ToList();
-
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
         CurrentAnswer.s_PlayersAttempt = "";
         lastGuess = "";

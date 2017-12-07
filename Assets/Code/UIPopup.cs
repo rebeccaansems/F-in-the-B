@@ -133,6 +133,7 @@ public class UIPopup : MonoBehaviour
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
 
             FillAnswer.FillFirstWord();
+
             ClosePopup(HintsPanel);
             ClosePopup(this.GetComponent<CanvasGroup>());
         }

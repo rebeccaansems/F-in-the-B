@@ -53,6 +53,12 @@ public class FillLetterPanel : MonoBehaviour
             button.interactable = true;
             button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
         }
+
+        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            ColorRequiredTiles();
+            DisableNotRequiredTiles();
+        }
     }
 
     public void ColorRequiredTiles()
