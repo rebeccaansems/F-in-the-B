@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIOptions : MonoBehaviour
+public class UIOptions : UI
 {
     public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
 
@@ -20,6 +20,7 @@ public class UIOptions : MonoBehaviour
         Application.Quit();
     }
 
+
     public void MuteSfx()
     {
 
@@ -32,16 +33,16 @@ public class UIOptions : MonoBehaviour
 
     public void OpenOptionsPanel()
     {
-        UIPopup.OpenPopup(this.GetComponent<CanvasGroup>());
-        UIPopup.OpenPopup(OptionsPanel);
+        OpenPopup(this.GetComponent<CanvasGroup>());
+        OpenPopup(OptionsPanel);
 
-        UIPopup.ClosePopup(HintsPanel);
-        UIPopup.ClosePopup(GemsPanel);
+        ClosePopup(HintsPanel);
+        ClosePopup(GemsPanel);
     }
 
     public void CloseOptionsPanel()
     {
-        UIPopup.ClosePopup(OptionsPanel);
-        UIPopup.ClosePopup(this.GetComponent<CanvasGroup>());
+        ClosePopup(OptionsPanel);
+        ClosePopup(this.GetComponent<CanvasGroup>());
     }
 }

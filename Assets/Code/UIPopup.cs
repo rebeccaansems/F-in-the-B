@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
 
-public class UIPopup : MonoBehaviour
+public class UIPopup : UI
 {
 
     private const int k_Skip = 50, k_Reveal = 20, k_Color = 10;
@@ -47,25 +47,7 @@ public class UIPopup : MonoBehaviour
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
-
-    public static void OpenPopup(CanvasGroup go)
-    {
-        go.alpha = 1;
-        go.interactable = true;
-        go.blocksRaycasts = true;
-
-        Time.timeScale = 0;
-    }
-
-    public static void ClosePopup(CanvasGroup go)
-    {
-        go.interactable = false;
-        go.blocksRaycasts = false;
-        go.alpha = 0;
-
-        Time.timeScale = 1;
-    }
-
+   
 
     public void OpenHintsPanel()
     {
