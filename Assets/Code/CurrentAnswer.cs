@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class CurrentAnswer : MonoBehaviour
 {
     public WinUI WinUi;
-    public Text CategoryText;
-    
+    public Text CategoryText, CurrentPuzzleNumber;
+
     public static string s_CorrectAnswer;
     public static string s_PlayersCorrectAnswer;
     public static string s_PlayersAttempt = "";
@@ -20,6 +20,7 @@ public class CurrentAnswer : MonoBehaviour
     {
         s_CorrectAnswer = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Question;
         CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Hint;
+        CurrentPuzzleNumber.text = "Puzzle #" + PlayerStats.s_CurrentLevel.ToString("000");
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');

@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class UIPopup : UI
 {
-
     private const int k_Skip = 50, k_Reveal = 20, k_Color = 10;
 
     public FillAnswerPanel FillAnswer;
