@@ -165,12 +165,12 @@ public class FillAnswerPanel : MonoBehaviour
         }
 
         CurrentAnswer.s_PlayersCorrectAnswer = editedCorrectAnswer;
-
         FillLetters();
 
         foreach (AnswerTile tile in TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).Where(x => x.GetComponentsInChildren<Text>()[0].text != "_"))
         {
             tile.EditableTile = false;
         }
+        this.GetComponent<FillLetterPanel>().DisableAllFirstWordRequiredTiles();
     }
 }

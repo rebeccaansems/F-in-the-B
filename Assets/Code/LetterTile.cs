@@ -4,15 +4,17 @@ using System.Linq;
 
 public class LetterTile : MonoBehaviour
 {
-    public bool IsRequiredForAnswer = false;
+    public bool IsRequiredForAnswer = false, IsPartOfFirstWord = false;
     public Color AlternateColorLight, AlternateColorDark;
 
     private GameObject gameController;
 
-    private void Start()
+    private void Awake()
     {
         gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
+
         this.GetComponent<Button>().interactable = true;
+        this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
     }
 
     public void LetterPressed()
@@ -28,6 +30,7 @@ public class LetterTile : MonoBehaviour
             {
                 CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
             }
+
             this.GetComponent<Button>().interactable = false;
             this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
         }

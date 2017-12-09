@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,11 +30,18 @@ public class FillLetterPanel : MonoBehaviour
             {
                 tile.text = singleCorrectAnswer[counter].ToString();
                 tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = true;
+
+                tile.GetComponentInParent<LetterTile>().IsPartOfFirstWord = false;
+                if (counter < CurrentAnswer.s_CorrectAnswerLetters[0].Length)
+                {
+                    tile.GetComponentInParent<LetterTile>().IsPartOfFirstWord = true;
+                }
             }
             else
             {
                 tile.text = k_allLetters[Random.Range(0, 25)].ToString();
                 tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = false;
+                tile.GetComponentInParent<LetterTile>().IsPartOfFirstWord = false;
             }
             counter++;
         }
@@ -43,12 +51,16 @@ public class FillLetterPanel : MonoBehaviour
             ColorRequiredTiles();
             DisableNotRequiredTiles();
         }
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            DisableAllFirstWordRequiredTiles();
+        }
     }
 
     public void MakeAllButtonsInteractable()
     {
-        var turnedOffButtons = TileParent.transform.GetComponentsInChildren<Button>().Where(x => x.interactable == false);
-        foreach (Button button in turnedOffButtons)
+        foreach (Button button in TileParent.transform.GetComponentsInChildren<Button>().Where(x => x.interactable == false))
         {
             button.interactable = true;
             button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
@@ -58,6 +70,11 @@ public class FillLetterPanel : MonoBehaviour
         {
             ColorRequiredTiles();
             DisableNotRequiredTiles();
+        }
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            DisableAllFirstWordRequiredTiles();
         }
     }
 
@@ -72,6 +89,14 @@ public class FillLetterPanel : MonoBehaviour
     public void DisableNotRequiredTiles()
     {
         foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => !x.IsRequiredForAnswer))
+        {
+            tile.DisableLetter();
+        }
+    }
+
+    public void DisableAllFirstWordRequiredTiles()
+    {
+        foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsPartOfFirstWord))
         {
             tile.DisableLetter();
         }
