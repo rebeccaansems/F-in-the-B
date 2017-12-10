@@ -19,11 +19,6 @@ public class UIPopup : UI
 
     void Start()
     {
-        ClosePopup(this.GetComponent<CanvasGroup>());
-        ClosePopup(HintsPanel);
-        ClosePopup(GemsPanel);
-        ClosePopup(OptionsPanel);
-
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
         {
             ColorButton.interactable = true;
@@ -46,7 +41,7 @@ public class UIPopup : UI
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
-   
+
 
     public void OpenHintsPanel()
     {
@@ -56,8 +51,7 @@ public class UIPopup : UI
 
     public void CloseHintPanel()
     {
-        ClosePopup(this.GetComponent<CanvasGroup>());
-        ClosePopup(HintsPanel);
+        ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
     }
 
     public void OpenGemsPanel()
@@ -68,11 +62,13 @@ public class UIPopup : UI
 
     public void CloseGemsPanel()
     {
-        ClosePopup(GemsPanel);
-
-        if(HintsPanel.alpha == 0)
+        if (HintsPanel.alpha == 0)
         {
-            ClosePopup(this.GetComponent<CanvasGroup>());
+            ClosePopup(new CanvasGroup[] { GemsPanel, this.GetComponent<CanvasGroup>() });
+        }
+        else
+        {
+            ClosePopup(GemsPanel);
         }
     }
 
@@ -94,8 +90,7 @@ public class UIPopup : UI
             FillLetter.ColorRequiredTiles();
             FillLetter.DisableNotRequiredTiles();
 
-            ClosePopup(HintsPanel);
-            ClosePopup(this.GetComponent<CanvasGroup>());
+            ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
         }
     }
 
@@ -115,8 +110,7 @@ public class UIPopup : UI
 
             FillAnswer.FillFirstWord();
 
-            ClosePopup(HintsPanel);
-            ClosePopup(this.GetComponent<CanvasGroup>());
+            ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
         }
     }
 
@@ -132,8 +126,7 @@ public class UIPopup : UI
 
             WinUi.MakeWinVisible();
 
-            ClosePopup(HintsPanel);
-            ClosePopup(this.GetComponent<CanvasGroup>());
+            ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
         }
     }
 
