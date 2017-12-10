@@ -43,7 +43,6 @@ public class UIOptions : UI
 
     public void CloseOptionsPanel()
     {
-        ClosePopup(OptionsPanel);
-        ClosePopup(this.GetComponent<CanvasGroup>());
+        ClosePopup(new CanvasGroup[] { OptionsPanel, this.GetComponent<CanvasGroup>() } );
     }
 }

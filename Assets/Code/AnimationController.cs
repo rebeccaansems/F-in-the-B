@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
+    public bool AnimateOnStart, AnimateOnClose, AnimateOnVisible;
+    
     private Animator animator;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
 
-        animator.SetBool("AnimateIn", true);
+        if (AnimateOnStart)
+        {
+            animator.SetBool("AnimateIn", true);
+        }
     }
 }
