@@ -77,6 +77,7 @@ public class UIPopup : UI
     {
         if (PlayerStats.s_PlayerGems < k_Color)
         {
+            ClosePopup(HintsPanel);
             OpenGemsPanel();
         }
         else
@@ -98,6 +99,7 @@ public class UIPopup : UI
     {
         if (PlayerStats.s_PlayerGems < k_Reveal)
         {
+            ClosePopup(HintsPanel);
             OpenGemsPanel();
         }
         else
@@ -118,6 +120,7 @@ public class UIPopup : UI
     {
         if (PlayerStats.s_PlayerGems < k_Skip)
         {
+            ClosePopup(HintsPanel);
             OpenGemsPanel();
         }
         else
