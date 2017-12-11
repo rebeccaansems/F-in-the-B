@@ -1,25 +1,15 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
-public class WinUI : MonoBehaviour
+public class WinUI : UI
 {
     public Text TimeText, CorrectAnswerText;
 
-    public CanvasGroup PopupUi;
-
     private bool showWin = true;
-
-    void Start()
-    {
-        this.GetComponent<CanvasGroup>().alpha = 0;
-        this.GetComponent<CanvasGroup>().interactable = false;
-        this.GetComponent<CanvasGroup>().blocksRaycasts = false;
-
-        Time.timeScale = 1;
-    }
 
     public void MakeWinVisible()
     {
@@ -27,9 +17,8 @@ public class WinUI : MonoBehaviour
         {
             showWin = false;
 
-            this.GetComponent<CanvasGroup>().alpha = 1;
-            this.GetComponent<CanvasGroup>().interactable = true;
-            this.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            OpenPopup(this.GetComponent<CanvasGroup>());
+            OpenPopup(this.GetComponentsInChildren<CanvasGroup>().Where(x => x.name.Contains("Panel")).First());
 
             CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
             TimeSpan duration = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
