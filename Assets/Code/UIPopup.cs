@@ -47,6 +47,16 @@ public class UIPopup : UI
     {
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(HintsPanel);
+
+        if (GemsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { GemsPanel });
+        }
+
+        if (OptionsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { OptionsPanel });
+        }
     }
 
     public void CloseHintPanel()
@@ -58,6 +68,16 @@ public class UIPopup : UI
     {
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(GemsPanel);
+
+        if (HintsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { HintsPanel });
+        }
+
+        if (OptionsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { OptionsPanel });
+        }
     }
 
     public void CloseGemsPanel()

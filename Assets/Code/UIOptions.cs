@@ -36,9 +36,16 @@ public class UIOptions : UI
     {
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(OptionsPanel);
+        
+        if (GemsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { GemsPanel });
+        }
 
-        ClosePopup(HintsPanel);
-        ClosePopup(GemsPanel);
+        if (HintsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { HintsPanel });
+        }
     }
 
     public void CloseOptionsPanel()
