@@ -41,8 +41,7 @@ public class UIPopup : UI
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
-
-
+    
     public void OpenHintsPanel()
     {
         OpenPopup(this.GetComponent<CanvasGroup>());
