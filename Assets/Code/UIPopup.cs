@@ -107,6 +107,8 @@ public class UIPopup : UI
             ColorButton.interactable = false;
             ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
 
+            FillAnswer.ClearButtonPressed();
+
             FillLetter.ColorRequiredTiles();
             FillLetter.DisableNotRequiredTiles();
 
