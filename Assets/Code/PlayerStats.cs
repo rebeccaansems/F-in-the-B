@@ -19,11 +19,19 @@ public class PlayerStats : MonoBehaviour
 
     public ParticleSystem LoseGemsParticleSystem, GainGemsParticleSystem;
 
-    private int prevGem = -1, prevLevel = -1;
+    private static int s_PrevGem = -1;
+    private int prevLevel = -1;
 
     private void Awake()
     {
         s_ScoreShouldUpdate = true;
+
+        if(s_PrevGem != -1)
+        {
+            PlayerGems.text = s_PrevGem.ToString();
+            GainGemsParticleSystem.Play();
+            UpdateScore(GainGemsParticleSystem);
+        }
 
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
@@ -51,20 +59,22 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if (prevGem != s_PlayerGems && s_ScoreShouldUpdate)
+        if (s_PrevGem != s_PlayerGems && s_ScoreShouldUpdate)
         {
-            if (prevGem > s_PlayerGems)
+            if (!(LoseGemsParticleSystem.isPlaying && GainGemsParticleSystem.isPlaying))
             {
-                LoseGemsParticleSystem.Play();
+                if (s_PrevGem > s_PlayerGems)
+                {
+                    LoseGemsParticleSystem.Play();
+                    StartCoroutine(UpdateScore(LoseGemsParticleSystem));
+                }
+                else
+                {
+                    GainGemsParticleSystem.Play();
+                    StartCoroutine(UpdateScore(GainGemsParticleSystem));
+                }
             }
-            else
-            {
-                GainGemsParticleSystem.Play();
-            }
-
-            prevGem = s_PlayerGems;
             PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
-            PlayerGems.text = s_PlayerGems.ToString();
         }
 
         if (prevLevel != s_CurrentLevel)
@@ -72,5 +82,12 @@ public class PlayerStats : MonoBehaviour
             prevLevel = s_CurrentLevel;
             PlayerPrefs.SetInt("CurrentLevel", s_CurrentLevel);
         }
+    }
+
+    IEnumerator UpdateScore(ParticleSystem particleSystem)
+    {
+        yield return new WaitForSeconds(particleSystem.main.duration / 2);
+        s_PrevGem = s_PlayerGems;
+        PlayerGems.text = s_PlayerGems.ToString();
     }
 }
