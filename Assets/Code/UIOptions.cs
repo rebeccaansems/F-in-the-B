@@ -8,19 +8,14 @@ public class UIOptions : UI
 {
     public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
 
-    public void ResetPuzzles()
+
+    public void SuggestPuzzle()
     {
-        PlayerPrefs.DeleteAll();
-
-        PlayerStats.s_CurrentLevel = 0;
-        PlayerStats.s_PlayerStartPuzzleTime = 0;
-
-        PlayerStats.s_ColorHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
-        PlayerStats.s_FillHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
-
-        Application.Quit();
+        string email = "rebecca.ansems@gmail.com";
+        string subject = EscapeUrl("F in the B - Puzzle Suggestion");
+        string body = EscapeUrl("Hello,\nMy puzzle suggestion is:\n");
+        Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
     }
-
 
     public void MuteSfx()
     {
@@ -51,5 +46,10 @@ public class UIOptions : UI
     public void CloseOptionsPanel()
     {
         ClosePopup(new CanvasGroup[] { OptionsPanel, this.GetComponent<CanvasGroup>() } );
+    }
+
+    private string EscapeUrl(string url)
+    {
+        return WWW.EscapeURL(url).Replace("+", "%20");
     }
 }
