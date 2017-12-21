@@ -9,6 +9,7 @@ using System.Collections;
 public class WinUI : UI
 {
     public Text TimeText, CorrectAnswerText, TotalTimeText;
+    public Animator LetterParent, AnswerParent, HintButton, ClearButton;
 
     private bool showWin = true, resetGame = false;
 
@@ -28,8 +29,6 @@ public class WinUI : UI
 
             PlayerPrefs.SetFloat("TotalTimeOnPuzzles", PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0) + Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
                 + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
-
-            Debug.Log(PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0));
 
             StartCoroutine(AddEndOfGameGem());
 
@@ -72,7 +71,7 @@ public class WinUI : UI
         }
         else
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            StartCoroutine(GoToNextLevel());
 
             PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
             if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
@@ -82,6 +81,24 @@ public class WinUI : UI
             }
             PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
         }
+
+        AnimateOuts();
+        ClosePopup(this.GetComponentsInChildren<CanvasGroup>().Where(x => x.name.Contains("Win Panel")).First());
+    }
+
+    private void AnimateOuts()
+    {
+        LetterParent.SetBool("AnimateIn", false);
+        AnswerParent.SetBool("AnimateIn", false);
+
+        HintButton.SetBool("AnimateIn", false);
+        ClearButton.SetBool("AnimateIn", false);
+    }
+
+    IEnumerator GoToNextLevel()
+    {
+        yield return new WaitForSeconds(0.3f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoBackToStart()
