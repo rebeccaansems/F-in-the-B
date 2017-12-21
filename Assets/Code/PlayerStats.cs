@@ -26,15 +26,20 @@ public class PlayerStats : MonoBehaviour
     {
         s_ScoreShouldUpdate = true;
 
-        if(s_PrevGem != -1)
+        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
+        s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
+
+        if (s_PrevGem != -1)
         {
             PlayerGems.text = s_PrevGem.ToString();
             GainGemsParticleSystem.Play();
             UpdateScore(GainGemsParticleSystem);
         }
-
-        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
-        s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
+        else
+        {
+            PlayerGems.text = s_PlayerGems.ToString();
+            s_PrevGem = s_PlayerGems;
+        }
 
         s_ColorHintUsed = PlayerPrefs.GetString("ColorHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
         s_FillHintUsed = PlayerPrefs.GetString("FillHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
