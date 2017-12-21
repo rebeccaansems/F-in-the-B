@@ -10,15 +10,22 @@ public class QuestionDatabase : MonoBehaviour
 
     public TextAsset QuestionsFile;
 
+    private static bool s_GameStarted;
+
     void Awake()
     {
-        string questionsString = QuestionsFile.text;
-        List<string> questions = questionsString.Split('}').ToList<string>();
-
-        for (int i = 0; i < questions.Count - 1; i++)
+        if(s_GameStarted == false)
         {
-            questions[i] += "}";
-            s_AllQuestions.Add(JsonUtility.FromJson<QuestionObject>(questions[i]));
+            string questionsString = QuestionsFile.text;
+            List<string> questions = questionsString.Split('}').ToList<string>();
+
+            for (int i = 0; i < questions.Count - 1; i++)
+            {
+                questions[i] += "}";
+                s_AllQuestions.Add(JsonUtility.FromJson<QuestionObject>(questions[i]));
+            }
+
+            s_GameStarted = true;
         }
     }
 
