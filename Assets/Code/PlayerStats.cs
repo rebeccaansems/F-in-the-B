@@ -26,7 +26,7 @@ public class PlayerStats : MonoBehaviour
     {
         s_ScoreShouldUpdate = true;
 
-        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 100);
+        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 10000);
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 
         if (s_PrevGem != -1)

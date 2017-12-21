@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Advertisements;
+using UnityEngine.UI;
 
 public class WinUI : UI
 {
@@ -25,11 +31,17 @@ public class WinUI : UI
                 + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
             TimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
 
-            PlayerStats.s_ScoreShouldUpdate = false;
-            PlayerStats.s_PlayerGems += 2;
+            StartCoroutine(AddEndOfGameGem());
 
             PlayerStats.s_CurrentLevel++;
         }
+    }
+
+    IEnumerator AddEndOfGameGem()
+    {
+        yield return new WaitForSeconds(1);
+        PlayerStats.s_ScoreShouldUpdate = false;
+        PlayerStats.s_PlayerGems += 2;
     }
 
     public void NextPuzzlePressed()
