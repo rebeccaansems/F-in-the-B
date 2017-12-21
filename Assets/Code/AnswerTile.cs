@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,5 +25,12 @@ public class AnswerTile : MonoBehaviour
 
         LinkedLetterTile.GetComponent<Button>().interactable = true;
         LinkedLetterTile.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
+        LinkedLetterTile.GetComponent<LetterTile>().LetterUsed = false;
+    }
+
+    public void LinkLetters(GameObject linkLetter)
+    {
+        LinkedLetterTile = linkLetter;
+        LinkedLetterTile.GetComponent<LetterTile>().LinkedAnswerTile = this;
     }
 }

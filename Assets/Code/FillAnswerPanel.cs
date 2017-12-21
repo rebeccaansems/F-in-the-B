@@ -116,7 +116,7 @@ public class FillAnswerPanel : MonoBehaviour
             if (CurrentAnswer.s_PlayersAttempt.Length > allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer)
             {
                 allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
-                allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkedLetterTile = CurrentLetterTile;
+                allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkLetters(CurrentLetterTile);
 
                 if (allPossibleOpenings.Count == 1)
                 {

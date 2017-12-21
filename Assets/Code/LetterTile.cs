@@ -4,15 +4,16 @@ using System.Linq;
 
 public class LetterTile : MonoBehaviour
 {
-    public bool IsRequiredForAnswer = false, IsPartOfFirstWord = false;
+    public bool IsRequiredForAnswer = false, IsPartOfFirstWord = false, LetterUsed = false;
     public Color AlternateColorLight, AlternateColorDark;
+    public AnswerTile LinkedAnswerTile;
 
     private GameObject gameController;
 
     private void Awake()
     {
         gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
-
+        
         this.GetComponent<Button>().interactable = true;
         this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
     }
@@ -21,18 +22,26 @@ public class LetterTile : MonoBehaviour
     {
         if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
         {
-            gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
-            if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
+            if (LetterUsed)
             {
-                CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);
+                LetterUsed = false;
+                LinkedAnswerTile.LetterPressed();
             }
             else
             {
-                CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
-            }
+                LetterUsed = true;
+                gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
 
-            this.GetComponent<Button>().interactable = false;
-            this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+                if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
+                {
+                    CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);
+                }
+                else
+                {
+                    CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
+                }
+                this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+            }
         }
     }
 
