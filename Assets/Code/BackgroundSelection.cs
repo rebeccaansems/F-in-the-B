@@ -6,12 +6,27 @@ using UnityEngine;
 public class BackgroundSelection : MonoBehaviour
 {
     public List<Sprite> BackgroundImage;
-    private static bool s_FirstOpen;
 
-    void Start()
+    public static bool s_NotFirstOpen;
+
+    private void Start()
     {
-        Object.DontDestroyOnLoad(this);
-        s_FirstOpen = false;
+        DontDestroyOnLoad(transform.gameObject);
+
+        if (FindObjectsOfType(GetType()).Length > 1)
+        {
+            Destroy(transform.gameObject);
+        }
+
+        if (!s_NotFirstOpen)
+        {
+            ChangeBackground();
+            s_NotFirstOpen = true;
+        }
+    }
+
+    public void ChangeBackground()
+    {
         int randomNum = Random.Range(0, BackgroundImage.Count - 1);
         this.GetComponentsInChildren<SpriteRenderer>().Select(x => x.sprite = BackgroundImage[randomNum]).ToList();
     }

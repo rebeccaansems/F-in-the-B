@@ -77,6 +77,7 @@ public class WinUI : UI
             if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
                 + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
             {
+                GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
                 Advertisement.Show();
             }
             PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
@@ -111,6 +112,8 @@ public class WinUI : UI
         if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
             + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
         {
+            var backgrounds = GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList();
+            backgrounds.ForEach(x => x.ChangeBackground());
             Advertisement.Show();
         }
         PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
