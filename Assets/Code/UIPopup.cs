@@ -13,7 +13,7 @@ public class UIPopup : UI
     public FillAnswerPanel FillAnswer;
     public FillLetterPanel FillLetter;
 
-    public Button RevealButton, ColorButton;
+    public Button RevealButton, ColorButton, ShareButton;
 
     public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
     public WinUI WinUi;
@@ -77,6 +77,12 @@ public class UIPopup : UI
         if (OptionsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { OptionsPanel });
+        }
+
+        if (PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) >= 5)
+        {
+            ShareButton.interactable = false;
+            ShareButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
 
@@ -177,8 +183,9 @@ public class UIPopup : UI
 #elif UNITY_ANDROID
         _shareSheet.URL = m_shareURL;
 #endif
-
+        GemsPanel.alpha = 0;
         _shareSheet.AttachScreenShot();
+        GemsPanel.alpha = 1;
 
         // Show composer
         NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
@@ -189,9 +196,19 @@ public class UIPopup : UI
 
     private void FinishedSharing(eShareResult _result)
     {
-        if(_result == eShareResult.CLOSED)
+        if (_result == eShareResult.CLOSED)
         {
-            PlayerStats.s_PlayerGems += 5;
+            if (PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) < 5)
+            {
+                PlayerStats.s_PlayerGems += 5;
+                PlayerPrefs.SetInt(System.DateTime.Today.ToShortDateString(), PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) + 1);
+
+                if (PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) >= 5)
+                {
+                    ShareButton.interactable = false;
+                    ShareButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
+                }
+            }
         }
     }
 
