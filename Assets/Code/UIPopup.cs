@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.UI;
+using VoxelBusters.NativePlugins;
 
 public class UIPopup : UI
 {
@@ -41,7 +42,7 @@ public class UIPopup : UI
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
         }
     }
-    
+
     public void OpenHintsPanel()
     {
         OpenPopup(this.GetComponent<CanvasGroup>());
@@ -166,7 +167,33 @@ public class UIPopup : UI
         Advertisement.Show("rewardedVideo", options);
     }
 
+    public void Share()
+    {
+        SocialShareSheet _shareSheet = new SocialShareSheet();
+        _shareSheet.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1);
 
+#if UNITY_IOS
+        _shareSheet.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
+#elif UNITY_ANDROID
+        _shareSheet.URL = m_shareURL;
+#endif
+
+        _shareSheet.AttachScreenShot();
+
+        // Show composer
+        NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
+        NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
+    }
+
+
+
+    private void FinishedSharing(eShareResult _result)
+    {
+        if(_result == eShareResult.CLOSED)
+        {
+            PlayerStats.s_PlayerGems += 5;
+        }
+    }
 
     private void HandleShowResult(ShowResult result)
     {

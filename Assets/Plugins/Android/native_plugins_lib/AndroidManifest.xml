@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--AUTO GENERATED MANIFEST FILE FROM AndroidManifestGenerator. DONT MODIFY HERE.-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.voxelbusters.androidnativeplugin" android:versionCode="1" android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="26" />
+  <application>
+    <!--Sharing-->
+    <activity android:name="com.voxelbusters.nativeplugins.features.sharing.SharingActivity" android:theme="@style/FloatingActivityTheme" />
+    <!--UI  : Generic helper activity for launching Dialogs-->
+    <activity android:name="com.voxelbusters.nativeplugins.features.ui.UiActivity" android:theme="@style/FloatingActivityTheme" />
+    <!--Game Play Services helper activity-->
+    <activity android:name="com.voxelbusters.nativeplugins.helpers.PermissionRequestActivity" android:theme="@style/FloatingActivityTheme" />
+    <!--Custom File Provider. Sharing from internal folders  "com.voxelbusters.nativeplugins.extensions.FileProviderExtended"-->
+    <provider android:name="com.voxelbusters.nativeplugins.extensions.FileProviderExtended" android:authorities="com.Company.ProductName.fileprovider" android:exported="false" android:grantUriPermissions="true">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/nativeplugins_file_paths" />
+    </provider>
+  </application>
+  <!--Permissions-->
+  <!--Address Book-->
+  <uses-permission android:name="android.permission.READ_CONTACTS" />
+  <!--Network Connectivity-->
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <!--Notifications : Badge Permission for Samsung Devices-->
+  <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+  <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" />
+  <!--Notifications : Badge Permission for HTC Devices-->
+  <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" />
+  <!--Notifications : Badge Permission for Sony Devices-->
+  <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+  <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" />
+  <!--Notifications : Badge Permission for Apex Devices-->
+  <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
+  <!--Notifications : Badge Permission for Solid Devices-->
+  <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" />
+  <!--Notifications : Badge Permission for Huawei Devices-->
+  <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" />
+  <!--Notifications : Badge Permission for ZUK Devices-->
+  <uses-permission android:name="android.permission.READ_APP_BADGE" />
+  <!--Notifications : Badge Permission for Oppo Devices-->
+  <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+  <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" />
+  <!--Notifications : Badge Permission for EverythingMe Support-->
+  <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+  <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+  <!--Required for internet access-->
+  <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

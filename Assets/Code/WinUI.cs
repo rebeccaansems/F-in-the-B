@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using VoxelBusters.NativePlugins;
 
 public class WinUI : UI
 {
@@ -117,5 +118,33 @@ public class WinUI : UI
             Advertisement.Show();
         }
         PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
+    }
+
+    public void Share()
+    {
+        SocialShareSheet _shareSheet = new SocialShareSheet();
+        _shareSheet.Text = "I've just finished puzzle #" + (PlayerStats.s_CurrentLevel + 1) + " on F in the B, can you beat my time?";
+
+#if UNITY_IOS
+        _shareSheet.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
+#elif UNITY_ANDROID
+        _shareSheet.URL = m_shareURL;
+#endif
+
+        _shareSheet.AttachScreenShot();
+
+        // Show composer
+        NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
+        NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
+    }
+
+
+
+    private void FinishedSharing(eShareResult _result)
+    {
+        if (_result == eShareResult.CLOSED)
+        {
+            PlayerStats.s_PlayerGems += 5;
+        }
     }
 }
