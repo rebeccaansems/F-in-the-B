@@ -13,37 +13,36 @@ public class LetterTile : MonoBehaviour
     private void Awake()
     {
         gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
-        
+
         this.GetComponent<Button>().interactable = true;
         this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
     }
 
     public void LetterPressed()
     {
-        if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
+
+        if (LetterUsed)
         {
-            if (LetterUsed)
+            LetterUsed = false;
+            LinkedAnswerTile.LetterPressed();
+        }
+        else if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
+        {
+            LetterUsed = true;
+            gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
+
+            if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
             {
-                LetterUsed = false;
-                LinkedAnswerTile.LetterPressed();
+                CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);
             }
             else
             {
-                LetterUsed = true;
-                gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
-
-                if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
-                {
-                    CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);
-                }
-                else
-                {
-                    CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
-                }
-                this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+                CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
             }
+            this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
         }
     }
+
 
     private string ReplaceFirst(string text, string search, string replace)
     {
