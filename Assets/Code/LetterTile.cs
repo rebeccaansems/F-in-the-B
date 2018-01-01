@@ -20,7 +20,6 @@ public class LetterTile : MonoBehaviour
 
     public void LetterPressed()
     {
-
         if (LetterUsed)
         {
             LetterUsed = false;

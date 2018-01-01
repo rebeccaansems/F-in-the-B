@@ -58,12 +58,12 @@ public class FillLetterPanel : MonoBehaviour
         }
     }
 
-    public void MakeAllButtonsInteractable()
+    public void MakeAllButtonsInteractable()    
     {
-        foreach (Button button in TileParent.transform.GetComponentsInChildren<Button>().Where(x => x.interactable == false))
+        foreach (Button button in TileParent.transform.GetComponentsInChildren<Button>())
         {
-            button.interactable = true;
             button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
+            button.GetComponent<LetterTile>().LetterUsed = false;
         }
 
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
