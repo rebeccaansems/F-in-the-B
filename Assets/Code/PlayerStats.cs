@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour
 
     private static int s_PrevGem = -1;
     private int prevLevel = -1;
+    private bool playAudio = true;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class PlayerStats : MonoBehaviour
         {
             PlayerGems.text = s_PrevGem.ToString();
             GainGemsParticleSystem.Play();
+            GainGemsParticleSystem.gameObject.GetComponent<PlayAudio>().Play();
             UpdateScore(GainGemsParticleSystem);
         }
         else
@@ -91,8 +93,14 @@ public class PlayerStats : MonoBehaviour
 
     IEnumerator UpdateScore(ParticleSystem particleSystem)
     {
+        if (playAudio)
+        {
+            particleSystem.gameObject.GetComponent<PlayAudio>().Play();
+            playAudio = false;
+        }
         yield return new WaitForSeconds(particleSystem.main.duration / 2);
         s_PrevGem = s_PlayerGems;
         PlayerGems.text = s_PlayerGems.ToString();
+        playAudio = true;
     }
 }
