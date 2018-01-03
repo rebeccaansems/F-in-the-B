@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
 
     public static bool s_ScoreShouldUpdate;
 
+    public static int s_SFXAudio, s_MusicAudio;
+
     public Text PlayerGems;
 
     public ParticleSystem LoseGemsParticleSystem, GainGemsParticleSystem;
@@ -26,6 +28,9 @@ public class PlayerStats : MonoBehaviour
     private void Awake()
     {
         s_ScoreShouldUpdate = true;
+
+        s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
+        s_MusicAudio = PlayerPrefs.GetInt("MusicAudio", 1);
 
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 10000);
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);

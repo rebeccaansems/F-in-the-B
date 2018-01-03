@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayAudio : MonoBehaviour
 {
-
     public AudioClip[] AudioClips;
 
     private int currentAudioClip = 0;
@@ -13,7 +12,7 @@ public class PlayAudio : MonoBehaviour
     {
         if (AudioClips.Length > 0)
         {
-            AudioSource.PlayClipAtPoint(AudioClips[currentAudioClip], Camera.main.transform.position, 0.75f);
+            AudioSource.PlayClipAtPoint(AudioClips[currentAudioClip], Camera.main.transform.position, PlayerStats.s_SFXAudio);
         }
         currentAudioClip = 0;
     }
