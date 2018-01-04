@@ -205,12 +205,12 @@ public class UIPopup : UI
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(CreditsPanel);
 
-        if (GemsPanel.alpha == 1)
+        if (GemsPanel != null && GemsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { GemsPanel });
         }
 
-        if (OptionsPanel.alpha == 1)
+        if (OptionsPanel!= null && OptionsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { OptionsPanel });
         }
@@ -218,7 +218,7 @@ public class UIPopup : UI
 
     public void CloseCreditsPanel()
     {
-        if (GemsPanel.alpha == 0 && OptionsPanel.alpha == 0)
+        if (OptionsPanel.alpha == 0)
         {
             ClosePopup(new CanvasGroup[] { CreditsPanel, this.GetComponent<CanvasGroup>() });
         }

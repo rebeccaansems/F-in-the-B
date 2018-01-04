@@ -76,7 +76,7 @@ public class UIOptions : UI
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(OptionsPanel);
 
-        if (GemsPanel.alpha == 1)
+        if (GemsPanel != null && GemsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { GemsPanel });
         }
