@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class UIOpening : UI
 {
@@ -12,6 +13,9 @@ public class UIOpening : UI
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.UnloadSceneAsync(0);
+        if (SceneManager.GetSceneByBuildIndex(0).IsValid())
+        {
+            SceneManager.UnloadSceneAsync(0);
+        }
     }
 }
