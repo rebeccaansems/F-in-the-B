@@ -15,31 +15,34 @@ public class UIPopup : UI
 
     public Button RevealButton, ColorButton, ShareButton;
 
-    public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
+    public CanvasGroup HintsPanel, GemsPanel, OptionsPanel, CreditsPanel;
     public WinUI WinUi;
 
     void Start()
     {
-        if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
+        if (ColorButton != null)
         {
-            ColorButton.interactable = true;
-            ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
-        }
-        else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
-        {
-            ColorButton.interactable = false;
-            ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
-        }
+            if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '0')
+            {
+                ColorButton.interactable = true;
+                ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
+            }
+            else if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
+            {
+                ColorButton.interactable = false;
+                ColorButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
+            }
 
-        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
-        {
-            RevealButton.interactable = true;
-            RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
-        }
-        else if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
-        {
-            RevealButton.interactable = false;
-            RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
+            if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '0')
+            {
+                RevealButton.interactable = true;
+                RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = false;
+            }
+            else if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+            {
+                RevealButton.interactable = false;
+                RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
+            }
         }
     }
 
@@ -69,9 +72,14 @@ public class UIPopup : UI
         OpenPopup(this.GetComponent<CanvasGroup>());
         OpenPopup(GemsPanel);
 
-        if (HintsPanel.alpha == 1)
+        if (HintsPanel != null && HintsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { HintsPanel });
+        }
+
+        if (CreditsPanel != null && CreditsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { CreditsPanel });
         }
 
         if (OptionsPanel.alpha == 1)
@@ -88,7 +96,7 @@ public class UIPopup : UI
 
     public void CloseGemsPanel()
     {
-        if (HintsPanel.alpha == 0)
+        if ((HintsPanel != null && HintsPanel.alpha == 0) || HintsPanel == null)
         {
             ClosePopup(new CanvasGroup[] { GemsPanel, this.GetComponent<CanvasGroup>() });
         }
@@ -192,6 +200,33 @@ public class UIPopup : UI
         NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
     }
 
+    public void OpenCreditsPanel()
+    {
+        OpenPopup(this.GetComponent<CanvasGroup>());
+        OpenPopup(CreditsPanel);
+
+        if (GemsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { GemsPanel });
+        }
+
+        if (OptionsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { OptionsPanel });
+        }
+    }
+
+    public void CloseCreditsPanel()
+    {
+        if (GemsPanel.alpha == 0 && OptionsPanel.alpha == 0)
+        {
+            ClosePopup(new CanvasGroup[] { CreditsPanel, this.GetComponent<CanvasGroup>() });
+        }
+        else
+        {
+            ClosePopup(CreditsPanel);
+        }
+    }
 
 
     private void FinishedSharing(eShareResult _result)

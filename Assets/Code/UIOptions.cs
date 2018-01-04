@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIOptions : UI
 {
-    public CanvasGroup HintsPanel, GemsPanel, OptionsPanel;
+    public CanvasGroup HintsPanel, GemsPanel, OptionsPanel, CreditsPanel;
     public Image MusicImage, SFXImage;
     public Sprite AudioOn, AudioOff;
 
@@ -81,9 +81,14 @@ public class UIOptions : UI
             ClosePopup(new CanvasGroup[] { GemsPanel });
         }
 
-        if (HintsPanel.alpha == 1)
+        if (HintsPanel != null && HintsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { HintsPanel });
+        }
+
+        if (CreditsPanel != null && CreditsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { CreditsPanel });
         }
     }
 
