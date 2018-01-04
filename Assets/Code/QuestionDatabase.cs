@@ -14,23 +14,22 @@ public class QuestionDatabase : MonoBehaviour
 
     void Awake()
     {
-        if(s_GameStarted == false)
+        if (s_GameStarted == false)
         {
             string questionsString = QuestionsFile.text;
-            List<string> questions = questionsString.Split('}').ToList<string>();
-
-            for (int i = 0; i < questions.Count - 1; i++)
-            {
-                questions[i] += "}";
-                s_AllQuestions.Add(JsonUtility.FromJson<QuestionObject>(questions[i]));
-            }
-
+            s_AllQuestions = JsonUtility.FromJson<TopQuestionObject>(questionsString).Questions.ToList<QuestionObject>();
             s_GameStarted = true;
         }
     }
 
-    [Serializable]
-    public class QuestionObject
+    [System.Serializable]
+    public class TopQuestionObject
+    {
+        public QuestionObject[] Questions;
+    }
+
+    [System.Serializable]
+    public struct QuestionObject
     {
         public string Question;
         public string Hint;
