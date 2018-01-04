@@ -107,6 +107,12 @@ public class WinUI : UI
     {
         PlayerStats.s_CurrentLevel = 0;
 
+        PlayerPrefs.SetString("ColorHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
+        PlayerPrefs.SetString("FillHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
+
+        PlayerStats.s_ColorHintUsed = PlayerPrefs.GetString("ColorHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
+        PlayerStats.s_FillHintUsed = PlayerPrefs.GetString("FillHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
