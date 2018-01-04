@@ -9,8 +9,12 @@ public class AnswerTile : MonoBehaviour
     public int IndexInAnswer = 0;
     public GameObject LinkedLetterTile;
 
+    private GameObject gameController;
+
     public void Start()
     {
+        gameController = GameObject.FindGameObjectsWithTag("GameController")[0];
+
         if (this.GetComponentInChildren<Text>().text != "_")
         {
             EditableTile = false;
@@ -26,6 +30,8 @@ public class AnswerTile : MonoBehaviour
         LinkedLetterTile.GetComponent<Button>().interactable = true;
         LinkedLetterTile.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
         LinkedLetterTile.GetComponent<LetterTile>().LetterUsed = false;
+
+        gameController.GetComponent<FillAnswerPanel>().AddBlanks();
     }
 
     public void LinkLetters(GameObject linkLetter)

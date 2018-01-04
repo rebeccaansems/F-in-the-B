@@ -93,21 +93,7 @@ public class FillAnswerPanel : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (CurrentAnswer.s_PlayersAttempt.Length > lastGuess.Length || CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') < lastGuess.Count(x => x == '_'))
-        {
-            lastGuess = CurrentAnswer.s_PlayersAttempt;
-            this.GetComponent<FillAnswerPanel>().RemoveBlanks();
-        }
-        else if (CurrentAnswer.s_PlayersAttempt.Count(x => x == '_') > lastGuess.Count(x => x == '_'))
-        {
-            lastGuess = CurrentAnswer.s_PlayersAttempt;
-            this.GetComponent<FillAnswerPanel>().AddBlanks();
-        }
-    }
-
-    public void RemoveBlanks()
+    public void RemoveBlanks(GameObject currLetterTile)
     {
         List<Text> allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
         if (allPossibleOpenings.Count != 0)
@@ -116,7 +102,7 @@ public class FillAnswerPanel : MonoBehaviour
             if (CurrentAnswer.s_PlayersAttempt.Length > allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer)
             {
                 allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
-                allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkLetters(CurrentLetterTile);
+                allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkLetters(currLetterTile);
 
                 if (allPossibleOpenings.Count == 1)
                 {

@@ -28,7 +28,6 @@ public class LetterTile : MonoBehaviour
         else if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
         {
             LetterUsed = true;
-            gameController.GetComponent<FillAnswerPanel>().CurrentLetterTile = this.transform.gameObject;
 
             if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
             {
@@ -39,6 +38,7 @@ public class LetterTile : MonoBehaviour
                 CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
             }
             this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+            gameController.GetComponent<FillAnswerPanel>().RemoveBlanks(this.transform.gameObject);
         }
     }
 
