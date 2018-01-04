@@ -8,7 +8,6 @@ public class FillAnswerPanel : MonoBehaviour
 {
     public GameObject Tile, TileParent, CurrentLetterTile;
 
-    private string lastGuess = "";
     private string[] splitCorrectAnswer;
 
     private int tilesPerRow = 9;
