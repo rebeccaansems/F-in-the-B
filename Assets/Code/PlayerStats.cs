@@ -32,7 +32,11 @@ public class PlayerStats : MonoBehaviour
         s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
         s_MusicAudio = PlayerPrefs.GetInt("MusicAudio", 1);
 
+#if UNITY_EDITOR
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 10000);
+#else
+        s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 50);
+#endif
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 
         if (s_PrevGem != -1)
