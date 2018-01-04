@@ -140,12 +140,6 @@ namespace VoxelBusters.Utility
 
 		#region Menu Methods
 
-		[MenuItem("Extensions/Clear PlayerPrefs")]
-		public static void ClearPlayerPrefs ()
-		{
-			PlayerPrefs.DeleteAll();
-		}
-
 		#endregion
 
 		#region Nested Types
