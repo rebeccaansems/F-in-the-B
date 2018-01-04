@@ -134,7 +134,6 @@ public class FillAnswerPanel : MonoBehaviour
 
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
         CurrentAnswer.s_PlayersAttempt = "";
-        lastGuess = "";
     }
 
     public void FillFirstWord()
