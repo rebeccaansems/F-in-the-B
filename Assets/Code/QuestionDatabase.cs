@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class QuestionDatabase : MonoBehaviour
 {
     public static List<QuestionObject> s_AllQuestions = new List<QuestionObject>();
+
+    public TextAsset QuestionsFile;
 
     private static bool s_GameStarted;
 
@@ -16,8 +14,7 @@ public class QuestionDatabase : MonoBehaviour
     {
         if (s_GameStarted == false)
         {
-            string path = "Assets/Resources/Questions.json";
-            string questionsString = new StreamReader(path).ReadToEnd().ToString();
+            string questionsString = QuestionsFile.text;
             s_AllQuestions = JsonUtility.FromJson<TopQuestionObject>(questionsString).Questions.ToList<QuestionObject>();
             s_GameStarted = true;
         }
