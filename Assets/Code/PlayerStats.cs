@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
+    public const int k_LevelsUntilAd = 5;
+    public const int k_MinuesUntilAd = 5;
+
     public static int s_PlayerGems;
     public static int s_CurrentLevel;
 

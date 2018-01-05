@@ -70,7 +70,8 @@ public class WinUI : UI
             if (PlayerStats.Instance.ShowAds)
             {
                 if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd) 
+                || PlayerStats.s_CurrentLevel % PlayerStats.k_LevelsUntilAd == 0)
                 {
                     GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
                     Advertisement.Show();
@@ -116,7 +117,8 @@ public class WinUI : UI
         if (PlayerStats.Instance.ShowAds)
         {
             if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd) 
+                || PlayerStats.s_CurrentLevel % PlayerStats.k_LevelsUntilAd == 0)
             {
                 var backgrounds = GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList();
                 backgrounds.ForEach(x => x.ChangeBackground());
