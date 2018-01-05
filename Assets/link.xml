@@ -1,10 +1,18 @@
 ﻿<linker>
   <assembly fullname="mscorlib">
     <type fullname="System.Type" preserve="all" />
+    <type fullname="System.Security.Cryptography.*" preserve="all" />
     <namespace fullname="System.Reflection" preserve="all" />
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass">
     <namespace fullname="VoxelBusters.NativePlugins" preserve="all" />
     <namespace fullname="VoxelBusters.NativePlugins.Internal" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.Purchasing">
+    <type fullname="UnityEngine.Purchasing.Extension.IPurchasingBinder" preserve="all" />
+  </assembly>
+  <assembly fullname="Stores">
+    <type fullname="UnityEngine.Purchasing.CloudCatalogImpl" preserve="all" />
+    <type fullname="UnityEngine.Purchasing.Promo" preserve="all" />
   </assembly>
 </linker>

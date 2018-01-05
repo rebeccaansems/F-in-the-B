@@ -8,6 +8,9 @@ public class PlayerStats : MonoBehaviour
     public const int k_LevelsUntilAd = 5;
     public const int k_MinuesUntilAd = 5;
 
+    public const int k_PurchaseGems = 100;
+
+
     public static int s_PlayerGems;
     public static int s_CurrentLevel;
 
@@ -18,7 +21,7 @@ public class PlayerStats : MonoBehaviour
 
     public static int s_SFXAudio, s_MusicAudio;
 
-    public bool ShowAds = true;
+    public bool ShowAds;
 
     public Text PlayerGems;
 
@@ -41,7 +44,9 @@ public class PlayerStats : MonoBehaviour
         {
             _instance = this;
         }
-        
+
+        ShowAds = PlayerPrefs.GetInt("ShowAds", 0) == 0;
+
         s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
         s_MusicAudio = PlayerPrefs.GetInt("MusicAudio", 1);
 
@@ -91,6 +96,12 @@ public class PlayerStats : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
+    }
+
+    public void DisableAds()
+    {
+        ShowAds = false;
+        PlayerPrefs.SetInt("ShowAds", 1);
     }
 
     private void Update()
