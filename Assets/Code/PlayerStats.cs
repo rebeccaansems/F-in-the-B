@@ -15,6 +15,8 @@ public class PlayerStats : MonoBehaviour
 
     public static int s_SFXAudio, s_MusicAudio;
 
+    public bool ShowAds = true;
+
     public Text PlayerGems;
 
     public ParticleSystem LoseGemsParticleSystem, GainGemsParticleSystem;
@@ -40,7 +42,7 @@ public class PlayerStats : MonoBehaviour
         s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
         s_MusicAudio = PlayerPrefs.GetInt("MusicAudio", 1);
 
-#if UNITY_DEBUG
+#if UNITY_DEBUG || UNITY_EDITOR
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 10000);
 #else
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 50);

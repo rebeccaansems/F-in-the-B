@@ -66,12 +66,17 @@ public class WinUI : UI
             StartCoroutine(GoToNextLevel());
 
             PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
-            if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+            
+            if (PlayerStats.Instance.ShowAds)
             {
-                GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
-                Advertisement.Show();
+                if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+                {
+                    GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
+                    Advertisement.Show();
+                }
             }
+
             PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
         }
 
@@ -107,13 +112,18 @@ public class WinUI : UI
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
-        if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-            + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+
+        if (PlayerStats.Instance.ShowAds)
         {
-            var backgrounds = GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList();
-            backgrounds.ForEach(x => x.ChangeBackground());
-            Advertisement.Show();
+            if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(5) || PlayerStats.s_CurrentLevel % 3 == 0)
+            {
+                var backgrounds = GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList();
+                backgrounds.ForEach(x => x.ChangeBackground());
+                Advertisement.Show();
+            }
         }
+
         PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
     }
 
