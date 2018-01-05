@@ -52,7 +52,12 @@ public class FillAnswerPanel : MonoBehaviour
                         editableCount++;
                     }
                 }
-                currentLetter += splitCorrectAnswer[j].Length + 1;
+
+                if (splitCorrectAnswer[j].Length + (currentLetter % tilesPerRow) != tilesPerRow)
+                {
+                    currentLetter++;
+                }
+                currentLetter += splitCorrectAnswer[j].Length;
             }
             else
             {
@@ -142,7 +147,7 @@ public class FillAnswerPanel : MonoBehaviour
 
         splitCorrectAnswer = CurrentAnswer.s_CorrectAnswer.Split(' ');
         string editedCorrectAnswer = "";
-        for (int i=2; i< splitCorrectAnswer.Length; i++)
+        for (int i = 2; i < splitCorrectAnswer.Length; i++)
         {
             editedCorrectAnswer += Regex.Replace(splitCorrectAnswer[i], @"[A-Z,0-9]", string.Empty);
             splitCorrectAnswer[i] = Regex.Replace(splitCorrectAnswer[i], @"[a-z]", "_");
