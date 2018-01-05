@@ -116,7 +116,7 @@ public class UIPopup : UI
         }
         else
         {
-            PlayerStats.s_PlayerGems -= k_Color;
+            PlayerStats.Instance.ChangeGems(-k_Color);
             PlayerStats.s_ColorHintUsed = PlayerStats.s_ColorHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
 
             ColorButton.interactable = false;
@@ -140,7 +140,7 @@ public class UIPopup : UI
         }
         else
         {
-            PlayerStats.s_PlayerGems -= k_Reveal;
+            PlayerStats.Instance.ChangeGems(-k_Reveal);
             PlayerStats.s_FillHintUsed = PlayerStats.s_FillHintUsed.Remove(PlayerStats.s_CurrentLevel, 1).Insert(PlayerStats.s_CurrentLevel, "1");
 
             RevealButton.interactable = false;
@@ -161,7 +161,7 @@ public class UIPopup : UI
         }
         else
         {
-            PlayerStats.s_PlayerGems -= k_Skip;
+            PlayerStats.Instance.ChangeGems(-k_Skip);
 
             WinUi.MakeWinVisible();
 
@@ -210,7 +210,7 @@ public class UIPopup : UI
             ClosePopup(new CanvasGroup[] { GemsPanel });
         }
 
-        if (OptionsPanel!= null && OptionsPanel.alpha == 1)
+        if (OptionsPanel != null && OptionsPanel.alpha == 1)
         {
             ClosePopup(new CanvasGroup[] { OptionsPanel });
         }
@@ -235,7 +235,7 @@ public class UIPopup : UI
         {
             if (PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) < 5)
             {
-                PlayerStats.s_PlayerGems += 5;
+                PlayerStats.Instance.ChangeGems(5);
                 PlayerPrefs.SetInt(System.DateTime.Today.ToShortDateString(), PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) + 1);
 
                 if (PlayerPrefs.GetInt(System.DateTime.Today.ToShortDateString(), 0) >= 5)
@@ -252,10 +252,10 @@ public class UIPopup : UI
         switch (result)
         {
             case ShowResult.Finished:
-                PlayerStats.s_PlayerGems += 10;
+                PlayerStats.Instance.ChangeGems(10);
                 break;
             case ShowResult.Skipped:
-                PlayerStats.s_PlayerGems += 10;
+                PlayerStats.Instance.ChangeGems(10);
                 break;
             case ShowResult.Failed:
                 break;

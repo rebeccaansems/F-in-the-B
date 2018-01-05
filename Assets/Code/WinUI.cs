@@ -31,8 +31,7 @@ public class WinUI : UI
             PlayerPrefs.SetFloat("TotalTimeOnPuzzles", PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0) + Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
                 + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
 
-            StartCoroutine(AddEndOfGameGem());
-
+            PlayerStats.Instance.ChangeGems(2);
             PlayerStats.s_CurrentLevel++;
 
             if (PlayerStats.s_CurrentLevel == QuestionDatabase.s_AllQuestions.Count)
@@ -51,17 +50,9 @@ public class WinUI : UI
         }
     }
 
-    IEnumerator AddEndOfGameGem()
-    {
-        yield return new WaitForSeconds(1);
-        PlayerStats.s_ScoreShouldUpdate = false;
-        PlayerStats.s_PlayerGems += 2;
-    }
-
     public void NextPuzzlePressed()
     {
         showWin = false;
-        PlayerStats.s_ScoreShouldUpdate = true;
 
         if (resetGame)
         {
@@ -150,7 +141,7 @@ public class WinUI : UI
     {
         if (_result == eShareResult.CLOSED)
         {
-            PlayerStats.s_PlayerGems += 5;
+            PlayerStats.Instance.ChangeGems(5);
         }
     }
 }
