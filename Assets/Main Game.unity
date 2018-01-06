@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 62662007}
   - component: {fileID: 62662006}
   - component: {fileID: 62662005}
+  - component: {fileID: 62662008}
   m_Layer: 5
   m_Name: Next Level Button
   m_TagString: Untagged
@@ -348,6 +349,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 62662003}
+--- !u!114 &62662008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62662003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &73645289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,6 +1783,7 @@ GameObject:
   - component: {fileID: 385722192}
   - component: {fileID: 385722191}
   - component: {fileID: 385722190}
+  - component: {fileID: 385722193}
   m_Layer: 5
   m_Name: Cancel Button
   m_TagString: Untagged
@@ -1890,6 +1906,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 385722188}
+--- !u!114 &385722193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 385722188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &391833172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,6 +1931,7 @@ GameObject:
   - component: {fileID: 391833176}
   - component: {fileID: 391833175}
   - component: {fileID: 391833174}
+  - component: {fileID: 391833177}
   m_Layer: 5
   m_Name: Cancel Button
   m_TagString: Untagged
@@ -2023,6 +2054,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391833172}
+--- !u!114 &391833177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 391833172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &392973357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2297,7 @@ MonoBehaviour:
   AnimateOnStart: 1
   AnimateOnClose: 1
   AnimateOnVisible: 0
+  IsSlow: 0
 --- !u!95 &412094274
 Animator:
   serializedVersion: 3
@@ -3094,6 +3140,7 @@ MonoBehaviour:
   AnimateOnStart: 0
   AnimateOnClose: 0
   AnimateOnVisible: 1
+  IsSlow: 0
 --- !u!95 &553268157
 Animator:
   serializedVersion: 3
@@ -3931,6 +3978,7 @@ MonoBehaviour:
   AnimateOnStart: 0
   AnimateOnClose: 0
   AnimateOnVisible: 1
+  IsSlow: 0
 --- !u!225 &636146927
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -5008,6 +5056,7 @@ MonoBehaviour:
   AnimateOnStart: 0
   AnimateOnClose: 0
   AnimateOnVisible: 1
+  IsSlow: 0
 --- !u!114 &768665596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5405,6 +5454,7 @@ GameObject:
   - component: {fileID: 820763475}
   - component: {fileID: 820763477}
   - component: {fileID: 820763476}
+  - component: {fileID: 820763478}
   m_Layer: 5
   m_Name: Header Background
   m_TagString: Untagged
@@ -5464,6 +5514,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820763474}
+--- !u!114 &820763478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820763474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &886050085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5549,6 +5613,7 @@ GameObject:
   - component: {fileID: 911224539}
   - component: {fileID: 911224538}
   - component: {fileID: 911224537}
+  - component: {fileID: 911224540}
   m_Layer: 5
   m_Name: Cancel Button
   m_TagString: Untagged
@@ -5671,6 +5736,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 911224535}
+--- !u!114 &911224540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 911224535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &913353972
 GameObject:
   m_ObjectHideFlags: 0
@@ -6404,6 +6483,7 @@ GameObject:
   - component: {fileID: 991214557}
   - component: {fileID: 991214559}
   - component: {fileID: 991214558}
+  - component: {fileID: 991214560}
   m_Layer: 5
   m_Name: Header Background
   m_TagString: Untagged
@@ -6463,6 +6543,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 991214556}
+--- !u!114 &991214560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 991214556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1011515291
 GameObject:
   m_ObjectHideFlags: 0
@@ -7036,6 +7130,7 @@ GameObject:
   - component: {fileID: 1196415206}
   - component: {fileID: 1196415208}
   - component: {fileID: 1196415207}
+  - component: {fileID: 1196415209}
   m_Layer: 5
   m_Name: Header Background
   m_TagString: Untagged
@@ -7095,6 +7190,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1196415205}
+--- !u!114 &1196415209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1196415205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1208426456
 GameObject:
   m_ObjectHideFlags: 0
@@ -7539,6 +7648,7 @@ MonoBehaviour:
   AnimateOnStart: 0
   AnimateOnClose: 1
   AnimateOnVisible: 1
+  IsSlow: 0
 --- !u!225 &1321499583
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8312,6 +8422,7 @@ GameObject:
   - component: {fileID: 1389896934}
   - component: {fileID: 1389896933}
   - component: {fileID: 1389896932}
+  - component: {fileID: 1389896935}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -8434,6 +8545,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1389896930}
+--- !u!114 &1389896935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1389896930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1395177030
 GameObject:
   m_ObjectHideFlags: 0
@@ -8919,6 +9044,7 @@ MonoBehaviour:
   AnimateOnStart: 1
   AnimateOnClose: 1
   AnimateOnVisible: 0
+  IsSlow: 0
 --- !u!1 &1507687354
 GameObject:
   m_ObjectHideFlags: 0
@@ -9243,6 +9369,7 @@ MonoBehaviour:
   AnimateOnStart: 0
   AnimateOnClose: 0
   AnimateOnVisible: 1
+  IsSlow: 0
 --- !u!95 &1576531367
 Animator:
   serializedVersion: 3
@@ -10592,6 +10719,7 @@ GameObject:
   - component: {fileID: 1859317767}
   - component: {fileID: 1859317769}
   - component: {fileID: 1859317768}
+  - component: {fileID: 1859317770}
   m_Layer: 5
   m_Name: Header Background
   m_TagString: Untagged
@@ -10651,6 +10779,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1859317766}
+--- !u!114 &1859317770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1859317766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1987455453
 GameObject:
   m_ObjectHideFlags: 0
@@ -10803,6 +10945,7 @@ GameObject:
   - component: {fileID: 2001762973}
   - component: {fileID: 2001762975}
   - component: {fileID: 2001762974}
+  - component: {fileID: 2001762976}
   m_Layer: 5
   m_Name: Header Background
   m_TagString: Untagged
@@ -10862,6 +11005,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2001762972}
+--- !u!114 &2001762976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2001762972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.20392159, g: 0.59607846, b: 0.8588236, a: 1}
+  m_EffectDistance: {x: 15, y: 15}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2017041377 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1063225647921092, guid: 9418a4e139c93aa46903bfefa2ed4b14,
