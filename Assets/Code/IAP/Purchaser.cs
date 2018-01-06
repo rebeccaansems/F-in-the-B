@@ -21,7 +21,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
     // specific mapping to Unity Purchasing's AddProduct, below.
     public static string k_ProductIDConsumable = "100Gems";
 
-    public Text GemPrice; 
+    public Text GemPrice;
 
     void Start()
     {
@@ -31,8 +31,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
             // Begin to configure our connection to Purchasing
             InitializePurchasing();
         }
-
-        GemPrice.text = m_StoreController.products.WithID(k_ProductIDConsumable).metadata.localizedPriceString;
     }
 
     public void InitializePurchasing()
@@ -157,6 +155,8 @@ public class Purchaser : MonoBehaviour, IStoreListener
         m_StoreController = controller;
         // Store specific subsystem, for accessing device-specific store features.
         m_StoreExtensionProvider = extensions;
+
+        GemPrice.text = m_StoreController.products.WithID(k_ProductIDConsumable).metadata.localizedPriceString;
     }
 
 
@@ -164,6 +164,8 @@ public class Purchaser : MonoBehaviour, IStoreListener
     {
         // Purchasing set-up has not succeeded. Check error for reason. Consider sharing this reason with the user.
         Debug.Log("OnInitializeFailed InitializationFailureReason:" + error);
+
+        GemPrice.text = "Error: " + error;
     }
 
 
