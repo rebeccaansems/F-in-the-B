@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationController : MonoBehaviour
 {
     public bool AnimateOnStart, AnimateOnClose, AnimateOnVisible;
+    public bool IsSlow = false;
     
     private Animator animator;
 
@@ -15,6 +16,7 @@ public class AnimationController : MonoBehaviour
         if (AnimateOnStart)
         {
             animator.SetBool("AnimateIn", true);
+            animator.SetBool("Slow", IsSlow);
         }
     }
 }
