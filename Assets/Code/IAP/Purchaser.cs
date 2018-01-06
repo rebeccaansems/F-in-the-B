@@ -50,16 +50,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
         // Add a product to sell / restore by way of its identifier, associating the general identifier
         // with its store-specific identifiers.
         builder.AddProduct(k_ProductIDConsumable, ProductType.Consumable);
-        // Continue adding the non-consumable product.
-        builder.AddProduct(k_ProductIDNonConsumable, ProductType.NonConsumable);
-        // And finish adding the subscription product. Notice this uses store-specific IDs, illustrating
-        // if the Product ID was configured differently between Apple and Google stores. Also note that
-        // one uses the general kProductIDSubscription handle inside the game - the store-specific IDs 
-        // must only be referenced here. 
-        builder.AddProduct(k_ProductIDSubscription, ProductType.Subscription, new IDs(){
-                { k_ProductNameAppleSubscription, AppleAppStore.Name },
-                { k_ProductNameGooglePlaySubscription, GooglePlay.Name },
-            });
 
         // Kick off the remainder of the set-up with an asynchrounous call, passing the configuration 
         // and this class' instance. Expect a response either in OnInitialized or OnInitializeFailed.
@@ -80,25 +70,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
         // through ProcessPurchase or OnPurchaseFailed asynchronously.
         BuyProductID(k_ProductIDConsumable);
     }
-
-
-    public void BuyNonConsumable()
-    {
-        // Buy the non-consumable product using its general identifier. Expect a response either 
-        // through ProcessPurchase or OnPurchaseFailed asynchronously.
-        BuyProductID(k_ProductIDNonConsumable);
-    }
-
-
-    public void BuySubscription()
-    {
-        // Buy the subscription product using its the general identifier. Expect a response either 
-        // through ProcessPurchase or OnPurchaseFailed asynchronously.
-        // Notice how we use the general product identifier in spite of this ID being mapped to
-        // custom store-specific identifiers above.
-        BuyProductID(k_ProductIDSubscription);
-    }
-
 
     void BuyProductID(string productId)
     {
@@ -205,18 +176,6 @@ public class Purchaser : MonoBehaviour, IStoreListener
 
             PlayerStats.Instance.ChangeGems(PlayerStats.k_PurchaseGems);
             PlayerStats.Instance.DisableAds();
-        }
-        // Or ... a non-consumable product has been purchased by this user.
-        else if (String.Equals(args.purchasedProduct.definition.id, k_ProductIDNonConsumable, StringComparison.Ordinal))
-        {
-            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            // TODO: The non-consumable item has been successfully purchased, grant this item to the player.
-        }
-        // Or ... a subscription product has been purchased by this user.
-        else if (String.Equals(args.purchasedProduct.definition.id, k_ProductIDSubscription, StringComparison.Ordinal))
-        {
-            Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));
-            // TODO: The subscription item has been successfully purchased, grant this to the player.
         }
         // Or ... an unknown product has been purchased by this user. Fill in additional products here....
         else
