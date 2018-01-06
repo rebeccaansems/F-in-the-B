@@ -20,6 +20,8 @@ public class WinUI : UI
         {
             showWin = false;
 
+            this.GetComponent<PlayAudio>().PlayRandom();
+
             OpenPopup(this.GetComponent<CanvasGroup>());
             OpenPopup(this.GetComponentsInChildren<CanvasGroup>().Where(x => x.name.Contains("Win Panel")).First());
 

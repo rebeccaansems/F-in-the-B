@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayAudio : MonoBehaviour
 {
@@ -20,5 +18,13 @@ public class PlayAudio : MonoBehaviour
     public void ChangeAudio(int num)
     {
         currentAudioClip = num;
+    }
+
+    public void PlayRandom()
+    {
+        if (AudioClips.Length > 0)
+        {
+            AudioSource.PlayClipAtPoint(AudioClips[Random.Range(0, AudioClips.Length)], Camera.main.transform.position, PlayerStats.s_SFXAudio);
+        }
     }
 }

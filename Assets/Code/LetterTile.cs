@@ -22,6 +22,8 @@ public class LetterTile : MonoBehaviour
     {
         if (LetterUsed)
         {
+            this.GetComponent<PlayAudio>().PlayRandom();
+
             LetterUsed = false;
             LinkedAnswerTile.LetterPressed();
         }
@@ -29,6 +31,7 @@ public class LetterTile : MonoBehaviour
         {
             LetterUsed = true;
 
+            this.GetComponent<PlayAudio>().PlayRandom();
             if (CurrentAnswer.s_PlayersAttempt.Contains("_"))
             {
                 CurrentAnswer.s_PlayersAttempt = ReplaceFirst(CurrentAnswer.s_PlayersAttempt, "_", this.GetComponentInChildren<Text>().text);
@@ -37,6 +40,7 @@ public class LetterTile : MonoBehaviour
             {
                 CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
             }
+
             this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
             gameController.GetComponent<FillAnswerPanel>().RemoveBlanks(this.transform.gameObject);
         }

@@ -7673,6 +7673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioClips:
   - {fileID: 8300000, guid: 654afcb00f1bb454cafd7aee148d6863, type: 3}
+  - {fileID: 8300000, guid: e5f78c6e42da6f14caa2b364ace2ae43, type: 3}
 --- !u!1001 &1322489755
 Prefab:
   m_ObjectHideFlags: 0
@@ -8174,6 +8175,7 @@ GameObject:
   - component: {fileID: 1361043694}
   - component: {fileID: 1361043692}
   - component: {fileID: 1361043695}
+  - component: {fileID: 1361043696}
   m_Layer: 5
   m_Name: Win Canvas
   m_TagString: Untagged
@@ -8263,6 +8265,20 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1361043696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1361043690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3083375479b6de94a807f1ec4bea4fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClips:
+  - {fileID: 8300000, guid: e5f78c6e42da6f14caa2b364ace2ae43, type: 3}
+  - {fileID: 8300000, guid: f56f6bccb0324e643b42842512048dda, type: 3}
 --- !u!1 &1365228638
 GameObject:
   m_ObjectHideFlags: 0
