@@ -22,8 +22,6 @@ public class LetterTile : MonoBehaviour
     {
         if (LetterUsed)
         {
-            this.GetComponent<PlayAudio>().PlayRandom();
-
             LetterUsed = false;
             LinkedAnswerTile.LetterPressed();
         }
