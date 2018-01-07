@@ -1995,7 +1995,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 985238610}
         m_MethodName: CloseCreditsPanel
         m_Mode: 1
         m_Arguments:
@@ -2006,7 +2006,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1448238418}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
