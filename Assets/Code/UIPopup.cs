@@ -18,6 +18,8 @@ public class UIPopup : UI
     public CanvasGroup HintsPanel, GemsPanel, OptionsPanel, CreditsPanel;
     public WinUI WinUi;
 
+    private SocialShareSheet SocialShare;
+
     void Start()
     {
         if (ColorButton != null)
@@ -188,21 +190,20 @@ public class UIPopup : UI
 
     public void Share()
     {
-        SocialShareSheet _shareSheet = new SocialShareSheet();
-        _shareSheet.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1);
+        SocialShare = new SocialShareSheet();
+        SocialShare.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1);
 
 #if UNITY_IOS
-        _shareSheet.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
+        SocialShare.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
 #elif UNITY_ANDROID
         _shareSheet.URL = m_shareURL;
 #endif
-        GemsPanel.alpha = 0;
-        _shareSheet.AttachScreenShot();
-        GemsPanel.alpha = 1;
+
+        StartCoroutine(Screenshot());
 
         // Show composer
         NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
-        NPBinding.Sharing.ShowView(_shareSheet, FinishedSharing);
+        NPBinding.Sharing.ShowView(SocialShare, FinishedSharing);
     }
 
     public void OpenCreditsPanel()
@@ -231,6 +232,15 @@ public class UIPopup : UI
         {
             ClosePopup(CreditsPanel);
         }
+    }
+
+    IEnumerator Screenshot()
+    {
+        GemsPanel.alpha = 0;
+        yield return new WaitForSeconds(0.1f);
+        SocialShare.AttachScreenShot();
+        yield return new WaitForSeconds(0.1f);
+        GemsPanel.alpha = 1;
     }
 
 
