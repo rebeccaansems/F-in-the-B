@@ -60,6 +60,11 @@ public class UIPopup : UI
         {
             ClosePopup(new CanvasGroup[] { OptionsPanel });
         }
+
+        if (CreditsPanel.alpha == 1)
+        {
+            ClosePopup(new CanvasGroup[] { CreditsPanel });
+        }
     }
 
     public void CloseHintPanel()

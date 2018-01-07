@@ -24,6 +24,9 @@ GameObject:
   - component: {fileID: 114329085289072452}
   - component: {fileID: 114390290256708164}
   - component: {fileID: 114403014659451928}
+  - component: {fileID: 114888050107748528}
+  - component: {fileID: 114532518316862338}
+  - component: {fileID: 82556356389273580}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -44,6 +47,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82556356389273580
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201564290882598}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114174736817425062
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,6 +182,21 @@ MonoBehaviour:
   PlayerGems: {fileID: 0}
   LoseGemsParticleSystem: {fileID: 0}
   GainGemsParticleSystem: {fileID: 0}
+--- !u!114 &114532518316862338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201564290882598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753c86f9eda8403458ab4865ea57abcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BackgroundMusic:
+  - {fileID: 8300000, guid: 9613500cd349b7b4b8d3674f875fb99b, type: 3}
+  - {fileID: 8300000, guid: b5429becd4124bc488084d800443b1ba, type: 3}
+  - {fileID: 8300000, guid: eebc2db39a0720744b8b15cd37665d6d, type: 3}
 --- !u!114 &114536022475902768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,3 +210,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tile: {fileID: 1840467601639030, guid: 2abe2febd27a03a41af1b1d830efc04f, type: 2}
   TileParent: {fileID: 0}
+--- !u!114 &114888050107748528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201564290882598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e67e26d23e8b74d9b009746f8790f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WinUi: {fileID: 0}
+  CategoryText: {fileID: 0}
+  CurrentPuzzleNumber: {fileID: 0}
