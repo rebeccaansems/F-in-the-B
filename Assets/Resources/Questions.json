@@ -1,16 +1,88 @@
 {
   "Questions": [
     {
-      "Question": "5 Vowels IN THE English Alphabet",
-      "Hint": "Language"
+      "Question": "375 Snakes ARE Venomous ",
+      "Hint": "Animals"
     },
     {
-      "Question": "26 Letters IN THE English Alphabet",
-      "Hint": "Language"
+      "Question": "8 Species OF Bear",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "5 Types OF River Dolphin",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "58 Breeds OF Cat",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "339 Breeds OF Dog",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "38 Kinds OF Ocean Dolphin ",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "11 Protons IN A Sodium Atom",
+      "Hint": "Chemistry"
+    },
+    {
+      "Question": "2 OR 4 Electrons IN A Carbon Atom",
+      "Hint": "Chemistry"
+    },
+    {
+      "Question": "2 Oxygen Atoms IN A Water Molecule",
+      "Hint": "Chemistry"
     },
     {
       "Question": "8 Movies IN Harry Potter",
-      "Hint": "Entertainment"
+      "Hint": "Films"
+    },
+    {
+      "Question": "11 Oscars FOR Titanic",
+      "Hint": "Films"
+    },
+    {
+      "Question": "22 Oscars FOR Walt Disney",
+      "Hint": "Films"
+    },
+    {
+      "Question": "63 Films WITH Alan Rickman",
+      "Hint": "Films"
+    },
+    {
+      "Question": "98 Films WITH Elizabeth Taylor",
+      "Hint": "Films"
+    },
+    {
+      "Question": "63 Films WITH Jack Nicholson",
+      "Hint": "Films"
+    },
+    {
+      "Question": "31 Films WITH Audrey Hepburn",
+      "Hint": "Films"
+    },
+    {
+      "Question": "1831 Varieties OF Cheese",
+      "Hint": "Food"
+    },
+    {
+      "Question": "350 Types OF Pasta",
+      "Hint": "Food"
+    },
+    {
+      "Question": "4 Queens IN A Deck OF Cards",
+      "Hint": "Games"
+    },
+    {
+      "Question": "4 Kings IN A Deck OF Cards",
+      "Hint": "Games"
+    },
+    {
+      "Question": "2 Jokers IN A Deck OF Cards",
+      "Hint": "Games"
     },
     {
       "Question": "44 Countries IN Europe",
@@ -57,8 +129,60 @@
       "Hint": "Geography"
     },
     {
+      "Question": "6909 Languages IN THE World",
+      "Hint": "Geography"
+    },
+    {
       "Question": "40 National Parks IN Canada",
       "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "5 Vowels IN THE English Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "26 Letters IN THE English Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "24 Letters IN THE Greek Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "33 Letters IN THE Russian Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "28 Letters IN THE Welsh Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "38 Letters IN THE Armenian Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "33 Letters IN THE Ukrainian Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "3 Books IN The Hunger Games",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "7 Books BY Jane Austin",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "6 Novels BY George Orwell",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "3 Books IN The Lord Of The Rings",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "4 Books IN Twilight",
+      "Hint": "Literature"
     },
     {
       "Question": "13 Items IN A Bakers Dozen",
@@ -101,11 +225,67 @@
       "Hint": "Measurements"
     },
     {
-      "Question": "40 Quarters IN A Roll",
+      "Question": "4840 Square Yards IN A Acre",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "10000 Square Meters IN A Hectare",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "4 Quarters IN A Dollar",
       "Hint": "Money"
     },
     {
+      "Question": "21 Grammys FOR Kayne West",
+      "Hint": "Music"
+    },
+    {
+      "Question": "22 Grammys FOR Beyonce",
+      "Hint": "Music"
+    },
+    {
+      "Question": "8 Grammys FOR Thriller",
+      "Hint": "Music"
+    },
+    {
+      "Question": "6 Albums FROM Taylor Swift",
+      "Hint": "Music"
+    },
+    {
+      "Question": "3 Albums FROM Ed Sheeran",
+      "Hint": "Music"
+    },
+    {
+      "Question": "59 Albums FROM Frank Sinatra",
+      "Hint": "Music"
+    },
+    {
+      "Question": "13 Albums FROM Billy Joel",
+      "Hint": "Music"
+    },
+    {
+      "Question": "7485 Broadway Shows OF Cats",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "12 Tony Awards FOR The Producers",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "11 Tony Awards FOR Hamilton",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "8388 Broadway Shows OF Cats",
+      "Hint": "Musicals"
+    },
+    {
       "Question": "12 Zeros IN A Billion",
+      "Hint": "Numbers"
+    },
+    {
+      "Question": "12 Zeros IN A Trillion",
       "Hint": "Numbers"
     },
     {
@@ -117,12 +297,84 @@
       "Hint": "Space"
     },
     {
-      "Question": "32 Teams IN THE NFL",
+      "Question": "32 Teams IN THE Nfl",
       "Hint": "Sports"
     },
     {
       "Question": "9 Innings IN Baseball",
       "Hint": "Sports"
+    },
+    {
+      "Question": "4 Quarters IN A Football Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "21 Points IN Badminton",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "3 Periods IN A Hockey Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "4 Periods IN A Lacrosse Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "4 Grand Slams IN Tennis",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "8 Stones IN Curling",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "15 Sports IN THE Winter Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "28 Sports IN THE Summer Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "23 Cities HOSTED Summer Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "16 Cities HOSTED Winter Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "11 Positions IN Soccer",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "30 Players IN A Rugby Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "30 Teams IN THE Nba",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "30 Teams IN THE Mlb",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "31 Teams IN THE Nhl",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "37 Emmys FOR Frasier",
+      "Hint": "Television"
+    },
+    {
+      "Question": "38 Emmys FOR Game Of Thrones",
+      "Hint": "Television"
+    },
+    {
+      "Question": "32 Emmys FOR The Simpsons",
+      "Hint": "Television"
     },
     {
       "Question": "365 Days IN A Year",
@@ -161,68 +413,96 @@
       "Hint": "Weather"
     },
     {
-      "Question": "375 Snakes ARE Venomous ",
-      "Hint": "Animals"
+      "Question": "11 Systems FROM Nintendo",
+      "Hint": "Video Games"
     },
     {
-      "Question": "8 Species OF Bear",
-      "Hint": "Animals"
+      "Question": "23 Handheld Systems FROM Nintendo",
+      "Hint": "Video Games"
     },
     {
-      "Question": "5 Types OF River Dolphin",
-      "Hint": "Animals"
+      "Question": "4 Types OF Xbox",
+      "Hint": "Video Games"
     },
     {
-      "Question": "12 Zeros IN A Trillion",
-      "Hint": "Numbers"
+      "Question": "10 Games IN Assassins Creed",
+      "Hint": "Video Games"
     },
     {
-      "Question": "1831 Varieties OF Cheese",
-      "Hint": "Food"
+      "Question": "15 Games IN Legend Of Zelda",
+      "Hint": "Video Games"
     },
     {
-      "Question": "24 Letters IN THE Greek Alphabet",
-      "Hint": "Language"
+      "Question": "10 Versions OF Mario Party",
+      "Hint": "Video Games"
     },
     {
-      "Question": "33 Letters IN THE Russian Alphabet",
-      "Hint": "Language"
+      "Question": "10 Games IN Forza",
+      "Hint": "Video Games"
     },
     {
-      "Question": "28 Letters IN THE Welsh Alphabet",
-      "Hint": "Language"
+      "Question": "206 Bones IN THE Body",
+      "Hint": "Humans"
     },
     {
-      "Question": "38 Letters IN THE Armenian Alphabet",
-      "Hint": "Language"
+      "Question": "32 Teeth IN A Mouth",
+      "Hint": "Humans"
     },
     {
-      "Question": "33 Letters IN THE Ukrainian Alphabet",
-      "Hint": "Language"
+      "Question": "27 Bones IN THE Hand",
+      "Hint": "Humans"
     },
     {
-      "Question": "350 Types OF Pasta",
-      "Hint": "Food"
+      "Question": "33 Joints IN THE Foot",
+      "Hint": "Humans"
     },
     {
-      "Question": "58 Breeds OF Cat",
-      "Hint": "Animals"
+      "Question": "8 Types OF Blood",
+      "Hint": "Humans"
     },
     {
-      "Question": "339 Breeds OF Dog",
-      "Hint": "Animals"
+      "Question": "300 Bones IN A Baby",
+      "Hint": "Humans"
     },
     {
-      "Question": "38 Kinds OF Ocean Dolphin ",
-      "Hint": "Animals"
+      "Question": "4 Types OF Hair",
+      "Hint": "Humans"
     },
     {
-      "Question": "4 Quarters IN A Football Game",
-      "Hint": "Sports"
+      "Question": "3 Races OF People",
+      "Hint": "Humans"
     },
     {
-      "Question": "21 Points IN Badminton",
-      "Hint": "Sports"
+      "Question": "58 National Parks IN America",
+      "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "2663 Miles IN THE Pacific Crest Trail",
+      "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "14 Mountains OVER 8000 Meters Tall",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "5 Lakes IN THE Great Lakes",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "5500 Miles IS THE Great Wall Of China",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "324 Meters Tall IS THE Eiffel Tower",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "3 Pyramids IN Giza",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "93 Meters Tall IS THE Statue Of Liberty",
+      "Hint": "Geography"
     }
   ]
 }
