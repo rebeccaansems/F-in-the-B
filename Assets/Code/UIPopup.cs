@@ -190,20 +190,7 @@ public class UIPopup : UI
 
     public void Share()
     {
-        SocialShare = new SocialShareSheet();
-        SocialShare.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1);
-
-#if UNITY_IOS
-        SocialShare.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
-#elif UNITY_ANDROID
-        _shareSheet.URL = m_shareURL;
-#endif
-
-        StartCoroutine(Screenshot());
-
-        // Show composer
-        NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
-        NPBinding.Sharing.ShowView(SocialShare, FinishedSharing);
+        StartCoroutine(ShareWithScreenshot());
     }
 
     public void OpenCreditsPanel()
@@ -234,11 +221,25 @@ public class UIPopup : UI
         }
     }
 
-    IEnumerator Screenshot()
+    IEnumerator ShareWithScreenshot()
     {
         GemsPanel.alpha = 0;
         yield return new WaitForEndOfFrame();
+
+        SocialShare = new SocialShareSheet();
+#if UNITY_IOS
+        SocialShare.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
+#elif UNITY_ANDROID
+        _shareSheet.URL = m_shareURL;
+#endif
+        SocialShare.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1) +" "+ SocialShare.URL;
+
         SocialShare.AttachScreenShot();
+
+        // Show composer
+        NPBinding.UI.SetPopoverPointAtLastTouchPosition(); // To show popover at last touch point on iOS. On Android, its ignored.
+        NPBinding.Sharing.ShowView(SocialShare, FinishedSharing);
+
         yield return new WaitForEndOfFrame();
         GemsPanel.alpha = 1;
     }
