@@ -232,7 +232,7 @@ public class UIPopup : UI
 #elif UNITY_ANDROID
         _shareSheet.URL = m_shareURL;
 #endif
-        SocialShare.Text = "I've working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1) +" "+ SocialShare.URL;
+        SocialShare.Text = "I'm working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1) +", any suggestions? "+ SocialShare.URL;
 
         SocialShare.AttachScreenShot();
 
