@@ -237,9 +237,9 @@ public class UIPopup : UI
     IEnumerator Screenshot()
     {
         GemsPanel.alpha = 0;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         SocialShare.AttachScreenShot();
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForEndOfFrame();
         GemsPanel.alpha = 1;
     }
 
