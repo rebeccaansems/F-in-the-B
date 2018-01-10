@@ -5,14 +5,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 
-public class MenuItems
+public class FintheBEditorItems
 {
-    [MenuItem("Tools/Clear PlayerPrefs")]
-    private static void ClearPlayerPrefs()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-
     [MenuItem("Tools/Check Questions Validity")]
     public static void CheckIfValid()
     {
@@ -31,6 +25,12 @@ public class MenuItems
             }
         }
         Debug.Log("Question Check Complete");
+    }
+
+    [MenuItem("Tools/In Game/Reset Gems 100")]
+    public static void ResetGems()
+    {
+        PlayerStats.Instance.ChangeGems(100 - PlayerStats.s_PlayerGems);
     }
 
 
