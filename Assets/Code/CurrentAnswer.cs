@@ -20,7 +20,7 @@ public class CurrentAnswer : MonoBehaviour
     {
         s_CorrectAnswer = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Question;
         CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Hint;
-        CurrentPuzzleNumber.text = "Puzzle #" + PlayerStats.s_CurrentLevel.ToString("000");
+        CurrentPuzzleNumber.text = "Puzzle #" + (PlayerStats.s_CurrentLevel + 1).ToString("000");
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
