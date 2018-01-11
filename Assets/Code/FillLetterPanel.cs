@@ -64,6 +64,7 @@ public class FillLetterPanel : MonoBehaviour
         {
             button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
             button.GetComponent<LetterTile>().LetterUsed = false;
+            button.interactable = true;
         }
 
         if (PlayerStats.s_ColorHintUsed[PlayerStats.s_CurrentLevel] == '1')
@@ -90,7 +91,7 @@ public class FillLetterPanel : MonoBehaviour
     {
         foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => !x.IsRequiredForAnswer))
         {
-            tile.DisableLetter();
+            tile.HardDisable();
         }
     }
 
@@ -98,7 +99,7 @@ public class FillLetterPanel : MonoBehaviour
     {
         foreach (LetterTile tile in TileParent.transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsPartOfFirstWord))
         {
-            tile.DisableLetter();
+            tile.HardDisable();
         }
     }
 }
