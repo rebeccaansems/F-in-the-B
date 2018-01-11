@@ -742,7 +742,7 @@ Prefab:
     - target: {fileID: 224481527494191682, guid: 89bd7fda250605449b399ee5bb485352,
         type: 2}
       propertyPath: m_LocalPosition.y
-      value: -210
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224481527494191682, guid: 89bd7fda250605449b399ee5bb485352,
         type: 2}
@@ -9442,7 +9442,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1448238417
 RectTransform:

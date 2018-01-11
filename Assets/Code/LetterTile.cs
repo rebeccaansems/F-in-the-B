@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 public class LetterTile : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class LetterTile : MonoBehaviour
                 if (CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1] ==
                     CurrentAnswer.s_PlayersCorrectAnswer[CurrentAnswer.s_PlayersAttempt.Length - 1])
                 {
-                    SoftDisable();
+                    StartCoroutine(PlayParticlesCorrectLetter());
                 }
             }
 
@@ -60,7 +61,7 @@ public class LetterTile : MonoBehaviour
 
         if (CurrentAnswer.s_PlayersAttempt[pos] == CurrentAnswer.s_PlayersCorrectAnswer[pos])
         {
-            SoftDisable();
+            StartCoroutine(PlayParticlesCorrectLetter());
         }
     }
 
@@ -82,9 +83,10 @@ public class LetterTile : MonoBehaviour
         this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
     }
 
-    private void SoftDisable()
+    IEnumerator PlayParticlesCorrectLetter()
     {
-        this.GetComponent<Button>().interactable = false;
-        this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
+        yield return new WaitForEndOfFrame();
+        LinkedAnswerTile.gameObject.GetComponentsInChildren<ParticleSystem>()[0].Play();
+        LinkedAnswerTile.gameObject.GetComponentsInChildren<ParticleSystem>()[0].gameObject.GetComponent<PlayAudio>().PlayRandom();
     }
 }
