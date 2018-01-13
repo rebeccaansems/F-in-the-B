@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,8 +14,12 @@ public class CurrentAnswer : MonoBehaviour
     public static string s_PlayersAttempt = "";
 
     public static string[] s_CorrectAnswerLetters;
+    public static string[] s_PlayersCorrectAnswerSeparateWords;
 
     public static bool s_PlayersAnswerIsNotComplete = true;
+
+    public static ParticleSystem[][] s_EditableTileParticleSystems;
+    public static List<ParticleSystem> s_BeginningTileParticleSystems;
 
     public void Awake()
     {
@@ -26,12 +31,20 @@ public class CurrentAnswer : MonoBehaviour
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
         s_CorrectAnswerLetters = s_CorrectAnswerLetters.Where(x => !string.IsNullOrEmpty(x)).ToArray();
 
+        s_PlayersCorrectAnswerSeparateWords = s_CorrectAnswerLetters;
         s_PlayersCorrectAnswer = string.Join("", s_CorrectAnswerLetters);
+
+        s_BeginningTileParticleSystems = new List<ParticleSystem>();
+        s_EditableTileParticleSystems = new ParticleSystem[s_PlayersCorrectAnswerSeparateWords.Length][];
+        for (int i = 0; i < s_EditableTileParticleSystems.Length; i++)
+        {
+            s_EditableTileParticleSystems[i] = new ParticleSystem[s_PlayersCorrectAnswerSeparateWords[i].Length];
+        }
     }
 
     private void Start()
     {
-        s_PlayersAttempt = "";
+        s_PlayersAttempt = new string('_', s_PlayersCorrectAnswer.Length);
         s_PlayersAnswerIsNotComplete = true;
     }
 

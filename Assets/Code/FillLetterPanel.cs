@@ -11,8 +11,6 @@ public class FillLetterPanel : MonoBehaviour
 
     void Start()
     {
-        string singleCorrectAnswer = string.Join("", CurrentAnswer.s_CorrectAnswerLetters);
-
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 4; j++)
@@ -26,9 +24,9 @@ public class FillLetterPanel : MonoBehaviour
         System.Random r = new System.Random();
         foreach (Text tile in TileParent.transform.GetComponentsInChildren<Text>().OrderBy(x => r.Next()))
         {
-            if (counter < singleCorrectAnswer.Length)
+            if (counter < CurrentAnswer.s_PlayersCorrectAnswer.Length)
             {
-                tile.text = singleCorrectAnswer[counter].ToString();
+                tile.text = CurrentAnswer.s_PlayersCorrectAnswer[counter].ToString();
                 tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = true;
 
                 tile.GetComponentInParent<LetterTile>().IsPartOfFirstWord = false;

@@ -51,6 +51,10 @@ public class FillAnswerPanel : MonoBehaviour
                         TileParent.transform.GetComponentsInChildren<AnswerTile>()[i + currentLetter].IndexInAnswer = editableCount;
                         editableCount++;
                     }
+                    else if (splitCorrectAnswer[j][i] != '_' && splitCorrectAnswer[j].Length > i + 1 && splitCorrectAnswer[j][i + 1] == '_')
+                    {
+                        CurrentAnswer.s_BeginningTileParticleSystems.Add(TileParent.transform.GetComponentsInChildren<ParticleSystem>()[i + currentLetter]);
+                    }
                 }
 
                 if (splitCorrectAnswer[j].Length + (currentLetter % tilesPerRow) != tilesPerRow)
@@ -138,7 +142,7 @@ public class FillAnswerPanel : MonoBehaviour
         FillLetters();
 
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
-        CurrentAnswer.s_PlayersAttempt = "";
+        CurrentAnswer.s_PlayersAttempt = new string('_', CurrentAnswer.s_PlayersCorrectAnswer.Length);
     }
 
     public void FillFirstWord()

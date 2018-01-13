@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-using System.Text;
-using System.Collections;
 
 public class LetterTile : MonoBehaviour
 {
     public bool IsRequiredForAnswer = false, IsPartOfFirstWord = false, LetterUsed = false;
     public Color AlternateColorLight, AlternateColorDark;
     public AnswerTile LinkedAnswerTile;
-
+    
     private GameObject gameController;
 
     private void Awake()
@@ -39,12 +37,6 @@ public class LetterTile : MonoBehaviour
             else
             {
                 CurrentAnswer.s_PlayersAttempt += this.GetComponentInChildren<Text>().text;
-
-                if (CurrentAnswer.s_PlayersAttempt[CurrentAnswer.s_PlayersAttempt.Length - 1] ==
-                    CurrentAnswer.s_PlayersCorrectAnswer[CurrentAnswer.s_PlayersAttempt.Length - 1])
-                {
-                    StartCoroutine(PlayParticlesCorrectLetter());
-                }
             }
 
             this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
@@ -58,11 +50,6 @@ public class LetterTile : MonoBehaviour
         int pos = text.IndexOf(search);
 
         CurrentAnswer.s_PlayersAttempt = text.Substring(0, pos) + replace + text.Substring(pos + search.Length);
-
-        if (CurrentAnswer.s_PlayersAttempt[pos] == CurrentAnswer.s_PlayersCorrectAnswer[pos])
-        {
-            StartCoroutine(PlayParticlesCorrectLetter());
-        }
     }
 
     public void SwapToAlternateColorScheme()
@@ -81,12 +68,5 @@ public class LetterTile : MonoBehaviour
     {
         this.GetComponent<Button>().interactable = false;
         this.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = true;
-    }
-
-    IEnumerator PlayParticlesCorrectLetter()
-    {
-        yield return new WaitForEndOfFrame();
-        LinkedAnswerTile.gameObject.GetComponentsInChildren<ParticleSystem>()[0].Play();
-        LinkedAnswerTile.gameObject.GetComponentsInChildren<ParticleSystem>()[0].gameObject.GetComponent<PlayAudio>().PlayRandom();
     }
 }
