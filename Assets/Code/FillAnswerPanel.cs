@@ -131,7 +131,7 @@ public class FillAnswerPanel : MonoBehaviour
 
         for (int i = 0; i < allPossibleEditables.Count; i++)
         {
-            allPossibleEditables[i].gameObject.GetComponentInChildren<Text>().text = CurrentAnswer.s_PlayersAttempt[i].ToString();
+            allPossibleEditables[i].gameObject.GetComponentInChildren<Text>().text = CurrentAnswer.s_PlayersAttempt[i + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#')].ToString();
         }
 
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
@@ -143,7 +143,15 @@ public class FillAnswerPanel : MonoBehaviour
         FillLetters();
 
         CurrentAnswer.s_PlayersAnswerIsNotComplete = true;
-        CurrentAnswer.s_PlayersAttempt = new string('_', CurrentAnswer.s_PlayersCorrectAnswer.Length);
+
+        if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+        {
+            CurrentAnswer.s_PlayersAttempt = new string('#', CurrentAnswer.s_PlayersCorrectAnswerSeparateWords[0].Length) + new string('_', CurrentAnswer.s_PlayersCorrectAnswer.Length);
+        }
+        else
+        {
+            CurrentAnswer.s_PlayersAttempt = new string('_', CurrentAnswer.s_PlayersCorrectAnswer.Length);
+        }
     }
 
     public void FillFirstWord()

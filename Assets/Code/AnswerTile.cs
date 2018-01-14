@@ -19,8 +19,16 @@ public class AnswerTile : MonoBehaviour
 
         if (this.GetComponentInChildren<Text>().text == "_")
         {
-            WordIndexInAnswer = GetCurrentWord(IndexInAnswer);
-            IndexInWord = GetCurrentIndexInWord(IndexInAnswer);
+            if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
+            {
+                WordIndexInAnswer = GetCurrentWord(IndexInAnswer);
+                IndexInWord = GetCurrentIndexInWord(IndexInAnswer);
+            }
+            else
+            {
+                WordIndexInAnswer = GetCurrentWord(IndexInAnswer);
+                IndexInWord = GetCurrentIndexInWord(IndexInAnswer);
+            }
             CurrentAnswer.s_EditableTileParticleSystems[WordIndexInAnswer][IndexInWord] = this.GetComponentsInChildren<ParticleSystem>()[0];
         }
         else
@@ -34,7 +42,8 @@ public class AnswerTile : MonoBehaviour
     {
         this.GetComponent<PlayAudio>().PlayRandom();
 
-        CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer, 1).Insert(IndexInAnswer, "_");
+        CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#'), 1)
+            .Insert(IndexInAnswer + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#'), "_");
         this.GetComponent<Button>().interactable = false;
 
         LinkedLetterTile.GetComponent<Button>().interactable = true;
