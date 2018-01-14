@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +10,8 @@ public class FillLetterPanel : MonoBehaviour
 
     void Start()
     {
+        string singleCorrectAnswer = string.Join("", CurrentAnswer.s_CorrectAnswerLetters);
+
         for (int i = 0; i < 6; i++)
         {
             for (int j = 0; j < 4; j++)
@@ -24,9 +25,9 @@ public class FillLetterPanel : MonoBehaviour
         System.Random r = new System.Random();
         foreach (Text tile in TileParent.transform.GetComponentsInChildren<Text>().OrderBy(x => r.Next()))
         {
-            if (counter < CurrentAnswer.s_PlayersCorrectAnswer.Length)
+            if (counter < singleCorrectAnswer.Length)
             {
-                tile.text = CurrentAnswer.s_PlayersCorrectAnswer[counter].ToString();
+                tile.text = singleCorrectAnswer[counter].ToString();
                 tile.GetComponentInParent<LetterTile>().IsRequiredForAnswer = true;
 
                 tile.GetComponentInParent<LetterTile>().IsPartOfFirstWord = false;
