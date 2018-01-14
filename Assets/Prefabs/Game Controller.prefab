@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 114390290256708164}
   - component: {fileID: 114403014659451928}
   - component: {fileID: 114888050107748528}
+  - component: {fileID: 114689525701686314}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -113,6 +114,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tile: {fileID: 1840467601639030, guid: 2abe2febd27a03a41af1b1d830efc04f, type: 2}
   TileParent: {fileID: 0}
+--- !u!114 &114689525701686314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201564290882598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3083375479b6de94a807f1ec4bea4fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClips:
+  - {fileID: 8300000, guid: aa59e2eb854ab4242904f521bb2ce972, type: 3}
+  - {fileID: 8300000, guid: 1e1deff8a68566e489c6c138f0716e1a, type: 3}
 --- !u!114 &114888050107748528
 MonoBehaviour:
   m_ObjectHideFlags: 1

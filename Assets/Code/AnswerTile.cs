@@ -73,6 +73,7 @@ public class AnswerTile : MonoBehaviour
 
         if (!playerAnswer[WordIndexInAnswer].Contains("_") && playerAnswer[WordIndexInAnswer] == CurrentAnswer.s_PlayersCorrectAnswerSeparateWords[WordIndexInAnswer])
         {
+            gameController.GetComponent<PlayAudio>().PlayRandom();
             CurrentAnswer.s_BeginningTileParticleSystems[WordIndexInAnswer].Play();
             foreach (ParticleSystem ps in CurrentAnswer.s_EditableTileParticleSystems[WordIndexInAnswer])
             {
