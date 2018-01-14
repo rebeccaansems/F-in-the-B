@@ -8357,6 +8357,36 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: WinUi
+      value: 
+      objectReference: {fileID: 1361043694}
+    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CategoryText
+      value: 
+      objectReference: {fileID: 494112160}
+    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CurrentPuzzleNumber
+      value: 
+      objectReference: {fileID: 886050087}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: WinUi
+      value: 
+      objectReference: {fileID: 1361043694}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CategoryText
+      value: 
+      objectReference: {fileID: 494112160}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CurrentPuzzleNumber
+      value: 
+      objectReference: {fileID: 886050087}
     - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
       propertyPath: PlayerGems
@@ -8372,36 +8402,6 @@ Prefab:
       propertyPath: GainGemsParticleSystem
       value: 
       objectReference: {fileID: 1781576677}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi
-      value: 
-      objectReference: {fileID: 1361043694}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText
-      value: 
-      objectReference: {fileID: 494112160}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber
-      value: 
-      objectReference: {fileID: 886050087}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi
-      value: 
-      objectReference: {fileID: 1361043694}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText
-      value: 
-      objectReference: {fileID: 494112160}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber
-      value: 
-      objectReference: {fileID: 886050087}
     - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
       propertyPath: TileParent
