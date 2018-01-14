@@ -109,7 +109,8 @@ public class FillAnswerPanel : MonoBehaviour
             allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
             if (CurrentAnswer.s_PlayersAttempt.Length > allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer)
             {
-                allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer].ToString();
+                allPossibleOpenings.First().text = CurrentAnswer.s_PlayersAttempt[allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().IndexInAnswer
+                    + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#')].ToString();
                 allPossibleOpenings.First().transform.parent.GetComponent<AnswerTile>().LinkLetters(currLetterTile);
 
                 if (allPossibleOpenings.Count == 1)
@@ -157,7 +158,7 @@ public class FillAnswerPanel : MonoBehaviour
             splitCorrectAnswer[i] = Regex.Replace(splitCorrectAnswer[i], @"[a-z]", "_");
         }
 
-        CurrentAnswer.s_PlayersCorrectAnswerSeparateWords = CurrentAnswer.s_PlayersCorrectAnswerSeparateWords;
+        CurrentAnswer.s_PlayersAttempt = new string('#', CurrentAnswer.s_PlayersCorrectAnswerSeparateWords[0].Length) + new string('_', CurrentAnswer.s_PlayersCorrectAnswer.Length);
         CurrentAnswer.s_PlayersCorrectAnswer = editedCorrectAnswer;
         FillLetters();
 

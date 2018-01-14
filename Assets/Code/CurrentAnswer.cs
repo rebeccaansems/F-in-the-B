@@ -50,7 +50,7 @@ public class CurrentAnswer : MonoBehaviour
 
     private void Update()
     {
-        if (Regex.Replace(s_PlayersAttempt, "_", "") == s_PlayersCorrectAnswer)
+        if (Regex.Replace(s_PlayersAttempt, "_", "").Replace("#", "") == s_PlayersCorrectAnswer)
         {
             WinUi.GetComponent<WinUI>().MakeWinVisible();
         }
