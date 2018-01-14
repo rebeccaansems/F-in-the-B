@@ -21,8 +21,8 @@ public class AnswerTile : MonoBehaviour
         {
             if (PlayerStats.s_FillHintUsed[PlayerStats.s_CurrentLevel] == '1')
             {
-                WordIndexInAnswer = GetCurrentWord(IndexInAnswer);
-                IndexInWord = GetCurrentIndexInWord(IndexInAnswer);
+                WordIndexInAnswer = GetCurrentWord(IndexInAnswer + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#'));
+                IndexInWord = GetCurrentIndexInWord(IndexInAnswer + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#'));
             }
             else
             {
