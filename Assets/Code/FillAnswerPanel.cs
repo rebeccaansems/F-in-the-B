@@ -128,7 +128,7 @@ public class FillAnswerPanel : MonoBehaviour
     {
         List<AnswerTile> allPossibleEditables = TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).ToList();
 
-        for (int i = 0; i < CurrentAnswer.s_PlayersAttempt.Length; i++)
+        for (int i = 0; i < allPossibleEditables.Count; i++)
         {
             allPossibleEditables[i].gameObject.GetComponentInChildren<Text>().text = CurrentAnswer.s_PlayersAttempt[i].ToString();
         }
@@ -157,6 +157,7 @@ public class FillAnswerPanel : MonoBehaviour
             splitCorrectAnswer[i] = Regex.Replace(splitCorrectAnswer[i], @"[a-z]", "_");
         }
 
+        CurrentAnswer.s_PlayersCorrectAnswerSeparateWords = CurrentAnswer.s_PlayersCorrectAnswerSeparateWords;
         CurrentAnswer.s_PlayersCorrectAnswer = editedCorrectAnswer;
         FillLetters();
 
