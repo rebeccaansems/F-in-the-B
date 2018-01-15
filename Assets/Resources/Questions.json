@@ -25,6 +25,10 @@
       "Hint": "Animals"
     },
     {
+      "Question": "440 Species OF Shark",
+      "Hint": "Animals"
+    },
+    {
       "Question": "11 Protons IN A Sodium Atom",
       "Hint": "Chemistry"
     },
@@ -70,6 +74,18 @@
     },
     {
       "Question": "350 Types OF Pasta",
+      "Hint": "Food"
+    },
+    {
+      "Question": "800 Kernels ON A Cob Of Corn",
+      "Hint": "Food"
+    },
+    {
+      "Question": "6 Bananas IN A Bunch",
+      "Hint": "Food"
+    },
+    {
+      "Question": "7500 Varieties OF Apple",
       "Hint": "Food"
     },
     {
@@ -134,7 +150,99 @@
     },
     {
       "Question": "40 National Parks IN Canada",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "14 Mountains OVER 8000 Meters Tall",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "5 Lakes IN THE Great Lakes",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "5500 Miles IS THE Great Wall Of China",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "324 Meters Tall IS THE Eiffel Tower",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "3 Pyramids IN Giza",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "93 Meters Tall IS THE Statue Of Liberty",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "7 Billions People ON Earth",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "23 Provinces IN China",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "100 Yen IN A Dollar",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "60 Rupees IN A Dollar",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "8 Islands IN Hawaii",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "17508 Islands IN Indonesia",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "6852 Islands IN Japan",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "58 National Parks IN America",
       "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "2663 Miles IN THE Pacific Crest Trail",
+      "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "206 Bones IN THE Body",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "32 Teeth IN A Mouth",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "27 Bones IN THE Hand",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "33 Joints IN THE Foot",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "8 Types OF Blood",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "300 Bones IN A Baby",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "4 Types OF Hair",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "3 Races OF People",
+      "Hint": "Humans"
     },
     {
       "Question": "5 Vowels IN THE English Alphabet",
@@ -233,6 +341,14 @@
       "Hint": "Measurements"
     },
     {
+      "Question": "14 Pounds IN A Stone",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "2240 Pounds IN A Ton",
+      "Hint": "Measurements"
+    },
+    {
       "Question": "4 Quarters IN A Dollar",
       "Hint": "Money"
     },
@@ -262,6 +378,30 @@
     },
     {
       "Question": "13 Albums FROM Billy Joel",
+      "Hint": "Music"
+    },
+    {
+      "Question": "9 Types OF Guitar",
+      "Hint": "Music"
+    },
+    {
+      "Question": "4 Strings ON A Bass Guitar",
+      "Hint": "Music"
+    },
+    {
+      "Question": "7  Holes ON A Recorder",
+      "Hint": "Music"
+    },
+    {
+      "Question": "52 White Keys ON A Piano",
+      "Hint": "Music"
+    },
+    {
+      "Question": "36 Black Keys ON A Piano",
+      "Hint": "Music"
+    },
+    {
+      "Question": "12 Notes IN A Octave",
       "Hint": "Music"
     },
     {
@@ -365,6 +505,10 @@
       "Hint": "Sports"
     },
     {
+      "Question": "84 Poses IN Yoga",
+      "Hint": "Sports"
+    },
+    {
       "Question": "37 Emmys FOR Frasier",
       "Hint": "Television"
     },
@@ -374,6 +518,14 @@
     },
     {
       "Question": "32 Emmys FOR The Simpsons",
+      "Hint": "Television"
+    },
+    {
+      "Question": "201 Episodes OF The Office",
+      "Hint": "Television"
+    },
+    {
+      "Question": "180 Episodes OF Seinfeld",
       "Hint": "Television"
     },
     {
@@ -409,10 +561,6 @@
       "Hint": "Time"
     },
     {
-      "Question": "7 Colors IN THE Rainbow",
-      "Hint": "Weather"
-    },
-    {
       "Question": "11 Systems FROM Nintendo",
       "Hint": "Video Games"
     },
@@ -441,68 +589,16 @@
       "Hint": "Video Games"
     },
     {
-      "Question": "206 Bones IN THE Body",
-      "Hint": "Humans"
+      "Question": "7 Colors IN THE Rainbow",
+      "Hint": "Weather"
     },
     {
-      "Question": "32 Teeth IN A Mouth",
-      "Hint": "Humans"
+      "Question": "35 Types OF Snowflake",
+      "Hint": "Weather"
     },
     {
-      "Question": "27 Bones IN THE Hand",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "33 Joints IN THE Foot",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "8 Types OF Blood",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "300 Bones IN A Baby",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "4 Types OF Hair",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "3 Races OF People",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "58 National Parks IN America",
-      "Hint": "Great Outdoors"
-    },
-    {
-      "Question": "2663 Miles IN THE Pacific Crest Trail",
-      "Hint": "Great Outdoors"
-    },
-    {
-      "Question": "14 Mountains OVER 8000 Meters Tall",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "5 Lakes IN THE Great Lakes",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "5500 Miles IS THE Great Wall Of China",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "324 Meters Tall IS THE Eiffel Tower",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "3 Pyramids IN Giza",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "93 Meters Tall IS THE Statue Of Liberty",
-      "Hint": "Geography"
+      "Question": "6 Levels IN THE Fujita Scale",
+      "Hint": "Weather"
     }
   ]
 }
