@@ -1,232 +1,108 @@
 {
   "Questions": [
     {
-      "Question": "375 Snakes ARE Venomous ",
-      "Hint": "Animals"
+      "Question": "26 Letters IN THE Alphabet",
+      "Hint": "Language"
     },
     {
-      "Question": "8 Species OF Bear",
-      "Hint": "Animals"
+      "Question": "7 Colors IN THE Rainbow",
+      "Hint": "Weather"
     },
     {
-      "Question": "5 Types OF River Dolphin",
-      "Hint": "Animals"
+      "Question": "12 Months IN A Year",
+      "Hint": "Time"
     },
     {
-      "Question": "58 Breeds OF Cat",
-      "Hint": "Animals"
-    },
-    {
-      "Question": "339 Breeds OF Dog",
-      "Hint": "Animals"
-    },
-    {
-      "Question": "38 Kinds OF Ocean Dolphin ",
-      "Hint": "Animals"
-    },
-    {
-      "Question": "440 Species OF Shark",
-      "Hint": "Animals"
-    },
-    {
-      "Question": "11 Protons IN A Sodium Atom",
-      "Hint": "Chemistry"
-    },
-    {
-      "Question": "2 OR 4 Electrons IN A Carbon Atom",
-      "Hint": "Chemistry"
-    },
-    {
-      "Question": "2 Oxygen Atoms IN A Water Molecule",
-      "Hint": "Chemistry"
-    },
-    {
-      "Question": "8 Movies IN Harry Potter",
-      "Hint": "Films"
-    },
-    {
-      "Question": "11 Oscars FOR Titanic",
-      "Hint": "Films"
-    },
-    {
-      "Question": "22 Oscars FOR Walt Disney",
-      "Hint": "Films"
-    },
-    {
-      "Question": "63 Films WITH Alan Rickman",
-      "Hint": "Films"
-    },
-    {
-      "Question": "98 Films WITH Elizabeth Taylor",
-      "Hint": "Films"
-    },
-    {
-      "Question": "63 Films WITH Jack Nicholson",
-      "Hint": "Films"
-    },
-    {
-      "Question": "31 Films WITH Audrey Hepburn",
-      "Hint": "Films"
-    },
-    {
-      "Question": "1831 Varieties OF Cheese",
-      "Hint": "Food"
-    },
-    {
-      "Question": "350 Types OF Pasta",
-      "Hint": "Food"
-    },
-    {
-      "Question": "800 Kernels ON A Cob Of Corn",
-      "Hint": "Food"
-    },
-    {
-      "Question": "6 Bananas IN A Bunch",
-      "Hint": "Food"
-    },
-    {
-      "Question": "7500 Varieties OF Apple",
-      "Hint": "Food"
-    },
-    {
-      "Question": "4 Queens IN A Deck OF Cards",
-      "Hint": "Games"
+      "Question": "12 Zeros IN A Billion",
+      "Hint": "Numbers"
     },
     {
       "Question": "4 Kings IN A Deck OF Cards",
       "Hint": "Games"
     },
     {
+      "Question": "12 Notes IN A Octave",
+      "Hint": "Music"
+    },
+    {
+      "Question": "7500 Varieties OF Apple",
+      "Hint": "Food"
+    },
+    {
+      "Question": "24 Letters IN THE Greek Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "1831 Varieties OF Cheese",
+      "Hint": "Food"
+    },
+    {
+      "Question": "4 Periods IN A Lacrosse Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "30 Teams IN THE Nba",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "3 Feet IN A Yard",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "3 Periods IN A Hockey Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "4 Cups IN A Quart",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "11 Systems FROM Nintendo",
+      "Hint": "Video Games"
+    },
+    {
+      "Question": "2 Cups IN A Pint",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "22 Grammys FOR Beyonce",
+      "Hint": "Music"
+    },
+    {
       "Question": "2 Jokers IN A Deck OF Cards",
       "Hint": "Games"
     },
     {
-      "Question": "44 Countries IN Europe",
-      "Hint": "Geography"
+      "Question": "58 Breeds OF Cat",
+      "Hint": "Animals"
     },
     {
-      "Question": "50 States IN THE United States",
-      "Hint": "Geography"
+      "Question": "84 Poses IN Yoga",
+      "Hint": "Sports"
     },
     {
-      "Question": "25 Countries IN THE Caribbean",
-      "Hint": "Geography"
+      "Question": "8 Species OF Bear",
+      "Hint": "Animals"
     },
     {
-      "Question": "10 Provinces IN Canada",
-      "Hint": "Geography"
+      "Question": "37 Emmys FOR Frasier",
+      "Hint": "Television"
     },
     {
-      "Question": "5 Oceans IN THE World",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "24 Timezones IN THE World",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "54 Countries IN Africa",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "48 Countries IN Asia",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "14 Countries IN Oceania",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "195 Countries IN THE World",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "2 Countries IN Northern America",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "6909 Languages IN THE World",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "40 National Parks IN Canada",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "14 Mountains OVER 8000 Meters Tall",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "5 Lakes IN THE Great Lakes",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "5500 Miles IS THE Great Wall Of China",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "324 Meters Tall IS THE Eiffel Tower",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "3 Pyramids IN Giza",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "93 Meters Tall IS THE Statue Of Liberty",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "7 Billions People ON Earth",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "23 Provinces IN China",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "100 Yen IN A Dollar",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "60 Rupees IN A Dollar",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "8 Islands IN Hawaii",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "17508 Islands IN Indonesia",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "6852 Islands IN Japan",
-      "Hint": "Geography"
-    },
-    {
-      "Question": "58 National Parks IN America",
-      "Hint": "Great Outdoors"
-    },
-    {
-      "Question": "2663 Miles IN THE Pacific Crest Trail",
-      "Hint": "Great Outdoors"
-    },
-    {
-      "Question": "206 Bones IN THE Body",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "32 Teeth IN A Mouth",
-      "Hint": "Humans"
+      "Question": "8 Stones IN Curling",
+      "Hint": "Sports"
     },
     {
       "Question": "27 Bones IN THE Hand",
       "Hint": "Humans"
     },
     {
-      "Question": "33 Joints IN THE Foot",
-      "Hint": "Humans"
+      "Question": "48 Countries IN Asia",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "16 Dashes IN A Teaspoon",
+      "Hint": "Measurements"
     },
     {
       "Question": "8 Types OF Blood",
@@ -237,39 +113,111 @@
       "Hint": "Humans"
     },
     {
-      "Question": "4 Types OF Hair",
-      "Hint": "Humans"
-    },
-    {
-      "Question": "3 Races OF People",
-      "Hint": "Humans"
-    },
-    {
       "Question": "5 Vowels IN THE English Alphabet",
       "Hint": "Language"
     },
     {
-      "Question": "26 Letters IN THE English Alphabet",
-      "Hint": "Language"
+      "Question": "32 Teams IN THE Nfl",
+      "Hint": "Sports"
     },
     {
-      "Question": "24 Letters IN THE Greek Alphabet",
-      "Hint": "Language"
+      "Question": "5500 Miles IS THE Great Wall Of China",
+      "Hint": "Geography"
     },
     {
-      "Question": "33 Letters IN THE Russian Alphabet",
-      "Hint": "Language"
+      "Question": "7485 Broadway Shows OF Cats",
+      "Hint": "Musicals"
     },
     {
-      "Question": "28 Letters IN THE Welsh Alphabet",
-      "Hint": "Language"
+      "Question": "11 Oscars FOR Titanic",
+      "Hint": "Films"
     },
     {
-      "Question": "38 Letters IN THE Armenian Alphabet",
-      "Hint": "Language"
+      "Question": "59 Albums FROM Frank Sinatra",
+      "Hint": "Music"
+    },
+    {
+      "Question": "206 Bones IN THE Body",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "44 Countries IN Europe",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "8388 Broadway Shows OF Cats",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "11 Positions IN Soccer",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "6 Bananas IN A Bunch",
+      "Hint": "Food"
+    },
+    {
+      "Question": "98 Films WITH Elizabeth Taylor",
+      "Hint": "Films"
+    },
+    {
+      "Question": "7 Books BY Jane Austin",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "24 Timezones IN THE World",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "35 Types OF Snowflake",
+      "Hint": "Weather"
+    },
+    {
+      "Question": "21 Points IN Badminton",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "3 Books IN The Lord Of The Rings",
+      "Hint": "Literature"
+    },
+    {
+      "Question": "30 Players IN A Rugby Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "28 Sports IN THE Summer Olympics",
+      "Hint": "Sports"
     },
     {
       "Question": "33 Letters IN THE Ukrainian Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "6 Levels IN THE Fujita Scale",
+      "Hint": "Weather"
+    },
+    {
+      "Question": "4 Strings ON A Bass Guitar",
+      "Hint": "Music"
+    },
+    {
+      "Question": "23 Cities HOSTED Summer Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "15 Sports IN THE Winter Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "7 Billions People ON Earth",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "23 Provinces IN China",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "38 Letters IN THE Armenian Alphabet",
       "Hint": "Language"
     },
     {
@@ -277,7 +225,23 @@
       "Hint": "Literature"
     },
     {
-      "Question": "7 Books BY Jane Austin",
+      "Question": "58 National Parks IN America",
+      "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "5 Oceans IN THE World",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "7 Days IN A Week",
+      "Hint": "Time"
+    },
+    {
+      "Question": "6852 Islands IN Japan",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "4 Books IN Twilight",
       "Hint": "Literature"
     },
     {
@@ -285,64 +249,60 @@
       "Hint": "Literature"
     },
     {
-      "Question": "3 Books IN The Lord Of The Rings",
-      "Hint": "Literature"
+      "Question": "4 Types OF Xbox",
+      "Hint": "Video Games"
     },
     {
-      "Question": "4 Books IN Twilight",
-      "Hint": "Literature"
+      "Question": "3 Albums FROM Ed Sheeran",
+      "Hint": "Music"
     },
     {
-      "Question": "13 Items IN A Bakers Dozen",
-      "Hint": "Measurements"
+      "Question": "5 Types OF River Dolphin",
+      "Hint": "Animals"
     },
     {
-      "Question": "60 Drops IN A Teaspoon",
-      "Hint": "Measurements"
+      "Question": "4 Queens IN A Deck OF Cards",
+      "Hint": "Games"
     },
     {
-      "Question": "16 Dashes IN A Teaspoon",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "8 Pinches IN A Teaspoon",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "2 Cups IN A Pint",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "4 Cups IN A Quart",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "8 Ounces IN A Cup",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "12 Inches IN A Foot",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "3 Feet IN A Yard",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "1760 Yards IN A Mile",
-      "Hint": "Measurements"
-    },
-    {
-      "Question": "4840 Square Yards IN A Acre",
-      "Hint": "Measurements"
+      "Question": "54 Countries IN Africa",
+      "Hint": "Geography"
     },
     {
       "Question": "10000 Square Meters IN A Hectare",
       "Hint": "Measurements"
     },
     {
-      "Question": "14 Pounds IN A Stone",
-      "Hint": "Measurements"
+      "Question": "10 Provinces IN Canada",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "7  Holes ON A Recorder",
+      "Hint": "Music"
+    },
+    {
+      "Question": "4 Types OF Hair",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "93 Meters Tall IS THE Statue Of Liberty",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "8 Movies IN Harry Potter",
+      "Hint": "Films"
+    },
+    {
+      "Question": "8 Islands IN Hawaii",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "1000 Years IN A Millenium",
+      "Hint": "Time"
+    },
+    {
+      "Question": "10 Decades IN A Century",
+      "Hint": "Time"
     },
     {
       "Question": "2240 Pounds IN A Ton",
@@ -353,27 +313,111 @@
       "Hint": "Money"
     },
     {
+      "Question": "60 Drops IN A Teaspoon",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "12 Inches IN A Foot",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "15 Games IN Legend Of Zelda",
+      "Hint": "Video Games"
+    },
+    {
+      "Question": "1760 Yards IN A Mile",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "2 Oxygen Atoms IN A Water Molecule",
+      "Hint": "Chemistry"
+    },
+    {
+      "Question": "63 Films WITH Jack Nicholson",
+      "Hint": "Films"
+    },
+    {
+      "Question": "365 Days IN A Year",
+      "Hint": "Time"
+    },
+    {
+      "Question": "201 Episodes OF The Office",
+      "Hint": "Television"
+    },
+    {
+      "Question": "86400 Seconds IN A Day",
+      "Hint": "Time"
+    },
+    {
+      "Question": "800 Kernels ON A Cob Of Corn",
+      "Hint": "Food"
+    },
+    {
+      "Question": "10 Years IN A Decade",
+      "Hint": "Time"
+    },
+    {
+      "Question": "10 Games IN Forza",
+      "Hint": "Video Games"
+    },
+    {
+      "Question": "31 Teams IN THE Nhl",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "8 Pinches IN A Teaspoon",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "30 Teams IN THE Mlb",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "40 National Parks IN Canada",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "4 Quarters IN A Football Game",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "100 Yen IN A Dollar",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "38 Emmys FOR Game Of Thrones",
+      "Hint": "Television"
+    },
+    {
+      "Question": "5 Stanzas IN A Limerick",
+      "Hint": "Poetry"
+    },
+    {
+      "Question": "38 Kinds OF Ocean Dolphin ",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "324 Meters Tall IS THE Eiffel Tower",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "22 Oscars FOR Walt Disney",
+      "Hint": "Films"
+    },
+    {
+      "Question": "60 Rupees IN A Dollar",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "33 Joints IN THE Foot",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "52 White Keys ON A Piano",
+      "Hint": "Music"
+    },
+    {
       "Question": "21 Grammys FOR Kayne West",
-      "Hint": "Music"
-    },
-    {
-      "Question": "22 Grammys FOR Beyonce",
-      "Hint": "Music"
-    },
-    {
-      "Question": "8 Grammys FOR Thriller",
-      "Hint": "Music"
-    },
-    {
-      "Question": "6 Albums FROM Taylor Swift",
-      "Hint": "Music"
-    },
-    {
-      "Question": "3 Albums FROM Ed Sheeran",
-      "Hint": "Music"
-    },
-    {
-      "Question": "59 Albums FROM Frank Sinatra",
       "Hint": "Music"
     },
     {
@@ -381,224 +425,180 @@
       "Hint": "Music"
     },
     {
-      "Question": "9 Types OF Guitar",
-      "Hint": "Music"
-    },
-    {
-      "Question": "4 Strings ON A Bass Guitar",
-      "Hint": "Music"
-    },
-    {
-      "Question": "7  Holes ON A Recorder",
-      "Hint": "Music"
-    },
-    {
-      "Question": "52 White Keys ON A Piano",
-      "Hint": "Music"
-    },
-    {
-      "Question": "36 Black Keys ON A Piano",
-      "Hint": "Music"
-    },
-    {
-      "Question": "12 Notes IN A Octave",
-      "Hint": "Music"
-    },
-    {
-      "Question": "7485 Broadway Shows OF Cats",
-      "Hint": "Musicals"
-    },
-    {
-      "Question": "12 Tony Awards FOR The Producers",
-      "Hint": "Musicals"
-    },
-    {
-      "Question": "11 Tony Awards FOR Hamilton",
-      "Hint": "Musicals"
-    },
-    {
-      "Question": "8388 Broadway Shows OF Cats",
-      "Hint": "Musicals"
-    },
-    {
-      "Question": "12 Zeros IN A Billion",
-      "Hint": "Numbers"
-    },
-    {
-      "Question": "12 Zeros IN A Trillion",
-      "Hint": "Numbers"
-    },
-    {
-      "Question": "5 Stanzas IN A Limerick",
-      "Hint": "Poetry"
-    },
-    {
       "Question": "8 Planets IN THE Milky Way",
       "Hint": "Space"
     },
     {
-      "Question": "32 Teams IN THE Nfl",
-      "Hint": "Sports"
+      "Question": "350 Types OF Pasta",
+      "Hint": "Food"
     },
     {
-      "Question": "9 Innings IN Baseball",
-      "Hint": "Sports"
+      "Question": "3 Pyramids IN Giza",
+      "Hint": "Geography"
     },
     {
-      "Question": "4 Quarters IN A Football Game",
-      "Hint": "Sports"
+      "Question": "33 Letters IN THE Russian Alphabet",
+      "Hint": "Language"
     },
     {
-      "Question": "21 Points IN Badminton",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "3 Periods IN A Hockey Game",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "4 Periods IN A Lacrosse Game",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "4 Grand Slams IN Tennis",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "8 Stones IN Curling",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "15 Sports IN THE Winter Olympics",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "28 Sports IN THE Summer Olympics",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "23 Cities HOSTED Summer Olympics",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "16 Cities HOSTED Winter Olympics",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "11 Positions IN Soccer",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "30 Players IN A Rugby Game",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "30 Teams IN THE Nba",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "30 Teams IN THE Mlb",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "31 Teams IN THE Nhl",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "84 Poses IN Yoga",
-      "Hint": "Sports"
-    },
-    {
-      "Question": "37 Emmys FOR Frasier",
-      "Hint": "Television"
-    },
-    {
-      "Question": "38 Emmys FOR Game Of Thrones",
-      "Hint": "Television"
-    },
-    {
-      "Question": "32 Emmys FOR The Simpsons",
-      "Hint": "Television"
-    },
-    {
-      "Question": "201 Episodes OF The Office",
-      "Hint": "Television"
-    },
-    {
-      "Question": "180 Episodes OF Seinfeld",
-      "Hint": "Television"
-    },
-    {
-      "Question": "365 Days IN A Year",
-      "Hint": "Time"
-    },
-    {
-      "Question": "52 Weeks IN A Year",
-      "Hint": "Time"
-    },
-    {
-      "Question": "86400 Seconds IN A Day",
-      "Hint": "Time"
-    },
-    {
-      "Question": "10 Years IN A Decade",
-      "Hint": "Time"
-    },
-    {
-      "Question": "7 Days IN A Week",
-      "Hint": "Time"
-    },
-    {
-      "Question": "12 Months IN A Year",
-      "Hint": "Time"
-    },
-    {
-      "Question": "10 Decades IN A Century",
-      "Hint": "Time"
-    },
-    {
-      "Question": "1000 Years IN A Millenium",
-      "Hint": "Time"
-    },
-    {
-      "Question": "11 Systems FROM Nintendo",
-      "Hint": "Video Games"
+      "Question": "9 Types OF Guitar",
+      "Hint": "Music"
     },
     {
       "Question": "23 Handheld Systems FROM Nintendo",
       "Hint": "Video Games"
     },
     {
-      "Question": "4 Types OF Xbox",
-      "Hint": "Video Games"
+      "Question": "14 Countries IN Oceania",
+      "Hint": "Geography"
     },
     {
-      "Question": "10 Games IN Assassins Creed",
-      "Hint": "Video Games"
+      "Question": "11 Protons IN A Sodium Atom",
+      "Hint": "Chemistry"
     },
     {
-      "Question": "15 Games IN Legend Of Zelda",
-      "Hint": "Video Games"
+      "Question": "32 Teeth IN A Mouth",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "195 Countries IN THE World",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "8 Grammys FOR Thriller",
+      "Hint": "Music"
+    },
+    {
+      "Question": "31 Films WITH Audrey Hepburn",
+      "Hint": "Films"
+    },
+    {
+      "Question": "440 Species OF Shark",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "12 Zeros IN A Trillion",
+      "Hint": "Numbers"
+    },
+    {
+      "Question": "2 OR 4 Electrons IN A Carbon Atom",
+      "Hint": "Chemistry"
+    },
+    {
+      "Question": "32 Emmys FOR The Simpsons",
+      "Hint": "Television"
+    },
+    {
+      "Question": "2663 Miles IN THE Pacific Crest Trail",
+      "Hint": "Great Outdoors"
+    },
+    {
+      "Question": "25 Countries IN THE Caribbean",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "50 States IN THE United States",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "36 Black Keys ON A Piano",
+      "Hint": "Music"
+    },
+    {
+      "Question": "52 Weeks IN A Year",
+      "Hint": "Time"
+    },
+    {
+      "Question": "63 Films WITH Alan Rickman",
+      "Hint": "Films"
+    },
+    {
+      "Question": "5 Lakes IN THE Great Lakes",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "4840 Square Yards IN A Acre",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "17508 Islands IN Indonesia",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "12 Tony Awards FOR The Producers",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "375 Snakes ARE Venomous ",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "16 Cities HOSTED Winter Olympics",
+      "Hint": "Sports"
+    },
+    {
+      "Question": "14 Mountains OVER 8000 Meters Tall",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "180 Episodes OF Seinfeld",
+      "Hint": "Television"
+    },
+    {
+      "Question": "339 Breeds OF Dog",
+      "Hint": "Animals"
+    },
+    {
+      "Question": "11 Tony Awards FOR Hamilton",
+      "Hint": "Musicals"
+    },
+    {
+      "Question": "3 Races OF People",
+      "Hint": "Humans"
+    },
+    {
+      "Question": "13 Items IN A Bakers Dozen",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "28 Letters IN THE Welsh Alphabet",
+      "Hint": "Language"
+    },
+    {
+      "Question": "6909 Languages IN THE World",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "8 Ounces IN A Cup",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "14 Pounds IN A Stone",
+      "Hint": "Measurements"
+    },
+    {
+      "Question": "9 Innings IN Baseball",
+      "Hint": "Sports"
     },
     {
       "Question": "10 Versions OF Mario Party",
       "Hint": "Video Games"
     },
     {
-      "Question": "10 Games IN Forza",
+      "Question": "2 Countries IN Northern America",
+      "Hint": "Geography"
+    },
+    {
+      "Question": "10 Games IN Assassins Creed",
       "Hint": "Video Games"
     },
     {
-      "Question": "7 Colors IN THE Rainbow",
-      "Hint": "Weather"
+      "Question": "4 Grand Slams IN Tennis",
+      "Hint": "Sports"
     },
     {
-      "Question": "35 Types OF Snowflake",
-      "Hint": "Weather"
-    },
-    {
-      "Question": "6 Levels IN THE Fujita Scale",
-      "Hint": "Weather"
+      "Question": "6 Albums FROM Taylor Swift",
+      "Hint": "Music"
     }
   ]
 }
