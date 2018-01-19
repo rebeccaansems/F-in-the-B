@@ -20,7 +20,10 @@ public class WinUI : UI
         {
             showWin = false;
 
-            PlayerStats.Instance.TutorialFinished();
+            if (PlayerStats.s_TutorialOn == 1)
+            {
+                PlayerStats.Instance.TutorialFinished();
+            }
 
             this.GetComponent<PlayAudio>().PlayRandom();
 

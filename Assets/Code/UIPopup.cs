@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Advertisements;
@@ -134,6 +133,8 @@ public class UIPopup : UI
             FillLetter.ColorRequiredTiles();
             FillLetter.DisableNotRequiredTiles();
 
+            this.GetComponent<PlayAudio>().PlayRandom();
+
             ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
         }
     }
@@ -154,6 +155,8 @@ public class UIPopup : UI
             RevealButton.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Disabled Image")).First().enabled = true;
 
             FillAnswer.FillFirstWord();
+
+            this.GetComponent<PlayAudio>().PlayRandom();
 
             ClosePopup(new CanvasGroup[] { HintsPanel, this.GetComponent<CanvasGroup>() });
         }
