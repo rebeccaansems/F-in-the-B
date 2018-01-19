@@ -139,6 +139,11 @@ public class FillAnswerPanel : MonoBehaviour
 
     public void ClearButtonPressed()
     {
+        if (PlayerStats.s_TutorialOn == 1)
+        {
+            StartCoroutine(Tutorial.Instance.ShowTutorial(6));
+        }
+
         this.GetComponent<FillLetterPanel>().MakeAllButtonsInteractable();
         FillLetters();
 

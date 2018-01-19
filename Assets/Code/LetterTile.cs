@@ -7,7 +7,7 @@ public class LetterTile : MonoBehaviour
     public bool IsRequiredForAnswer = false, IsPartOfFirstWord = false, LetterUsed = false;
     public Color AlternateColorLight, AlternateColorDark;
     public AnswerTile LinkedAnswerTile;
-    
+
     private GameObject gameController;
 
     private void Awake()
@@ -24,10 +24,29 @@ public class LetterTile : MonoBehaviour
         {
             LetterUsed = false;
             LinkedAnswerTile.LetterPressed();
+
+            if (PlayerStats.s_TutorialOn == 1)
+            {
+                StartCoroutine(Tutorial.Instance.ShowTutorial(5));
+            }
         }
         else if (CurrentAnswer.s_PlayersAnswerIsNotComplete)
         {
             LetterUsed = true;
+
+            if (PlayerStats.s_TutorialOn == 1)
+            {
+                StartCoroutine(Tutorial.Instance.ShowTutorial(1));
+
+                if (Tutorial.Instance.CurrentTut == 2)
+                {
+                    StartCoroutine(Tutorial.Instance.ShowTutorial(3));
+                }
+                else if (Tutorial.Instance.CurrentTut == 3)
+                {
+                    StartCoroutine(Tutorial.Instance.ShowTutorial(4));
+                }
+            }
 
             this.GetComponent<PlayAudio>().PlayRandom();
             if (CurrentAnswer.s_PlayersAttempt.Contains("_"))

@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
 
     public static float s_PlayerStartPuzzleTime;
 
-    public static int s_SFXAudio, s_MusicAudio;
+    public static int s_SFXAudio, s_MusicAudio, s_TutorialOn;
 
     public bool ShowAds;
 
@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour
 
         s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
         s_MusicAudio = PlayerPrefs.GetInt("MusicAudio", 1);
+        s_TutorialOn = PlayerPrefs.GetInt("Tutorial", 1);
 
 #if UNITY_DEBUG || UNITY_EDITOR
         s_PlayerGems = PlayerPrefs.GetInt("PlayerGem", 10000);

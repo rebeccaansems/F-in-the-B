@@ -40,6 +40,11 @@ public class AnswerTile : MonoBehaviour
 
     public void LetterPressed()
     {
+        if (PlayerStats.s_TutorialOn == 1)
+        {
+            StartCoroutine(Tutorial.Instance.ShowTutorial(2));
+        }
+
         this.GetComponent<PlayAudio>().PlayRandom();
 
         CurrentAnswer.s_PlayersAttempt = CurrentAnswer.s_PlayersAttempt.Remove(IndexInAnswer + CurrentAnswer.s_PlayersAttempt.Count(x => x == '#'), 1)
