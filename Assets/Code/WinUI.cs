@@ -20,6 +20,8 @@ public class WinUI : UI
         {
             showWin = false;
 
+            PlayerStats.Instance.TutorialFinished();
+
             this.GetComponent<PlayAudio>().PlayRandom();
 
             OpenPopup(this.GetComponent<CanvasGroup>());
@@ -68,11 +70,11 @@ public class WinUI : UI
             StartCoroutine(GoToNextLevel());
 
             PlayerPrefs.SetFloat("PlayerTimeOnPuzzle", 0);
-            
+
             if (PlayerStats.Instance.ShowAds)
             {
                 if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd) 
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd)
                 || PlayerStats.s_CurrentLevel % PlayerStats.k_LevelsUntilAd == 0)
                 {
                     GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
@@ -119,7 +121,7 @@ public class WinUI : UI
         if (PlayerStats.Instance.ShowAds)
         {
             if (TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd) 
+                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd)
                 || PlayerStats.s_CurrentLevel % PlayerStats.k_LevelsUntilAd == 0)
             {
                 var backgrounds = GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList();

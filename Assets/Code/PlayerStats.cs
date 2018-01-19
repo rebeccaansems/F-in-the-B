@@ -125,4 +125,15 @@ public class PlayerStats : MonoBehaviour
         PlayerGems.text = s_PlayerGems.ToString();
         playAudio = true;
     }
+
+    public void TutorialFinished()
+    {
+        s_TutorialOn = 0;
+        PlayerPrefs.SetInt("Tutorial", 0);
+
+        foreach (Image tutRings in Tutorial.Instance.TutRings)
+        {
+            tutRings.enabled = false;
+        }
+    }
 }

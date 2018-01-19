@@ -57,12 +57,7 @@ public class Tutorial : MonoBehaviour
 
         if (CurrentTut == TutRings.Length)
         {
-            PlayerStats.s_TutorialOn = 0;
-            PlayerPrefs.SetInt("Tutorial", 0);
-            foreach (Image tut in TutRings)
-            {
-                tut.enabled = false;
-            }
+            PlayerStats.Instance.TutorialFinished();
         }
     }
 
