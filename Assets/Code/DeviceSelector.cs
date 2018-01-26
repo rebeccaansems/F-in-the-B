@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DeviceSelector : MonoBehaviour
 {
@@ -20,13 +18,8 @@ public class DeviceSelector : MonoBehaviour
             //DEVICE = 0;
             //Destroy(iPad);
 
-            DEVICE = 0;
-            Destroy(iPad);
+            DEVICE = 1;
+            Destroy(iPhone);
         }
-    }
-    
-    void Update()
-    {
-
     }
 }

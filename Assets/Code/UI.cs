@@ -23,6 +23,11 @@ public class UI : MonoBehaviour
         go.alpha = 1;
         go.interactable = true;
         go.blocksRaycasts = true;
+
+        if (GameObject.Find("Tutorial UI") != null)
+        {
+            GameObject.Find("Tutorial UI").GetComponent<CanvasGroup>().alpha = 0;
+        }
     }
 
     public void ClosePopup(CanvasGroup go)
@@ -77,6 +82,11 @@ public class UI : MonoBehaviour
             cg.interactable = false;
             cg.blocksRaycasts = false;
             cg.alpha = 0;
+        }
+
+        if (GameObject.Find("Tutorial UI") != null)
+        {
+            GameObject.Find("Tutorial UI").GetComponent<CanvasGroup>().alpha = 1;
         }
     }
 
