@@ -11,6 +11,8 @@ public class PlayerStats : MonoBehaviour
     public const int k_PurchaseGems = 100;
 
 
+    public static int DEVICE;
+
     public static int s_PlayerGems;
     public static int s_CurrentLevel;
 
@@ -43,6 +45,15 @@ public class PlayerStats : MonoBehaviour
         else
         {
             _instance = this;
+        }
+
+        if (SystemInfo.deviceModel.Contains("iPad"))
+        {
+            DEVICE = 1;
+        }
+        else
+        {
+            DEVICE = 0;
         }
 
         ShowAds = PlayerPrefs.GetInt("ShowAds", 0) == 0;
