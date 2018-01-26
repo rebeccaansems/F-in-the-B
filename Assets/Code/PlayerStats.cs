@@ -10,9 +10,6 @@ public class PlayerStats : MonoBehaviour
 
     public const int k_PurchaseGems = 100;
 
-
-    public static int DEVICE;
-
     public static int s_PlayerGems;
     public static int s_CurrentLevel;
 
@@ -25,9 +22,9 @@ public class PlayerStats : MonoBehaviour
 
     public bool ShowAds;
 
-    public Text PlayerGems;
+    public Text[] PlayerGems;
 
-    public ParticleSystem LoseGemsParticleSystem, GainGemsParticleSystem;
+    public ParticleSystem[] LoseGemsParticleSystem, GainGemsParticleSystem;
 
     private int prevLevel = -1;
     private bool playAudio = true;
@@ -47,15 +44,6 @@ public class PlayerStats : MonoBehaviour
             _instance = this;
         }
 
-        if (SystemInfo.deviceModel.Contains("iPad"))
-        {
-            DEVICE = 1;
-        }
-        else
-        {
-            DEVICE = 0;
-        }
-
         ShowAds = PlayerPrefs.GetInt("ShowAds", 0) == 0;
 
         s_SFXAudio = PlayerPrefs.GetInt("SFXAudio", 1);
@@ -69,7 +57,7 @@ public class PlayerStats : MonoBehaviour
 #endif
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 
-        PlayerGems.text = s_PlayerGems.ToString();
+        PlayerGems[DeviceSelector.DEVICE].text = s_PlayerGems.ToString();
 
         s_ColorHintUsed = PlayerPrefs.GetString("ColorHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
         s_FillHintUsed = PlayerPrefs.GetString("FillHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
@@ -98,13 +86,13 @@ public class PlayerStats : MonoBehaviour
 
         if (amount > 0)
         {
-            GainGemsParticleSystem.Play();
-            StartCoroutine(UpdateScore(GainGemsParticleSystem));
+            GainGemsParticleSystem[DeviceSelector.DEVICE].Play();
+            StartCoroutine(UpdateScore(GainGemsParticleSystem[DeviceSelector.DEVICE]));
         }
         else
         {
-            LoseGemsParticleSystem.Play();
-            StartCoroutine(UpdateScore(LoseGemsParticleSystem));
+            LoseGemsParticleSystem[DeviceSelector.DEVICE].Play();
+            StartCoroutine(UpdateScore(LoseGemsParticleSystem[DeviceSelector.DEVICE]));
         }
 
         PlayerPrefs.SetInt("PlayerGem", s_PlayerGems);
@@ -133,7 +121,7 @@ public class PlayerStats : MonoBehaviour
             playAudio = false;
         }
         yield return new WaitForSeconds(particleSystem.main.duration / 2);
-        PlayerGems.text = s_PlayerGems.ToString();
+        PlayerGems[DeviceSelector.DEVICE].text = s_PlayerGems.ToString();
         playAudio = true;
     }
 

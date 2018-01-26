@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class FillAnswerPanel : MonoBehaviour
 {
-    public GameObject Tile, TileParent, CurrentLetterTile;
+    public GameObject Tile, CurrentLetterTile;
+    public GameObject[] TileParent;
 
     private string[] splitCorrectAnswer;
 
@@ -21,7 +22,7 @@ public class FillAnswerPanel : MonoBehaviour
         {
             for (int i = 0; i < tilesPerRow; i++)
             {
-                GameObject newTile = Instantiate(Tile, TileParent.transform);
+                GameObject newTile = Instantiate(Tile, TileParent[DeviceSelector.DEVICE].transform);
                 newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 100, -j * 100, 0);
             }
         }
@@ -45,15 +46,15 @@ public class FillAnswerPanel : MonoBehaviour
             {
                 for (int i = 0; i < splitCorrectAnswer[j].Length; i++)
                 {
-                    TileParent.transform.GetComponentsInChildren<Text>()[i + currentLetter].text = splitCorrectAnswer[j][i].ToString();
+                    TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<Text>()[i + currentLetter].text = splitCorrectAnswer[j][i].ToString();
                     if (splitCorrectAnswer[j][i] == '_')
                     {
-                        TileParent.transform.GetComponentsInChildren<AnswerTile>()[i + currentLetter].IndexInAnswer = editableCount;
+                        TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<AnswerTile>()[i + currentLetter].IndexInAnswer = editableCount;
                         editableCount++;
                     }
                     else if (splitCorrectAnswer[j][i] != '_' && splitCorrectAnswer[j].Length > i + 1 && splitCorrectAnswer[j][i + 1] == '_')
                     {
-                        CurrentAnswer.s_BeginningTileParticleSystems.Add(TileParent.transform.GetComponentsInChildren<ParticleSystem>()[i + currentLetter]);
+                        CurrentAnswer.s_BeginningTileParticleSystems.Add(TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<ParticleSystem>()[i + currentLetter]);
                     }
                 }
 
@@ -74,9 +75,9 @@ public class FillAnswerPanel : MonoBehaviour
     private void DeleteEmptyTiles()
     {
         int blankCounter = 0;
-        for (int i = 0; i < TileParent.GetComponentsInChildren<Text>().Length; i++)
+        for (int i = 0; i < TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>().Length; i++)
         {
-            if (TileParent.GetComponentsInChildren<Text>()[i].text != string.Empty)
+            if (TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>()[i].text != string.Empty)
             {
                 blankCounter = 0;
             }
@@ -85,16 +86,16 @@ public class FillAnswerPanel : MonoBehaviour
                 blankCounter++;
                 if (blankCounter == tilesPerRow)
                 {
-                    for (int j = i - tilesPerRow + 1; j < TileParent.GetComponentsInChildren<Text>().Length; j++)
+                    for (int j = i - tilesPerRow + 1; j < TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>().Length; j++)
                     {
-                        TileParent.GetComponentsInChildren<Text>()[j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
+                        TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>()[j].transform.parent.GetComponent<AnswerTile>().DeletableTile = true;
                     }
-                    i = TileParent.GetComponentsInChildren<Text>().Length;
+                    i = TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>().Length;
                 }
             }
         }
 
-        foreach (Text tile in TileParent.GetComponentsInChildren<Text>()
+        foreach (Text tile in TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>()
             .Where(x => x.transform.parent.GetComponent<AnswerTile>().DeletableTile == true))
         {
             Destroy(tile.transform.parent.gameObject);
@@ -103,7 +104,7 @@ public class FillAnswerPanel : MonoBehaviour
 
     public void RemoveBlanks(GameObject currLetterTile)
     {
-        List<Text> allPossibleOpenings = TileParent.GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
+        List<Text> allPossibleOpenings = TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<Text>().Where(x => x.text == "_").ToList();
         if (allPossibleOpenings.Count != 0)
         {
             allPossibleOpenings.First().transform.parent.GetComponent<Button>().interactable = true;
@@ -127,7 +128,7 @@ public class FillAnswerPanel : MonoBehaviour
 
     public void AddBlanks()
     {
-        List<AnswerTile> allPossibleEditables = TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).ToList();
+        List<AnswerTile> allPossibleEditables = TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).ToList();
 
         for (int i = 0; i < allPossibleEditables.Count; i++)
         {
@@ -175,7 +176,7 @@ public class FillAnswerPanel : MonoBehaviour
         CurrentAnswer.s_PlayersCorrectAnswer = editedCorrectAnswer;
         FillLetters();
 
-        foreach (AnswerTile tile in TileParent.GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).Where(x => x.GetComponentsInChildren<Text>()[0].text != "_"))
+        foreach (AnswerTile tile in TileParent[DeviceSelector.DEVICE].GetComponentsInChildren<AnswerTile>().Where(x => x.EditableTile).Where(x => x.GetComponentsInChildren<Text>()[0].text != "_"))
         {
             tile.EditableTile = false;
         }

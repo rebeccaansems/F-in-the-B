@@ -58,8 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tile: {fileID: 1406429344182532, guid: d78a13bec6913004b8123759b54b4a0f, type: 2}
-  TileParent: {fileID: 0}
   CurrentLetterTile: {fileID: 0}
+  TileParent:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114329085289072452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -113,7 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Tile: {fileID: 1840467601639030, guid: 2abe2febd27a03a41af1b1d830efc04f, type: 2}
-  TileParent: {fileID: 0}
+  TileParent:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114689525701686314
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CurrentAnswer : MonoBehaviour
 {
-    public WinUI WinUi;
+    public WinUI[] WinUi;
     public Text CategoryText, CurrentPuzzleNumber;
 
     public static string s_CorrectAnswer;
@@ -24,8 +24,8 @@ public class CurrentAnswer : MonoBehaviour
     public void Awake()
     {
         s_CorrectAnswer = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Question;
-        CategoryText.text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Hint;
-        CurrentPuzzleNumber.text = "Puzzle #" + (PlayerStats.s_CurrentLevel + 1).ToString("000");
+        GameObject.Find("Hint Text").GetComponent<Text>().text = QuestionDatabase.s_AllQuestions[PlayerStats.s_CurrentLevel].Hint;
+        GameObject.Find("Current Puzzle Number").GetComponent<Text>().text = "Puzzle #" + (PlayerStats.s_CurrentLevel + 1).ToString("000");
 
         string editedCorrectAnswer = Regex.Replace(s_CorrectAnswer, @"[A-Z,0-9]", string.Empty);
         s_CorrectAnswerLetters = editedCorrectAnswer.Split(' ');
@@ -50,9 +50,9 @@ public class CurrentAnswer : MonoBehaviour
 
     private void Update()
     {
-        if (Regex.Replace(s_PlayersAttempt, "_", "").Replace("#", "") == s_PlayersCorrectAnswer)
+        if (Regex.Replace(s_PlayersAttempt, "_", "").Replace("#", "") == s_PlayersCorrectAnswer && WinUi.Length > 0)
         {
-            WinUi.GetComponent<WinUI>().MakeWinVisible();
+            WinUi[DeviceSelector.DEVICE].MakeWinVisible();
         }
     }
 }

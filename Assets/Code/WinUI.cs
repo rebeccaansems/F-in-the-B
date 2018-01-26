@@ -25,34 +25,37 @@ public class WinUI : UI
                 PlayerStats.Instance.TutorialFinished();
             }
 
-            this.GetComponent<PlayAudio>().PlayRandom();
-
-            OpenPopup(this.GetComponent<CanvasGroup>());
-            OpenPopup(this.GetComponentsInChildren<CanvasGroup>().Where(x => x.name.Contains("Win Panel")).First());
-
-            CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
-            TimeSpan duration = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
-            TimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
-
-            PlayerPrefs.SetFloat("TotalTimeOnPuzzles", PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0) + Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
-                + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
-
-            PlayerStats.Instance.ChangeGems(2);
-            PlayerStats.s_CurrentLevel++;
-
-            if (PlayerStats.s_CurrentLevel == QuestionDatabase.s_AllQuestions.Count)
+            if (this != null)
             {
-                resetGame = true;
+                this.GetComponent<PlayAudio>().PlayRandom();
 
-                PlayerStats.s_CurrentLevel = 0;
-                PlayerStats.s_ColorHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
-                PlayerStats.s_FillHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
+                OpenPopup(this.GetComponent<CanvasGroup>());
+                OpenPopup(this.GetComponentsInChildren<CanvasGroup>().Where(x => x.name.Contains("Win Panel")).First());
 
-                duration = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0));
-                TotalTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
+                CorrectAnswerText.text = CurrentAnswer.s_CorrectAnswer;
+                TimeSpan duration = TimeSpan.FromSeconds(Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
+                    + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
+                TimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
 
-                PlayerPrefs.SetFloat("TotalTimeOnPuzzles", 0);
+                PlayerPrefs.SetFloat("TotalTimeOnPuzzles", PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0) + Time.realtimeSinceStartup - PlayerStats.s_PlayerStartPuzzleTime
+                    + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f));
+
+                PlayerStats.Instance.ChangeGems(2);
+                PlayerStats.s_CurrentLevel++;
+
+                if (PlayerStats.s_CurrentLevel == QuestionDatabase.s_AllQuestions.Count)
+                {
+                    resetGame = true;
+
+                    PlayerStats.s_CurrentLevel = 0;
+                    PlayerStats.s_ColorHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
+                    PlayerStats.s_FillHintUsed = new string('0', QuestionDatabase.s_AllQuestions.Count);
+
+                    duration = TimeSpan.FromSeconds(PlayerPrefs.GetFloat("TotalTimeOnPuzzles", 0));
+                    TotalTimeText.text = string.Format("{0:D2}:{1:D2}:{2:D2}", duration.Hours, duration.Minutes, duration.Seconds);
+
+                    PlayerPrefs.SetFloat("TotalTimeOnPuzzles", 0);
+                }
             }
         }
     }

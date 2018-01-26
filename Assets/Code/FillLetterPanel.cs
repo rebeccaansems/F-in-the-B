@@ -17,14 +17,14 @@ public class FillLetterPanel : MonoBehaviour
         {
             for (int j = 0; j < 4; j++)
             {
-                GameObject newTile = Instantiate(Tile, TileParent[PlayerStats.DEVICE].transform);
+                GameObject newTile = Instantiate(Tile, TileParent[DeviceSelector.DEVICE].transform);
                 newTile.GetComponent<RectTransform>().anchoredPosition = new Vector3(i * 150, -j * 150, 0);
             }
         }
 
         int counter = 0;
         System.Random r = new System.Random();
-        foreach (Text tile in TileParent[PlayerStats.DEVICE].transform.GetComponentsInChildren<Text>().OrderBy(x => r.Next()))
+        foreach (Text tile in TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<Text>().OrderBy(x => r.Next()))
         {
             if (counter < singleCorrectAnswer.Length)
             {
@@ -60,7 +60,7 @@ public class FillLetterPanel : MonoBehaviour
 
     public void MakeAllButtonsInteractable()
     {
-        foreach (Button button in TileParent[PlayerStats.DEVICE].transform.GetComponentsInChildren<Button>())
+        foreach (Button button in TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<Button>())
         {
             button.gameObject.GetComponentsInChildren<Image>().Where(x => x.name.Contains("Used")).First().enabled = false;
             button.GetComponent<LetterTile>().LetterUsed = false;
@@ -81,7 +81,7 @@ public class FillLetterPanel : MonoBehaviour
 
     public void ColorRequiredTiles()
     {
-        foreach (LetterTile tile in TileParent[PlayerStats.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsRequiredForAnswer))
+        foreach (LetterTile tile in TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsRequiredForAnswer))
         {
             tile.SwapToAlternateColorScheme();
         }
@@ -89,7 +89,7 @@ public class FillLetterPanel : MonoBehaviour
 
     public void DisableNotRequiredTiles()
     {
-        foreach (LetterTile tile in TileParent[PlayerStats.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => !x.IsRequiredForAnswer))
+        foreach (LetterTile tile in TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => !x.IsRequiredForAnswer))
         {
             tile.HardDisable();
         }
@@ -97,7 +97,7 @@ public class FillLetterPanel : MonoBehaviour
 
     public void DisableAllFirstWordRequiredTiles()
     {
-        foreach (LetterTile tile in TileParent[PlayerStats.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsPartOfFirstWord))
+        foreach (LetterTile tile in TileParent[DeviceSelector.DEVICE].transform.GetComponentsInChildren<LetterTile>().Where(x => x.IsPartOfFirstWord))
         {
             tile.HardDisable();
         }
