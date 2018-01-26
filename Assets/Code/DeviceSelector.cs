@@ -10,16 +10,13 @@ public class DeviceSelector : MonoBehaviour
     {
         if (SystemInfo.deviceModel.Contains("iPad"))
         {
-            //DEVICE = 1;
-            //Destroy(iPhone);
+            DEVICE = 1;
+            Destroy(iPhone);
         }
         else
         {
-            //DEVICE = 0;
-            //Destroy(iPad);
-
-            DEVICE = 1;
-            Destroy(iPhone);
+            DEVICE = 0;
+            Destroy(iPad);
         }
     }
 }
