@@ -1199,7 +1199,7 @@ GameObject:
   - component: {fileID: 125848352}
   - component: {fileID: 125848353}
   m_Layer: 0
-  m_Name: Background Art
+  m_Name: Background Art Tablet
   m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8016,7 +8016,7 @@ GameObject:
   - component: {fileID: 625065400}
   - component: {fileID: 625065399}
   m_Layer: 0
-  m_Name: Background Art
+  m_Name: Background Art Phone
   m_TagString: Background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16016,8 +16016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 0.05
-  endXLocation: -7.93
-  startXLocation: 12.51
+  endXLocation: -8.868
+  startXLocation: 11.63
 --- !u!212 &1278135889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16691,7 +16691,8 @@ Prefab:
       propertyPath: CategoryText.Array.data[1]
       value: 
       objectReference: {fileID: 2093348800}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1322489761 stripped
@@ -19760,8 +19761,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingSpeed: 0.05
-  endXLocation: -7.93
-  startXLocation: 12.51
+  endXLocation: -8.868
+  startXLocation: 11.63
 --- !u!212 &1609112058
 SpriteRenderer:
   m_ObjectHideFlags: 0

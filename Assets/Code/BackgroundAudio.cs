@@ -46,7 +46,6 @@ public class BackgroundAudio : MonoBehaviour
     IEnumerator PlayBackgroundMusic()
     {
         yield return new WaitForSeconds(aud.clip.length);
-        Debug.Log("NEW");
         currSong = Random.Range(0, BackgroundMusic.Length);
         aud.clip = BackgroundMusic[currSong];
         aud.Play();
