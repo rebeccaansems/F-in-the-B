@@ -73,8 +73,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da93aab6f023b9f4493340a900d9a24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iPad: {fileID: 0}
-  iPhone: {fileID: 0}
+  TabletBackground: {fileID: 0}
+  TabletGame: {fileID: 0}
+  PhoneBackground: {fileID: 0}
+  PhoneGame: {fileID: 0}
 --- !u!114 &114329085289072452
 MonoBehaviour:
   m_ObjectHideFlags: 1
