@@ -11,16 +11,13 @@ public class DeviceSelector : MonoBehaviour
         if (UnityEngine.iOS.Device.generation.ToString().Contains("iPad"))
         {
             DEVICE = 1;
-            Destroy(iPhone);
         }
         else
         {   
             DEVICE = 0;
-            Destroy(iPad);
         }
 #else
         DEVICE = 0;
-        Destroy(iPad);
 #endif
     }
 }

@@ -19,7 +19,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
     // when defining the Product Identifiers on the store. Except, for illustration purposes, the 
     // kProductIDSubscription - it has custom Apple and Google identifiers. We declare their store-
     // specific mapping to Unity Purchasing's AddProduct, below.
-    public static string k_ProductIDConsumable = "100Gems";
+    public static string k_ProductIDConsumable = "100GEMS";
 
     public Text GemPrice;
 
