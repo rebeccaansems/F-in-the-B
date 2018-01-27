@@ -11,24 +11,17 @@ public class Tutorial : MonoBehaviour
 
     public Image[] TutRings;
 
-    public int CurrentTut = -1, Device;
+    public int CurrentTut = -1;
 
     private void Awake()
     {
-        if (Device == DeviceSelector.DEVICE)
+        if (_instance != null && _instance != this)
         {
-            if (_instance != null && _instance != this)
-            {
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                _instance = this;
-            }
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(this.gameObject);
+            _instance = this;
         }
     }
 

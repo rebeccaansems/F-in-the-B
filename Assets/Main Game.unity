@@ -16543,14 +16543,44 @@ Prefab:
       objectReference: {fileID: 1941945197}
     - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: CategoryText
+      propertyPath: CategoryText.Array.data[0]
       value: 
       objectReference: {fileID: 494112160}
     - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: CurrentPuzzleNumber
+      propertyPath: CategoryText.Array.data[1]
+      value: 
+      objectReference: {fileID: 2093348800}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CurrentPuzzleNumber.Array.data[0]
       value: 
       objectReference: {fileID: 886050087}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: CurrentPuzzleNumber.Array.data[1]
+      value: 
+      objectReference: {fileID: 1628350335}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TabletBackground
+      value: 
+      objectReference: {fileID: 125848351}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TabletGame
+      value: 
+      objectReference: {fileID: 1339170506}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: PhoneBackground
+      value: 
+      objectReference: {fileID: 625065398}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: PhoneGame
+      value: 
+      objectReference: {fileID: 558950621}
     - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
       propertyPath: TileParent.Array.data[0]
@@ -16571,36 +16601,6 @@ Prefab:
       propertyPath: TileParent.Array.data[1]
       value: 
       objectReference: {fileID: 1980681855}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: iPhone
-      value: 
-      objectReference: {fileID: 625065398}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: iPad
-      value: 
-      objectReference: {fileID: 125848351}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TabletGame
-      value: 
-      objectReference: {fileID: 1339170506}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: PhoneGame
-      value: 
-      objectReference: {fileID: 558950621}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TabletBackground
-      value: 
-      objectReference: {fileID: 125848351}
-    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: PhoneBackground
-      value: 
-      objectReference: {fileID: 625065398}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
   m_IsPrefabParent: 0
