@@ -24,8 +24,8 @@ GameObject:
   - component: {fileID: 114329085289072452}
   - component: {fileID: 114390290256708164}
   - component: {fileID: 114403014659451928}
-  - component: {fileID: 114888050107748528}
   - component: {fileID: 114689525701686314}
+  - component: {fileID: 114319801639946434}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -62,6 +62,19 @@ MonoBehaviour:
   TileParent:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114319801639946434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201564290882598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da93aab6f023b9f4493340a900d9a24f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iPad: {fileID: 0}
+  iPhone: {fileID: 0}
 --- !u!114 &114329085289072452
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,7 +86,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e67e26d23e8b74d9b009746f8790f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WinUi: {fileID: 0}
+  WinUi:
+  - {fileID: 0}
+  - {fileID: 0}
   CategoryText: {fileID: 0}
   CurrentPuzzleNumber: {fileID: 0}
 --- !u!114 &114390290256708164
@@ -100,9 +115,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowAds: 0
-  PlayerGems: {fileID: 0}
-  LoseGemsParticleSystem: {fileID: 0}
-  GainGemsParticleSystem: {fileID: 0}
+  PlayerGems:
+  - {fileID: 0}
+  - {fileID: 0}
+  LoseGemsParticleSystem:
+  - {fileID: 0}
+  - {fileID: 0}
+  GainGemsParticleSystem:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114536022475902768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,17 +153,3 @@ MonoBehaviour:
   AudioClips:
   - {fileID: 8300000, guid: aa59e2eb854ab4242904f521bb2ce972, type: 3}
   - {fileID: 8300000, guid: 1e1deff8a68566e489c6c138f0716e1a, type: 3}
---- !u!114 &114888050107748528
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201564290882598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e67e26d23e8b74d9b009746f8790f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WinUi: {fileID: 0}
-  CategoryText: {fileID: 0}
-  CurrentPuzzleNumber: {fileID: 0}

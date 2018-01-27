@@ -5,32 +5,27 @@ using UnityEngine;
 
 public class BackgroundSelection : MonoBehaviour
 {
-    public int device;
     public List<Sprite> BackgroundImage;
 
     public static bool s_NotFirstOpen;
 
     private void Start()
     {
-        if (device == DeviceSelector.DEVICE)
+        if (FindObjectsOfType(GetType()).Length > 1 && Time.time > 1)
         {
-            DontDestroyOnLoad(transform.gameObject);
-
-            if (FindObjectsOfType(GetType()).Length > 1 && Time.time > 1)
-            {
-                Destroy(transform.gameObject);
-            }
-
-            if (!s_NotFirstOpen)
-            {
-                ChangeBackground();
-                s_NotFirstOpen = true;
-            }
+            Destroy(transform.gameObject);
         }
-        else
+
+        if (!s_NotFirstOpen)
         {
-            Destroy(this.gameObject);
+            ChangeBackground();
+            s_NotFirstOpen = true;
         }
+    }
+
+    public void DontDestroy()
+    {
+        DontDestroyOnLoad(transform.gameObject);
     }
 
     public void ChangeBackground()

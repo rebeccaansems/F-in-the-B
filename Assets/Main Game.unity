@@ -1231,7 +1231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07302b9747831a44088b3c12e8c71607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  device: 1
   BackgroundImage:
   - {fileID: 21300000, guid: 01931f3bece5cf14c92f1db11a96ea3d, type: 3}
   - {fileID: 21300000, guid: d8f7d91b1e3f91b4b8d100e3ba82497c, type: 3}
@@ -6978,7 +6977,7 @@ GameObject:
   m_Component:
   - component: {fileID: 558950622}
   m_Layer: 0
-  m_Name: iPhone
+  m_Name: Phone UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8033,7 +8032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07302b9747831a44088b3c12e8c71607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  device: 0
   BackgroundImage:
   - {fileID: 21300000, guid: 01931f3bece5cf14c92f1db11a96ea3d, type: 3}
   - {fileID: 21300000, guid: d8f7d91b1e3f91b4b8d100e3ba82497c, type: 3}
@@ -16062,24 +16060,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &1290076919 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1201564290882598, guid: 075951868215a4a4da27c7cc81d169b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1322489755}
---- !u!114 &1290076920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1290076919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da93aab6f023b9f4493340a900d9a24f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iPad: {fileID: 1339170506}
-  iPhone: {fileID: 558950621}
 --- !u!1 &1294939781
 GameObject:
   m_ObjectHideFlags: 0
@@ -16489,41 +16469,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: PlayerGems.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: LoseGemsParticleSystem.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: GainGemsParticleSystem.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4781334594921522, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -16558,79 +16503,14 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: PlayerGems
+      propertyPath: PlayerGems.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 913353973}
     - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: LoseGemsParticleSystem
+      propertyPath: PlayerGems.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: GainGemsParticleSystem
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText
-      value: 
-      objectReference: {fileID: 494112160}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber
-      value: 
-      objectReference: {fileID: 886050087}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TileParent.Array.data[0]
-      value: 
-      objectReference: {fileID: 33140277}
-    - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TileParent.Array.data[1]
-      value: 
-      objectReference: {fileID: 172916475}
-    - target: {fileID: 114536022475902768, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TileParent.Array.data[0]
-      value: 
-      objectReference: {fileID: 2017041377}
-    - target: {fileID: 114536022475902768, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: TileParent.Array.data[1]
-      value: 
-      objectReference: {fileID: 1980681855}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi.Array.data[0]
-      value: 
-      objectReference: {fileID: 1361043694}
-    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi.Array.data[1]
-      value: 
-      objectReference: {fileID: 1941945197}
+      objectReference: {fileID: 1147612828}
     - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
       propertyPath: LoseGemsParticleSystem.Array.data[0]
@@ -16651,48 +16531,77 @@ Prefab:
       propertyPath: GainGemsParticleSystem.Array.data[1]
       value: 
       objectReference: {fileID: 1561860566}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: WinUi.Array.data[1]
-      value: 
-      objectReference: {fileID: 1361043694}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
       propertyPath: WinUi.Array.data[0]
       value: 
+      objectReference: {fileID: 1361043694}
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: WinUi.Array.data[1]
+      value: 
       objectReference: {fileID: 1941945197}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: PlayerGems.Array.data[0]
-      value: 
-      objectReference: {fileID: 913353973}
-    - target: {fileID: 114403014659451928, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: PlayerGems.Array.data[1]
-      value: 
-      objectReference: {fileID: 1147612828}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber.Array.data[0]
-      value: 
-      objectReference: {fileID: 886050087}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CurrentPuzzleNumber.Array.data[1]
-      value: 
-      objectReference: {fileID: 1628350335}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
-        type: 2}
-      propertyPath: CategoryText.Array.data[0]
+      propertyPath: CategoryText
       value: 
       objectReference: {fileID: 494112160}
-    - target: {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9,
+    - target: {fileID: 114329085289072452, guid: 075951868215a4a4da27c7cc81d169b9,
         type: 2}
-      propertyPath: CategoryText.Array.data[1]
+      propertyPath: CurrentPuzzleNumber
       value: 
-      objectReference: {fileID: 2093348800}
-    m_RemovedComponents:
-    - {fileID: 114888050107748528, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
+      objectReference: {fileID: 886050087}
+    - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TileParent.Array.data[0]
+      value: 
+      objectReference: {fileID: 33140277}
+    - target: {fileID: 114174736817425062, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TileParent.Array.data[1]
+      value: 
+      objectReference: {fileID: 172916475}
+    - target: {fileID: 114536022475902768, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TileParent.Array.data[0]
+      value: 
+      objectReference: {fileID: 2017041377}
+    - target: {fileID: 114536022475902768, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TileParent.Array.data[1]
+      value: 
+      objectReference: {fileID: 1980681855}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: iPhone
+      value: 
+      objectReference: {fileID: 625065398}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: iPad
+      value: 
+      objectReference: {fileID: 125848351}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TabletGame
+      value: 
+      objectReference: {fileID: 1339170506}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: PhoneGame
+      value: 
+      objectReference: {fileID: 558950621}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: TabletBackground
+      value: 
+      objectReference: {fileID: 125848351}
+    - target: {fileID: 114319801639946434, guid: 075951868215a4a4da27c7cc81d169b9,
+        type: 2}
+      propertyPath: PhoneBackground
+      value: 
+      objectReference: {fileID: 625065398}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 075951868215a4a4da27c7cc81d169b9, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &1322489761 stripped
@@ -16942,7 +16851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339170507}
   m_Layer: 0
-  m_Name: iPad
+  m_Name: Tablet UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
