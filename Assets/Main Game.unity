@@ -15117,7 +15117,6 @@ MonoBehaviour:
   - {fileID: 2063048794}
   - {fileID: 483554561}
   CurrentTut: -1
-  Device: 1
 --- !u!114 &1222251899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18489,7 +18488,6 @@ MonoBehaviour:
   - {fileID: 386244354}
   - {fileID: 1092779494}
   CurrentTut: -1
-  Device: 0
 --- !u!1 &1507687354
 GameObject:
   m_ObjectHideFlags: 0
@@ -18530,8 +18528,8 @@ Camera:
   m_GameObject: {fileID: 1507687354}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.16078432, g: 0.5019608, b: 0.7254902, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.9058824, g: 0.909804, b: 0.91372555, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
