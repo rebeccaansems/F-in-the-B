@@ -12,8 +12,8 @@ public class Tutorial : MonoBehaviour
     public Image[] TutRings;
 
     public int CurrentTut = -1;
-
-    private void Awake()
+    
+    public void Start()
     {
         if (_instance != null && _instance != this)
         {
@@ -23,10 +23,7 @@ public class Tutorial : MonoBehaviour
         {
             _instance = this;
         }
-    }
 
-    public void Start()
-    {
         if (PlayerStats.s_TutorialOn != 1)
         {
             Destroy(this.gameObject);

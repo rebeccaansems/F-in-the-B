@@ -23,10 +23,10 @@ public class DeviceSelector : MonoBehaviour
             PhoneBackground.GetComponent<BackgroundSelection>().DontDestroy();
         }
 #else
-        DEVICE = 1;
-        Destroy(PhoneBackground);
-        Destroy(PhoneGame);
-        TabletBackground.GetComponent<BackgroundSelection>().DontDestroy();
+        DEVICE = 0;
+        Destroy(TabletBackground);
+        Destroy(TabletGame);
+        PhoneBackground.GetComponent<BackgroundSelection>().DontDestroy();
 #endif
     }
 }
