@@ -83,7 +83,14 @@ public class WinUI : UI
                 + PlayerPrefs.GetFloat("PlayerTimeOnPuzzle", 0f)) > TimeSpan.FromMinutes(PlayerStats.k_MinuesUntilAd)
                 || PlayerStats.s_CurrentLevel % PlayerStats.k_LevelsUntilAd == 0)
                 {
-                    GameObject.FindGameObjectsWithTag("Background").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
+                    if (GameObject.FindGameObjectsWithTag("Background Phone") != null)
+                    {
+                        GameObject.FindGameObjectsWithTag("Background Phone").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
+                    }
+                    else
+                    {
+                        GameObject.FindGameObjectsWithTag("Background Tablet").Select(x => x.GetComponent<BackgroundSelection>()).ToList().First().ChangeBackground();
+                    }
                     Advertisement.Show();
                 }
             }
