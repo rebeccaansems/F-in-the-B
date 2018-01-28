@@ -9,9 +9,12 @@ public class BackgroundSelection : MonoBehaviour
 
     public static bool s_NotFirstOpen;
 
+    private int count = 0;
+
     private void Start()
     {
-        if (FindObjectsOfType(GetType()).Length > 1 && Time.time > 1)
+        if (GameObject.FindGameObjectsWithTag("Background Tablet").Length > 1
+            || GameObject.FindGameObjectsWithTag("Background Phone").Length > 1)
         {
             Destroy(transform.gameObject);
         }
@@ -21,6 +24,7 @@ public class BackgroundSelection : MonoBehaviour
             ChangeBackground();
             s_NotFirstOpen = true;
         }
+        count++;
     }
 
     public void DontDestroy()

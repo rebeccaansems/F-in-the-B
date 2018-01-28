@@ -57,8 +57,6 @@ public class PlayerStats : MonoBehaviour
 #endif
         s_CurrentLevel = PlayerPrefs.GetInt("CurrentLevel", 0);
 
-        PlayerGems[DeviceSelector.DEVICE].text = s_PlayerGems.ToString();
-
         s_ColorHintUsed = PlayerPrefs.GetString("ColorHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
         s_FillHintUsed = PlayerPrefs.GetString("FillHintUsed", new string('0', QuestionDatabase.s_AllQuestions.Count));
 
@@ -67,6 +65,11 @@ public class PlayerStats : MonoBehaviour
             s_ColorHintUsed += new string('0', QuestionDatabase.s_AllQuestions.Count - s_ColorHintUsed.Length);
             s_FillHintUsed += new string('0', QuestionDatabase.s_AllQuestions.Count - s_FillHintUsed.Length);
         }
+    }
+
+    private void Start()
+    {
+        PlayerGems[DeviceSelector.DEVICE].text = s_PlayerGems.ToString();
     }
 
     private void OnApplicationQuit()

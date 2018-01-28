@@ -87,7 +87,6 @@ public class WinUI : UI
                     Advertisement.Show();
                 }
             }
-            PlayerStats.s_CurrentLevel += 1;
             PlayerStats.s_PlayerStartPuzzleTime = Time.realtimeSinceStartup;
         }
 
