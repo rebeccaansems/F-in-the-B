@@ -25,6 +25,10 @@ public class Purchaser : MonoBehaviour, IStoreListener
 
     void Start()
     {
+#if UNITY_ANDROID
+        k_ProductIDConsumable = k_ProductIDConsumable.ToLower();
+#endif
+
         // If we haven't set up the Unity Purchasing reference
         if (m_StoreController == null)
         {

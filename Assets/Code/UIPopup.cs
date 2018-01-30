@@ -233,7 +233,7 @@ public class UIPopup : UI
 #if UNITY_IOS
         SocialShare.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
 #elif UNITY_ANDROID
-        _shareSheet.URL = m_shareURL;
+        SocialShare.URL = "https://play.google.com/store/apps/details?id=com.rebeccaansems.fintheb";
 #endif
         SocialShare.Text = "I'm working on F in the B puzzle #" + (PlayerStats.s_CurrentLevel + 1) +", any suggestions? "+ SocialShare.URL;
 

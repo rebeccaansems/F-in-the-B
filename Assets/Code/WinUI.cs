@@ -153,7 +153,7 @@ public class WinUI : UI
 #if UNITY_IOS
         _shareSheet.URL = "https://itunes.apple.com/us/app/f-in-the-b/id1328718409?ls=1&mt=8";
 #elif UNITY_ANDROID
-        _shareSheet.URL = m_shareURL;
+        _shareSheet.URL = "https://play.google.com/store/apps/details?id=com.rebeccaansems.fintheb";
 #endif
 
         _shareSheet.AttachScreenShot();
